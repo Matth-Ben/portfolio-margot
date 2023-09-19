@@ -1,0 +1,132 @@
+$data: (
+  breakpoints: (
+    s: 0,
+    m: 768,
+    l: 1024,
+    xl: 1280,
+    xxl: 1440
+  ),
+  gutters: (
+    s: 2,
+    m: 2.4,
+    l: 2.4,
+    xl: 3,
+    xxl: 3.6
+  ),
+  margins: (
+    s: 2,
+    xxl: 4
+  ),
+  breakpointDesktop: l,
+  rem: (
+    s: 10px,
+    xxl: scale
+  ),
+  colors: (
+    dark: rgba(0,0,0,1),
+    light: rgba(255,255,255,1),
+    darksoft: rgba(0,0,0,.5),
+    darkultrasoft: rgba(0,0,0,.2),
+    lightsoft: rgba(255,255,255,.5),
+    lightultrasoft: rgba(255,255,255,.2),
+    primary: #673FFF,
+    secondary: #230F50
+  ),
+  fonts: (
+    heading: (
+      name: Poppins,
+      serif: sans-serif
+    ),
+    primary: (
+      name: Inter,
+      serif: sans-serif
+    )
+  ),
+  textStyles: (
+    h1: (
+      font-size: 5.4rem,
+      line-height: 5.8rem
+    ),
+    h2: (
+      font-size: 4rem,
+      line-height: 4.4rem
+    ),
+    h3: (
+      font-size: 3.2rem,
+      line-height: 3.6rem
+    ),
+    h4: (
+      font-size: 2.4rem,
+      line-height: 2.8rem
+    ),
+    h5: (
+      font-size: 2rem,
+      line-height: 2.4rem
+    ),
+    titles: (
+      font-weight: 400,
+      font-family: "heading"
+    ),
+    body: (
+      font-size: 1.8rem,
+      line-height: 2.4rem,
+      font-family: "primary"
+    ),
+    label: (
+      font-size: 1.6rem,
+      line-height: 1.8rem,
+      font-family: "heading"
+    ),
+    mini: (
+      font-size: 1.2rem,
+      line-height: 1.4rem,
+      font-weight: 400,
+      font-family: "heading"
+    ),
+    desktop: (
+      h1: (
+        font-size: 5.4rem,
+        line-height: 5.8rem
+      ),
+      h2: (
+        font-size: 4rem,
+        line-height: 4.4rem
+      ),
+      h3: (
+        font-size: 3.2rem,
+        line-height: 3.6rem
+      )
+    )
+  ),
+  spacings: (
+    s: 0.5,
+    m: 1,
+    l: 2,
+    xl: 3,
+    xxl: 4,
+    xxxl: 6,
+    desktop: (
+      s: 1,
+      m: 2,
+      l: 4,
+      xl: 6,
+      xxl: 8,
+      xxxl: 12
+    )
+  ),
+  maxColumns: (
+    s: 6,
+    m: 8,
+    l: 12,
+    xl: 12,
+    xxl: 12
+  ),
+  columns: (
+    s: 1,
+    m: 2,
+    l: 3,
+    xl: 4,
+    xxl: 4
+  ),
+  radius: 0.8
+);

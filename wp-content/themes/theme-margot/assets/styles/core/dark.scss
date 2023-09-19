@@ -1,0 +1,39 @@
+$colors: map-get($data, colors);
+
+.dark,
+.dark * {
+    --color-dark: #{map-get($colors, light)};
+    --color-light: #{map-get($colors, dark)};
+
+    @if map-get($colors, darksoft) and map-get($colors, lightsoft) {
+        --color-darksoft: #{map-get($colors, lightsoft)};
+        --color-lightsoft: #{map-get($colors, darksoft)};
+    }
+    
+    @if map-get($colors, darkultrasoft) and map-get($colors, lightultrasoft) {
+        --color-darkultrasoft: #{map-get($colors, lightultrasoft)};
+        --color-lightultrasoft: #{map-get($colors, darkultrasoft)};
+    }
+
+    color: var(--color-dark);
+}
+
+.dark-reset,
+.dark-reset * {
+    --color-dark: #{map-get($colors, dark)};
+    --color-light: #{map-get($colors, light)};
+
+    @if map-get($colors, darksoft) and map-get($colors, lightsoft) {
+        --color-darksoft: #{map-get($colors, darksoft)};
+        --color-lightsoft: #{map-get($colors, lightsoft)};
+    }
+    
+    @if map-get($colors, darkultrasoft) and map-get($colors, lightultrasoft) {
+        --color-darkultrasoft: #{map-get($colors, darkultrasoft)};
+        --color-lightultrasoft: #{map-get($colors, lightultrasoft)};
+    }
+}
+
+html {
+    color: var(--color-dark);
+}

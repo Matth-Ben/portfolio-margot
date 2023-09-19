@@ -1,0 +1,28 @@
+{% extends "base-page.twig" %}
+
+{% import "@components/image.twig" as image %}
+{% import "@components/flex-content.twig" as flex_content %}
+
+{% set data = function('get_fields') %}
+
+{% block pageContent %}
+    <div class="hero flex relative h-screen p-margin overflow-hidden" show-elements>
+        <div class="absolute inset-0 w-full h-full z-[0]" parallax>
+            {{ image.full(data.hero.image) }}
+        </div>
+        <div class="absolute inset-0 w-full h-full bg-lightultrasoft z-[0]"></div>
+        <div class="flex flex-col justify-end gap-m z-[1]">
+            {% if data.hero.title %}
+                <h1 class="split animation--text" show-element>{{ data.hero.title }}</h1>
+            {% endif %}
+            {% if data.hero.subtitle %}
+                <p class="ts-h5 animation--fade-up" show-element show-delay="300">{{ data.hero.subtitle }}</p>
+            {% endif %}
+            {% if data.hero.button.url and data.hero.button.title %}
+                <a class="button animation--fade-up" href="{{ data.hero.button.url }}" target="{{ data.hero.button.target }}" show-element show-delay="600">{{ data.hero.button.title }}</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {{ flex_content.default(post.meta('content')) }}
+{% endblock %}

@@ -1,0 +1,40 @@
+@import 'core';
+
+@import 'swiper/css';
+@import 'flickity';
+
+// layouts
+@import 'layouts/Page.scss';
+@import 'layouts/Single.scss';
+@import 'layouts/Archive.scss';
+@import 'layouts/Home.scss';
+
+// components
+@import 'components/welcome.scss';
+@import 'components/animation.scss';
+@import 'components/headroom.scss';
+@import 'components/button.scss';
+@import 'components/tag.scss';
+@import 'components/card.scss';
+@import 'components/accordion.scss';
+
+// acf components
+@import 'acf-components/section.scss';
+@import 'acf-components/carousel-cards.scss';
+@import 'acf-components/carousel-full.scss';
+
+// animation
+:root {
+    --animation-duration: 0.92s;
+    --animation-timing: cubic-bezier(0.215, 0.61, 0.352, 1);
+    --animation-property: 0.92s cubic-bezier(0.215, 0.61, 0.352, 1);
+}
+
+#app-body {
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+
+.hide-article #app-body {
+    opacity: 0;
+}

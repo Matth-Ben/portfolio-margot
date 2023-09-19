@@ -1,0 +1,15 @@
+{% macro default() %}
+	{% set breadcrumbs = get_breadcrumbs() %}
+
+	<div class="breadcrumbs flex items-center gap-8">
+		{% for index, item in breadcrumbs %}
+			{% if item.url and index + 1 < (breadcrumbs|length) %}
+				<a class="ts-mini" href="{{ item.url }}">{{ item.text }}</a>
+
+				{% if index + 2 < (breadcrumbs|length) %}
+					<span class="flex -mt-[.2rem] child:h-7">/</span>
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+	</div>
+{% endmacro %}

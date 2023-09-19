@@ -1,0 +1,27 @@
+{% macro default(data) %}
+    {% import "@components/image.twig" as image %}
+
+    {% if data %}
+        <a class="card card--event" href="{{ data.link }}">
+            <div class="card__image overflow-hidden">
+                <div class="scale-[1.2]">
+                    <div parallax>
+                        {{ image.default(data.thumbnail) }}
+                    </div>
+                </div>
+                <span class="card__status">Complet</span>
+            </div>
+            <div class="card__informations">
+                <div class="card__taxonomies">
+                    <span>Catégorie</span>
+                    <span>Catégorie</span>
+                </div>
+                <div>
+                    <div class="card__title">{{ data.title }}</div>
+                    <div class="card__description">Wolfgang Amadeus Mozart</div>
+                </div>
+                <div class="card__date">Vendredi 12 mai 19:30</div>
+            </div>
+        </a>
+    {% endif %}
+{% endmacro %}

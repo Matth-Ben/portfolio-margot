@@ -1,0 +1,41 @@
+.accordions {
+    @apply w-full border-b border-dark;
+}
+
+.accordion {
+    @apply w-full border-t border-dark;
+
+    &.active {
+
+        .accordion__header svg {
+            @apply rotate-[180deg]
+        }
+
+        .accordion__body {
+            @apply grid-rows-[1fr];
+        }
+    }
+
+    &__header {
+        @apply ts-h4 flex justify-between items-center py-m cursor-pointer;
+
+        svg {
+            transition: transform .3s ease;
+            @apply h-8;
+        }
+    }
+    
+    &__body {
+        transition: grid-template-rows .3s ease;
+        @apply grid grid-rows-[0fr];
+    }
+
+    &__content {
+        @apply overflow-hidden;
+
+        &::after {
+            content: '';
+            @apply block pb-m;
+        }
+    }
+}

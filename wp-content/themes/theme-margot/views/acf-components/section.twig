@@ -1,0 +1,15 @@
+{% macro default(data) %}
+    {% import "@components/flex-content.twig" as flex_content %}
+
+    <div class="section">
+        {% if data.title %}
+            <h2 class="mb-xxl split animation animation--text" show-element>{{ data.title }}</h2>
+        {% endif %}
+        <div class="grid grid-cols-12 gap">
+            <div class="col-span-full d:col-span-8 d:col-start-3">
+                {% include "@components/flex-content.twig" with {content: data.content} %}
+                {{ flex_content.default(data.content) }}
+            </div>
+        </div>
+    </div>
+{% endmacro %}

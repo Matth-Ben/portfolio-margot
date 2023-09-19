@@ -1,0 +1,26 @@
+.card--event {
+    @apply flex flex-col gap-m relative;
+    
+    .card {
+        
+        &__informations {
+            @apply flex flex-col gap-m;
+        }
+
+        &__status {
+            @apply tag tag--light absolute top-0 right-0 m-m;
+        }
+    
+        &__taxonomies {
+            @apply flex gap-s;
+    
+            & > span {
+                @apply tag;
+            }
+        }
+
+        &__title {
+            @apply ts-h4;
+        }
+    }
+}

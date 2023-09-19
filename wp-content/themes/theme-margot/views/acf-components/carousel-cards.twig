@@ -1,0 +1,34 @@
+{% macro default(data) %}
+    {% import "@components/card.twig" as card %}
+
+    {% set posts = data[data.type_of_posts] %}
+
+    {% if posts %}
+         <div class="carousel carousel--cards flex flex-col gap-l" show-elements>
+            <h2 class="ts-h3 split animation--text" show-element>Liste elements</h2>
+            <div class="carousel__items swiper animation--fade-up" show-element show-delay="300">
+                <div class="swiper-wrapper">
+                    {% for p in posts %}
+                        <div class="swiper-slide">
+                            {{ card.default(p) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="flex justify-between">
+                <a class="button button--light animation--fade-up" href="#0" show-element show-delay="600">
+                    <span>Voir tout</span>
+                    {% include "@icons/chevron-right.svg" %}
+                </a>
+                <div class="carousel__navigation animation--fade-up" show-element show-delay="900">
+                    <button class="carousel__previous button button--icon button--light">
+                        {% include "@icons/arrow-left.svg" %}
+                    </button>
+                    <button class="carousel__next button button--icon button--light">
+                        {% include "@icons/arrow-right.svg" %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,11 @@
+header {
+    transition: top .3s ease;
+    @apply fixed top-0 left-0 w-full z-[100];
+}
+
+body.headroom {
+
+    &--unpinned header {
+        top: calc((5rem + var(--margin)) * -1);
+    }
+}

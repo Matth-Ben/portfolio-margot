@@ -1,0 +1,59 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+license.txt
+LICENSE.txt
+.idea
+**.license.txt
+**.LICENSE.txt
+readme.html
+node_modules
+package-lock.json
+
+# VSCode related
+.vscode
+
+# Vagrant related
+.vagrant
+
+# Docker related
+.env
+db_data/
+#base_theme/
+
+# Wordpress related
+#backup-db
+wp-config.php
+wp-content/advanced-cache.php
+wp-content/ai1wm-backups
+wp-content/backups/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/wflogs/
+wp-content/wp-cache-config.php
+wp-content/plugins/hello.php
+wp-content/files_dnk
+wp-content/plugins/kint-debugger
+wp-content/plugins/wp-rocket/cache.json
+wp-content/wp-rocket-config/*.local.php
+wp-content/wp-rocket-config/*.work.php
+# wp-content/themes/**/dist
+wp-content/themes/twenty*/
+wp-content/themes/**/*.js.map
+wp-content/themes/**/dist
+wp-content/themes/**/node_modules
+
+# Montage
+grid-overlay.php
+
+# Hosting relative #
+####################
+.htaccess

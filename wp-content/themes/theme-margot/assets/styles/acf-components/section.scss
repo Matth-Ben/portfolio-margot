@@ -1,0 +1,37 @@
+.section {
+
+    .editor {
+
+        & > *:first-child {
+            @apply mt-0;
+        }
+
+        h3 {
+            @apply mt-xl mb-m;
+        }
+
+        p {
+            @apply mb-s;
+        }
+
+        ul {
+            @apply pl-[2rem];
+            
+            li {
+                @apply list-disc mb-4;
+            }
+        }
+
+        button {
+            @apply button mt-l mb-xl;
+        }
+    }
+
+    .file {
+        @apply my-m;
+    }
+
+    .accordions {
+        @apply my-xxl;
+    }
+}

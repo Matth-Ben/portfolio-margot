@@ -1,0 +1,15 @@
+{% macro default(data) %}
+    {% if data.text %}
+        <div class="testimony grid grid-cols-12 gap" show-elements>
+            <div class="col-span-full flex flex-col gap-m d:col-span-10">
+                <p class="ts-h2 split animation--text" show-element>{{ data.text }}</p>
+                {% if data.author %}
+                    <p class="animation--fade-up" show-element show-delay="300">{{ data.author }}</p>
+                {% endif %}
+                {% if data.button.url and data.button.title %}
+                    <a class="button animation--fade-up" href="{{ data.button.url }}" show-element show-delay="600">{{ data.button.title }}</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,43 @@
+.animation {
+
+    &--text {
+
+        &.split[show-element] {
+            visibility: hidden;
+        
+            &.words {
+        
+                .word {
+                    display: inline-block;
+                    overflow: hidden;
+                    vertical-align: top;
+        
+                    span {
+                        display: inline-block;
+                        transform: translate3d(0, 150%, 0) rotate(-4deg);
+                        transition: transform var(--animation-property);
+                    }
+                }
+        
+                &.is-in-view {
+                    visibility: visible;
+            
+                    .word.is-show span {
+                        transform: translate3d(0, 0, 0);
+                    }
+                }
+            }
+        }
+    }
+
+    &--fade-up {
+        opacity: 0;
+        transform: translate3d(0, var(--spacing-l), 0);
+        transition: opacity var(--animation-property), transform var(--animation-property);
+
+        &.is-in-view {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}

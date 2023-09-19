@@ -1,0 +1,13 @@
+#app-content.page  {
+    @apply mt-180;
+
+    #app-body > .acf-flex-content {
+        @apply flex flex-col gap-xxxl;
+    }
+
+    .carousel--cards,
+    .testimony,
+    .section {
+        @apply container;
+    }
+}

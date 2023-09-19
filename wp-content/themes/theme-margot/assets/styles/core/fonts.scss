@@ -1,0 +1,8 @@
+// Heading font
+@include font-face(Poppins, '../assets/fonts/Poppins-Regular.woff', 400, null, ttf);
+@include font-face(Poppins, '../assets/fonts/Poppins-Regular.woff2', 400, null, ttf);
+@include font-face(Poppins, '../assets/fonts/Poppins-Medium.woff', 500, null, ttf);
+@include font-face(Poppins, '../assets/fonts/Poppins-Medium.woff2', 500, null, ttf);
+
+// Body font
+@include font-face(Inter, '../assets/fonts/Inter-VariableFont_slnt,wght', null, null, ttf);

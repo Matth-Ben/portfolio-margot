@@ -1,0 +1,43 @@
+.carousel--full {
+    @apply relative h-screen d:h-auto d:aspect-[72/31];
+
+    .carousel__item {
+        @apply absolute inset-0;
+        
+        &:not(.active) {
+            @apply invisible;
+        }
+        
+        .carousel__item-wrapper {
+            @apply h-full;
+            
+            .carousel__item-image {
+                @apply absolute inset-0 z-[1];
+            }
+            
+            .carousel__item-informations {
+                @apply flex flex-col justify-end gap-m absolute inset-0 z-[2] h-full px-margin py-l;
+                
+                .carousel__item-text {
+                    @apply ts-h3 d:w-col-6;
+                }
+            
+                .carousel__item-button {
+                    @apply button;
+                }
+            }
+        }
+    }
+
+    .carousel__informations {
+        @apply flex justify-between absolute top-0 left-0 w-full px-margin pt-l;
+
+        .carousel__title {
+            @apply ts-body z-[3];
+        }
+    }
+
+    .carousel__navigation {
+        @apply flex gap-s absolute right-margin bottom-l z-[3];
+    }
+}

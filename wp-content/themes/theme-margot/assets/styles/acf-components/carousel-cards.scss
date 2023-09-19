@@ -1,0 +1,27 @@
+.carousel--cards {
+    @apply overflow-x-clip;
+
+    .carousel__items {
+        width: calc(100% + var(--gap));
+        margin-left: calc(var(--gap) / 2 * -1);
+    }
+
+    .carousel__navigation {
+        @apply flex gap-s;
+    }
+
+    .swiper {
+        @apply overflow-visible;
+    }
+
+    .swiper-slide {
+        padding: 0 calc(var(--gap) / 2);
+        // @apply w-col-4;
+        // margin-right: var(--gap);
+        // background-color: lightgray;
+    }
+}
+
+@include desktop() {
+
+}

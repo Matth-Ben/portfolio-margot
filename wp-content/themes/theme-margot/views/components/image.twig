@@ -1,0 +1,45 @@
+{% macro default(data, params) %}
+	{% set image = data.id ? data : timber_post(data) %}
+
+    <div class="image aspect-[4/3] bg-darkultrasoft">
+		{% if image.id %}
+			{% if "svg" in image.mime_type or "svg" in image.post_mime_type %}
+				{% set path = function('get_attached_file', image.id) %}
+
+				{% if path %}
+					{% include path %}
+				{% endif %}
+			{% else %}
+				<div class="
+					relative w-full h-full childs:w-full childs:h-full child:absolute 
+					{{ aspect_class }} 
+					{% if contain %}childs:object-contain{% else %}childs:object-cover{% endif %}" 
+					{% if parallax %}parallax{% endif %}>
+					{{ get_image_html(image.id) }}
+				</div>
+			{% endif %}
+		{% endif %}
+    </div>
+{% endmacro %}
+
+{% macro full(data, params) %}
+	{% set image = data.id ? data : timber_post(data) %}
+
+	{% if image.id %}
+		{% if "svg" in image.mime_type or "svg" in image.post_mime_type %}
+			{% set path = function('get_attached_file', image.id) %}
+
+			{% if path %}
+				{% include path %}
+			{% endif %}
+		{% else %}
+			<div class="
+				image relative w-full h-full bg-darkultrasoft childs:w-full childs:h-full child:absolute 
+				{{ aspect_class }} 
+				{% if contain %}childs:object-contain{% else %}childs:object-cover{% endif %}" 
+				{% if parallax %}parallax{% endif %}>
+				{{ get_image_html(image.id) }}
+			</div>
+		{% endif %}
+	{% endif %}
+{% endmacro %}

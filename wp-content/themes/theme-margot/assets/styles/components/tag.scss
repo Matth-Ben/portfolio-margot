@@ -1,0 +1,7 @@
+.tag {
+    @apply ts-label px-8 py-4 text-white bg-dark rounded;
+
+    &--light {
+        @apply text-dark bg-light;
+    }
+}
