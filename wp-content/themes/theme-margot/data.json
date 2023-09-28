@@ -7,15 +7,18 @@
         "xxl": 1440
     },
     "gutters": {
-        "s": 2,
-        "m": 2.4,
-        "l": 2.4,
-        "xl": 3,
-        "xxl": 3.6
+        "s": 1.2,
+        "m": 1.2,
+        "l": 1.2,
+        "xl": 1.2,
+        "xxl": 1.2
     },
     "margins": {
         "s": 2,
-        "xxl": 4
+        "m": 2.7,
+        "l": 3.2,
+        "xl": 10,
+        "xxl": 20
     },
     "breakpointDesktop": "l",
     "rem": {
@@ -29,16 +32,17 @@
         "darkultrasoft": "rgba(0,0,0,.2)",
         "lightsoft": "rgba(255,255,255,.5)",
         "lightultrasoft": "rgba(255,255,255,.2)",
-        "primary": "#673FFF",
-        "secondary": "#230F50"
+        "primary": "#A98D6C",
+        "primary-light": "#FEF1EC",
+        "secondary": "#D9D9D9"
     },
     "fonts": {
         "heading": {
-            "name": "Poppins",
+            "name": "PP Eiko",
             "serif": "sans-serif"
         },
         "primary": {
-            "name": "Inter",
+            "name": "PP Mori Book",
             "serif": "sans-serif"
         }
     },
@@ -68,13 +72,19 @@
             "font-family": "heading"
         },
         "body": {
-            "font-size": "1.8rem",
-            "line-height": "2.4rem",
+            "font-size": "1.6rem",
+            "line-height": "2.8rem",
             "font-family": "primary"
         },
         "label": {
-            "font-size": "1.6rem",
-            "line-height": "1.8rem",
+            "font-size": "2rem",
+            "line-height": "normal",
+            "font-family": "primary"
+        },
+        "big": {
+            "font-size": "10rem",
+            "line-height": "12rem",
+            "font-weight": 300,
             "font-family": "heading"
         },
         "mini": {
@@ -85,16 +95,20 @@
         },
         "desktop": {
             "h1": {
-                "font-size": "5.4rem",
-                "line-height": "5.8rem"
+                "font-size": "15rem",
+                "font-weight": "300",
+                "line-height": "normal",
+                "text-transform": "uppercase"
             },
             "h2": {
-                "font-size": "4rem",
-                "line-height": "4.4rem"
+                "font-size": "6.5rem",
+                "font-weight": "300",
+                "line-height": "9rem"
             },
             "h3": {
-                "font-size": "3.2rem",
-                "line-height": "3.6rem"
+                "font-size": "4rem",
+                "font-weight": "400",
+                "line-height": "5rem"
             }
         }
     },

@@ -6,10 +6,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './reset-tailwind.scss';
 
 // data
 @import './data.scss';
+@import './reset-tailwind.scss';
 @import './generate.scss';
 @import './dark.scss';
 @import './tailwind-layers.scss';
@@ -17,3 +17,5 @@
 // others
 @import './split-text.scss';
 @import './grid-helper.scss';
+
+@import './fonts.scss';
