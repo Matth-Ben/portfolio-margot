@@ -1,0 +1,23 @@
+.cover--realisations {
+    &__item {
+        &-wrapper {
+            @apply relative overflow-hidden;
+
+            &__elem {
+                @apply absolute top-0 left-0;
+
+                &.active {
+                    @apply relative z-10;
+                }
+            }
+        }
+
+        &-title {
+            opacity: 0;
+
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
+}

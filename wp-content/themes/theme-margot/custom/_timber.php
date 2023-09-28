@@ -38,6 +38,9 @@ add_filter( 'timber/twig', function( $twig )
     $twig->addFunction( new \Timber\Twig_Function( 'wp_list_categories', 'wp_list_categories' ) );
     $twig->addFunction( new \Timber\Twig_Function( 'get_field', 'get_field' ) );
 
+    // custom
+    $twig->addFunction( new \Timber\Twig_Function( 'get_last_realisation', 'get_last_realisation' ) );
+
 
     // utils
     $twig->addFunction( new \Timber\Twig_Function( 'uniqid', function() { return uniqid(); } ) );

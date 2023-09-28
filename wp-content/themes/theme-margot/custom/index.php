@@ -3,6 +3,7 @@
 require_once get_template_directory() . '/custom/_admin-menu.php';
 require_once get_template_directory() . '/custom/_assets.php';
 require_once get_template_directory() . '/custom/_breadcrumbs.php';
+require_once get_template_directory() . '/custom/_cpt-realisations.php';
 require_once get_template_directory() . '/custom/_images.php';
 require_once get_template_directory() . '/custom/_menus.php';
 require_once get_template_directory() . '/custom/_remove-default-post.php';

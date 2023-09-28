@@ -1,28 +1,69 @@
 {% extends "base-page.twig" %}
 
 {% import "@components/image.twig" as image %}
-{% import "@components/flex-content.twig" as flex_content %}
 
 {% set data = function('get_fields') %}
+{% set realisations = function('get_last_realisation') %}
 
 {% block pageContent %}
-    <div class="hero flex relative h-screen p-margin overflow-hidden" show-elements>
-        <div class="absolute inset-0 w-full h-full z-[0]" parallax>
-            {{ image.full(data.hero.image) }}
+    <div class="cover bg-primary-light text-primary relative flex flex-col justify-end h-screen overflow-hidden" show-elements>
+        <div class="absolute top-0 left-0 w-full h-screen">
+            <div class="container w-full">
+                <div class="cover--realisations w-full h-screen">
+                    <div class="cover--realisations__item grid grid-cols-12 gap-12 h-full">
+                        <div class="col-span-3 col-start-2 mt-[14rem]">
+                            <div class="cover--realisations__item-wrapper">
+                            {% for index, item in realisations %}
+                                {% set images = function('get_field', 'images-preview', item.id) %}
+                                <a href="{{ item.link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
+                                    <figure>
+                                        <img class="aspect-video" src="{{ images.0.url }}" />
+                                    </figure>
+                                    <div class="cover--realisations__item-title {% if index == 0 %}active{% endif %}">{{ item.title }}</div>
+                                </a>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-span-2 col-start-6 mt-auto mb-[14rem]">
+                            <div class="cover--realisations__item-wrapper">
+                            {% for index, item in realisations %}
+                                {% set images = function('get_field', 'images-preview', item.id) %}
+                                <a href="{{ item.link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
+                                    <figure>
+                                        <img class="aspect-[107/134]" src="{{ images.1.url }}" />
+                                    </figure>
+                                </a>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-span-1 mt-[14rem]">
+                            <div class="flex flex-col items-end gap">
+                                <button class="button button--before button--small">{% include "@assets/svg/arrow-left.svg" %}</button>
+                                <button class="button button--after button--small">{% include "@assets/svg/arrow-right.svg" %}</button>
+                            </div>
+                        </div>
+                        <div class="col-span-4 mt-[14rem]">
+                            <div class="cover--realisations__item-wrapper">
+                            {% for index, item in realisations %}
+                                {% set images = function('get_field', 'images-preview', item.id) %}
+                                <a href="{{ item.link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
+                                    <figure>
+                                        <img class="aspect-[4/3]" src="{{ images.2.url }}" />
+                                    </figure>
+                                </a>
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="absolute inset-0 w-full h-full bg-lightultrasoft z-[0]"></div>
-        <div class="flex flex-col justify-end gap-m z-[1]">
-            {% if data.hero.title %}
-                <h1 class="split animation--text" show-element>{{ data.hero.title }}</h1>
-            {% endif %}
-            {% if data.hero.subtitle %}
-                <p class="ts-h5 animation--fade-up" show-element show-delay="300">{{ data.hero.subtitle }}</p>
-            {% endif %}
-            {% if data.hero.button.url and data.hero.button.title %}
-                <a class="button animation--fade-up" href="{{ data.hero.button.url }}" target="{{ data.hero.button.target }}" show-element show-delay="600">{{ data.hero.button.title }}</a>
-            {% endif %}
+
+        <div class="container relative z-10">
+            <h1 class="ts-label mb-l normal-case">Architecte d’intérieur et décorative</h1>
+            <div class="ts-h1">Margot Jollit</div>
         </div>
     </div>
 
-    {{ flex_content.default(post.meta('content')) }}
+    {# {{ post.post_content }} #}
 {% endblock %}

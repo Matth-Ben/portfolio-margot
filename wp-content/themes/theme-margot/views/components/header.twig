@@ -1,10 +1,10 @@
 <header class="header container">
-    <nav class="flex justify-between items-center mt-margin">
+    <nav class="flex justify-between items-center mt-m">
         <a class="block h-50 child:h-full" href="{{ function('get_bloginfo', 'url') }}">
             {% include "@assets/svg/logo.svg" %}
         </a>
         {% if menus['header-primary'] and menus['header-primary'].items %}
-            <ul class="flex gap-xl">
+            <ul class="flex gap-m">
                 {% for item in menus['header-primary'].items %}
                     <li><a href="{{ item.url }}">{{ item.name }}</a></li>
                 {% endfor %}
