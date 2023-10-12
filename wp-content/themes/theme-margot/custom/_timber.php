@@ -40,6 +40,7 @@ add_filter( 'timber/twig', function( $twig )
 
     // custom
     $twig->addFunction( new \Timber\Twig_Function( 'get_last_realisation', 'get_last_realisation' ) );
+    $twig->addFunction( new \Timber\Twig_Function( 'get_previous_realisation', 'get_previous_realisation' ) );
 
 
     // utils

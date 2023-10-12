@@ -15,7 +15,7 @@ $data: (
   ),
   margins: (
     s: 2,
-    m: 2.7,
+    m: 2.5,
     l: 3.2,
     xl: 10,
     xxl: 20
@@ -82,16 +82,27 @@ $data: (
       font-family: "primary"
     ),
     big: (
-      font-size: 10rem,
-      line-height: 12rem,
+      font-size: 5rem,
+      line-height: 7rem,
       font-weight: 300,
       font-family: "heading"
     ),
     mini: (
-      font-size: 1.2rem,
-      line-height: 1.4rem,
+      font-size: 1.5rem,
+      line-height: normal,
       font-weight: 400,
+      font-family: "primary"
+    ),
+    custom1: (
+      font-size: 4rem,
+      line-height: 4rem,
+      font-weight: 300,
       font-family: "heading"
+    ),
+    custom2: (
+      font-size: 1.8rem,
+      line-height: 3rem,
+      font-weight: 300
     ),
     desktop: (
       h1: (
@@ -109,27 +120,39 @@ $data: (
         font-size: 4rem,
         font-weight: 400,
         line-height: 5rem
+      ),
+      big: (
+        font-size: 10rem,
+        line-height: 12rem,
+        font-weight: 300,
+        font-family: "heading"
+      ),
+      custom1: (
+        font-size: 5.5rem,
+        line-height: 8rem,
+        font-weight: 300,
+        font-family: "heading"
       )
     )
   ),
   spacings: (
-    s: 0.5,
-    m: 1,
-    l: 2,
-    xl: 3,
-    xxl: 4,
-    xxxl: 6,
+    s: 0.4,
+    m: 2,
+    l: 4,
+    xl: 5,
+    xxl: 8,
+    xxxl: 15,
     desktop: (
-      s: 1,
-      m: 2,
-      l: 4,
-      xl: 6,
-      xxl: 8,
-      xxxl: 12
+      s: 2,
+      m: 5,
+      l: 6,
+      xl: 8,
+      xxl: 10,
+      xxxl: 20
     )
   ),
   maxColumns: (
-    s: 6,
+    s: 8,
     m: 8,
     l: 12,
     xl: 12,

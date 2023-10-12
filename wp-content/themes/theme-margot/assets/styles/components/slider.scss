@@ -1,0 +1,23 @@
+.slider {
+    @apply text-white;
+
+    &--number {
+        @apply relative;
+
+        div {
+            @apply first:relative absolute top-0 first:left-0 left-1/2 w-max mx-auto first:translate-x-0 -translate-x-1/2;
+        }
+    }
+
+    &--title {
+        @apply relative;
+
+        div {
+            @apply first:relative absolute top-0 first:left-0 left-1/2 w-max mx-auto first:translate-x-0 -translate-x-1/2;
+        }
+    }
+
+    &--wrapper {
+        @apply hidden lg:block absolute top-0 left-0 w-full h-full overflow-hidden;
+    }
+}

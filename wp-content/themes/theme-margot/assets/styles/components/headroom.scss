@@ -1,6 +1,15 @@
 header {
     transition: top .3s ease;
     @apply fixed top-0 left-0 w-full z-[100];
+
+    &.header {
+        transition: transform 0.6s ease-out;
+        transform: translateY(0);
+
+        &.hide--header {
+            transform: translateY(-100%);
+        }
+    }
 }
 
 body.headroom {

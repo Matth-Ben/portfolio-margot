@@ -25,13 +25,13 @@ class CoverRealisations
 
         for (let index = 1; index < this.array.length; index++) {
             gsap.set([this.array[index]['image_3'], this.array[index]['image_2'], this.array[index]['image_1']], {
-                xPercent: 100,
+                xPercent: -100,
                 duration: 0.6,
                 ease: "power4.out",
                 stagger: 0.2
             })
             gsap.set([this.array[index]['image_3'].querySelector('img'), this.array[index]['image_2'].querySelector('img'), this.array[index]['image_1'].querySelector('img')], {
-                xPercent: -100,
+                xPercent: 100,
                 duration: 0.6,
                 ease: "power4.out",
                 stagger: 0.2
@@ -68,7 +68,7 @@ class CoverRealisations
         if (this.current > this.array.length - 1) { this.current = 0 }
 
         gsap.to([this.array[this.oldCurrent]['image_3'], this.array[this.oldCurrent]['image_2'], this.array[this.oldCurrent]['image_1']], {
-            xPercent: -100 * this.direction,
+            xPercent: 100 * this.direction,
             duration: 0.6,
             ease: "power4.out",
             stagger: 0.2,
@@ -79,7 +79,7 @@ class CoverRealisations
             }
         })
         gsap.to([this.array[this.oldCurrent]['image_3'].querySelector('img'), this.array[this.oldCurrent]['image_2'].querySelector('img'), this.array[this.oldCurrent]['image_1'].querySelector('img')], {
-            xPercent: 100 * this.direction,
+            xPercent: -100 * this.direction,
             duration: 0.6,
             ease: "power4.out",
             stagger: 0.2
@@ -92,7 +92,7 @@ class CoverRealisations
         })
 
         gsap.fromTo([this.array[this.current]['image_3'], this.array[this.current]['image_2'], this.array[this.current]['image_1']], {
-            xPercent: 100 * this.direction,
+            xPercent: -100 * this.direction,
             duration: 0.6,
             ease: "power4.out",
             stagger: 0.2
@@ -108,7 +108,7 @@ class CoverRealisations
             }
         })
         gsap.fromTo([this.array[this.current]['image_3'].querySelector('img'), this.array[this.current]['image_2'].querySelector('img'), this.array[this.current]['image_1'].querySelector('img')], {
-            xPercent: -100 * this.direction,
+            xPercent: 100 * this.direction,
             duration: 0.6,
             ease: "power4.out",
             stagger: 0.2

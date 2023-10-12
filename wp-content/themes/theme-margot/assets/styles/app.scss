@@ -17,8 +17,12 @@
 @import 'components/tag.scss';
 @import 'components/card.scss';
 @import 'components/accordion.scss';
+@import 'components/cover.scss';
 @import 'components/cover-realisation.scss';
 @import 'components/image.scss';
+@import 'components/next-realisation.scss';
+@import 'components/slider.scss';
+@import 'components/shader.scss';
 
 // acf components
 @import 'acf-components/section.scss';
@@ -37,6 +41,8 @@
     transition: opacity .3s ease;
 }
 
-.hide-article #app-body {
-    opacity: 0;
+.hide-article {
+    #app-body {
+        opacity: 0;
+    }
 }

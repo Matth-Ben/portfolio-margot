@@ -4,10 +4,19 @@
             @apply relative overflow-hidden;
 
             &__elem {
-                @apply absolute top-0 left-0;
+                @apply absolute top-0 left-0 w-full;
 
                 &.active {
-                    @apply relative z-10;
+                    @apply z-10;
+                }
+            }
+
+            &.js--transition-realisation {
+                @apply overflow-hidden;
+                
+                @media (lg) {
+                    @apply absolute top-[14rem] w-[45rem];
+                    right: map-get($data, margins, l) + rem;
                 }
             }
         }

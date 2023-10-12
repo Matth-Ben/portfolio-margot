@@ -7,5 +7,11 @@
 
     &--small {
         @apply w-[8rem] h-[8rem] border-primary text-primary;
+
+        &-light {
+            @apply border border-white text-white bg-transparent;
+
+            path { stroke: white; }
+        }
     }
 }

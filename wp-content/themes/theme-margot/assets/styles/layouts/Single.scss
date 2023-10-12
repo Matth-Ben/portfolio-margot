@@ -1,3 +1,14 @@
 #app-content.single  {
-    @apply mt-180;
+    #app-body {
+        position: relative;
+        padding-bottom: 433px;
+    }
+
+    .cover {
+        @apply relative container flex items-center justify-center w-full h-screen overflow-hidden;
+
+        &--back {
+            @apply absolute top-0 right-0 aspect-[4/3];
+        }
+    }
 }

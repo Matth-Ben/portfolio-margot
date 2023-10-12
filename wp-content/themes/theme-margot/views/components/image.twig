@@ -1,7 +1,8 @@
-{% macro default(data, params) %}
+{% macro default(data, params, aspect, aspectMobile) %}
 	{% set image = data.id ? data : timber_post(data) %}
+	
 
-    <div class="image aspect-[4/3] bg-darkultrasoft">
+    <div class="image {% if aspectMobile %} aspect-{{aspectMobile}} lg:aspect-{{aspect}} {% else %} aspect-{{aspect}} {% endif %}">
 		{% if image.id %}
 			{% if "svg" in image.mime_type or "svg" in image.post_mime_type %}
 				{% set path = function('get_attached_file', image.id) %}
@@ -15,7 +16,9 @@
 					{{ aspect_class }} 
 					{% if contain %}childs:object-contain{% else %}childs:object-cover{% endif %}" 
 					{% if parallax %}parallax{% endif %}>
-					{{ get_image_html(image.id) }}
+					<figure>
+						{{ get_image_html(image.id) }}
+					</figure>
 				</div>
 			{% endif %}
 		{% endif %}

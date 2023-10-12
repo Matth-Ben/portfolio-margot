@@ -35,3 +35,20 @@ function get_last_realisation() {
     
     return $realisations;
 }
+
+function get_previous_realisation($id) {
+    $previous = get_previous_post();
+
+    if ($previous) {
+        $realisation = Timber::get_post( $previous );
+        return $realisation;
+    } else {
+        $args = array(
+            'numberposts' => 1,
+            'post_type'   => 'realisations'
+        );
+    
+        $realisation = Timber::get_post( $args );
+        return $realisation;
+    }
+}

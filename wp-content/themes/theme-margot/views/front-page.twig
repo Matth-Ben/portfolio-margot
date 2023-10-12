@@ -6,32 +6,31 @@
 {% set realisations = function('get_last_realisation') %}
 
 {% block pageContent %}
-    <div class="cover bg-primary-light text-primary relative flex flex-col justify-end h-screen overflow-hidden" show-elements>
+    <div class="bg-primary-light text-primary relative flex flex-col justify-end h-screen overflow-hidden" show-elements>
+        <div class="canvasContainer">
+            <canvas class="canvas"></canvas>
+        </div>
         <div class="absolute top-0 left-0 w-full h-screen">
             <div class="container w-full">
                 <div class="cover--realisations w-full h-screen">
-                    <div class="cover--realisations__item grid grid-cols-12 gap-12 h-full">
-                        <div class="col-span-3 col-start-2 mt-[14rem]">
-                            <div class="cover--realisations__item-wrapper">
+                    <div class="cover--realisations__item grid grid-cols-8 lg:grid-cols-12 gap h-full">
+                        <div class="col-span-3 col-start-2 mt-[14rem] max-lg:hidden">
+                            <div class="cover--realisations__item-wrapper aspect-video aspect-[16/11]">
                             {% for index, item in realisations %}
                                 {% set images = function('get_field', 'images-preview', item.id) %}
                                 <a href="{{ item.link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
-                                    <figure>
-                                        <img class="aspect-video" src="{{ images.0.url }}" />
-                                    </figure>
+                                    {{ image.default(images.0, '', 'video') }}
                                     <div class="cover--realisations__item-title {% if index == 0 %}active{% endif %}">{{ item.title }}</div>
                                 </a>
                             {% endfor %}
                             </div>
                         </div>
-                        <div class="col-span-2 col-start-6 mt-auto mb-[14rem]">
-                            <div class="cover--realisations__item-wrapper">
+                        <div class="col-span-2 col-start-6 mt-auto mb-[14rem] max-lg:hidden">
+                            <div class="cover--realisations__item-wrapper aspect-[107/134]">
                             {% for index, item in realisations %}
                                 {% set images = function('get_field', 'images-preview', item.id) %}
                                 <a href="{{ item.link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
-                                    <figure>
-                                        <img class="aspect-[107/134]" src="{{ images.1.url }}" />
-                                    </figure>
+                                    {{ image.default(images.1, '', '[107/134]') }}
                                 </a>
                             {% endfor %}
                             </div>
@@ -42,14 +41,12 @@
                                 <button class="button button--after button--small">{% include "@assets/svg/arrow-right.svg" %}</button>
                             </div>
                         </div>
-                        <div class="col-span-4 mt-[14rem]">
-                            <div class="cover--realisations__item-wrapper">
+                        <div class="col-span-8 lg:col-span-4 lg:mt-[14rem]">
+                            <div class="cover--realisations__item-wrapper aspect-[379/526] lg:aspect-[4/3] js--transition-realisation">
                             {% for index, item in realisations %}
                                 {% set images = function('get_field', 'images-preview', item.id) %}
                                 <a href="{{ item.link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
-                                    <figure>
-                                        <img class="aspect-[4/3]" src="{{ images.2.url }}" />
-                                    </figure>
+                                    {{ image.default(images.2, '', '[4/3]', '[379/526]') }}
                                 </a>
                             {% endfor %}
                             </div>
@@ -60,10 +57,152 @@
         </div>
 
         <div class="container relative z-10">
-            <h1 class="ts-label mb-l normal-case">Architecte d’intérieur et décorative</h1>
-            <div class="ts-h1">Margot Jollit</div>
+            <h1 class="ts-label normal-case">Architecte d’intérieur et décorative</h1>
+            <div class="ts-h1 flex justify-between items-center"><span>Margot</span><span>Jollit</span></div>
         </div>
     </div>
 
+    <section class="bg-primary text-white pt-[8rem] pb-[38rem] lg:py-xxl relative">
+        <div class="container">
+            <div class="grid grid-cols-8 lg:grid-cols-12 gap">
+                <div class="col-span-8 lg:col-span-7 lg:col-start-2">
+                    <div class="mb-m">A propos de moi</div>
+                    <h2 class="italic">Architecte d’intérieur à Lyon, Margot Jollit est spécialisé dans la rénovation, la décoration et l'aménagement d’appartements  et de maisons depuis 2020</h2>
+                    <a href="" class="button mt-xl max-lg:mx-auto">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-[6rem] lg:bottom-[21rem] right-[2.4rem] lg:right-[10rem] rotate-[10deg] w-[19.7rem] lg:w-[32.6rem] h-[23.5rem] lg:h-[38.7rem]">
+            <figure>
+                <img class="aspect-[197/235] lg:aspect-[163/193]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+            </figure>
+        </div>
+        <div class="absolute -bottom-[10rem] max-lg:left-[2.4rem] lg:right-[32.5rem] -rotate-[10deg] w-[19.7rem] lg:w-[32.6rem] h-[23.5rem] lg:h-[38.7rem] z-10">
+            <figure>
+                <img class="aspect-[197/235] lg:aspect-[163/193]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+            </figure>
+        </div>
+    </section>
+
+    <section class="relative container pt-xxxl mb-xxxl">
+        <div class="canvasContainer">
+            <canvas class="canvas"></canvas>
+        </div>
+        <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap">
+            <div class="col-span-8 lg:col-start-2 text-primary">
+                <div class="ts-label mb-m">Notre philosophie</div>
+                <h3>Nous privilégions le charme des matières nobles aux tendances tape-à-l’oeil et éphémères afin de créer des espaces de vie qui traversent gracieusement le temps...</h3>
+            </div>
+        </div>
+        <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap mt-xxl">
+            <div class="col-span-8 lg:col-span-5 lg:col-start-2">
+                <figure>
+                    <img class="aspect-[379/353] lg:aspect-[551/512]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+                </figure>
+            </div>
+            <div class="col-span-8 lg:col-span-4 lg:col-start-8">
+                <div>Les matières, couleurs, mobiliers et décorations sont méticuleusement choisis, nous puisons notre inspiration dans la simple beauté de la nature, de l’art et de l’histoire, celle qui traverse le temps. Chaque espace, chaque détail est minutieusement réfléchis et c’est ce qui fait de nous une agence bien à part et intemporel.</div>
+                <a href="" class="button button--light mt-xxl max-lg:mx-auto lg:ml-auto">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-xxxl" show-elements>
+        <div class="grid grid-cols-8 lg:grid-cols-12 items-end gap-[5rem] lg:gap-[1.2rem]">
+            <div class="col-span-8 lg:col-span-4 lg:col-start-2 max-lg:order-2">
+                <h3 class="text-primary mb-m">01 - Singularité</h3>
+                <p>L'appartement a été travaillé dans un style Mid Century, se concentrant davantage sur des espaces épurés, des lignes pures sans fioriture et des pièces décloisonnées. Nous avons composé le design avec d’éléments aux couleurs neutres, dans des tons chauds de brun, de crème, de beige et de blanc.
+On y retrouve aussi des teintes de bois mêler à de joli lustre en fer forgé, élégant et délicat à la fois.</p>
+            </div>
+            <div class="col-span-8 lg:col-span-6 lg:col-start-7 max-lg:order-1">
+                <figure class="w-full">
+                    <img class="aspect-video lg:aspect-[340/395]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-xxxl" show-elements>
+        <figure>
+            <img class="aspect-[19/25] lg:aspect-video" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+        </figure>
+    </section>
+
+    <section class="container my-xxxl" show-elements>
+        <div class="grid grid-cols-8 lg:grid-cols-12 items-center gap-y-[8rem] lg:gap-[1.2rem]">
+            <div class="col-span-8 lg:col-span-3 lg:col-start-2">
+                <div class="max-lg:flex flex-col w-full">
+                    <figure class="order-2">
+                        <img class="aspect-video" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+                    </figure>
+
+                    <div class="mb-xxl lg:mt-xxl order-1">
+                        <p>Un pied-à-terre sur la région Lyonnaise, les clients ont souhaité faire de cet appartement une suite entièrement ouverte. Ce choix permet d'obtenir ainsi un volume dégagé et éclairé avec l'intégration d'une verrière dans la salle de bain.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-8 lg:col-span-3 lg:col-start-6">
+                <div class="mb-xxl">
+                    <p>L'appartement a été travaillé dans un style Mid Century, se concentrant davantage sur des espaces épurés, des lignes pures sans fioriture et des pièces décloisonnées. Nous avons composé le design avec d’éléments aux couleurs neutres, dans des tons chauds de brun, de crème, de beige et de blanc.
+On y retrouve aussi des teintes de bois mêler à de joli lustre en fer forgé, élégant et délicat à la fois.</p>
+                </div>
+                <figure>
+                    <img class="aspect-video lg:aspect-[335/408]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+                </figure>
+            </div>
+            <div class="col-span-2 col-start-10 max-lg:hidden">
+                <figure class="rounded-t-[20rem]">
+                    <img class="aspect-[109/130]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative" style="height: 130vh;">
+        <div class="slider container--full mt-xxxl sticky top-0">
+            <div class="relative flex items-stretch">
+                <div class="relative z-10 w-full lg:w-[42.5%] bg-primary pt-[9rem] pb-[12.8rem] lg:py-xxl">
+                    <div class="slider--container flex flex-col items-center justify-center gap-[4rem]">
+                        <div class="slider--header">
+                            <div class="slider--number text-center">
+                                <div class="slider--number-item ts-h5 lg:ts-h4 active">01</div>
+                                <div class="slider--number-item ts-h5 lg:ts-h4">02</div>
+                                <div class="slider--number-item ts-h5 lg:ts-h4">03</div>
+                            </div>
+                            <div class="slider--title text-center">
+                                <div class="slider--title-item ts-custom1 active">Projet Romans 01</div>
+                                <div class="slider--title-item ts-custom1">Projet Romans 02</div>
+                                <div class="slider--title-item ts-custom1">Projet Romans 03</div>
+                            </div>
+                        </div>
+                        <div class="slider--preview flex items-center">
+                            <div class="rounded-t-[20rem] w-[21rem] h-[29rem] overflow-hidden">
+                                <figure>
+                                    <img class="aspect-[71/98]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="slider--buttons flex items-center justify-center gap">
+                            <button class="button button--before button--small button--small-light">{% include "@assets/svg/arrow-left.svg" %}</button>
+                            <button class="button button--after button--small button--small-light">{% include "@assets/svg/arrow-right.svg" %}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider--wrapper">
+                    <figure class="slider--wrapper-item active absolute first:relative top-0 left-0">
+                        <img src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+                    </figure>
+                    <figure class="slider--wrapper-item absolute first:relative top-0 left-0">
+                        <img src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+                    </figure>
+                    <figure class="slider--wrapper-item absolute first:relative top-0 left-0">
+                        <img src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {# {{ post.post_content }} #}
+	{% include "@components/footer.twig" %}
 {% endblock %}

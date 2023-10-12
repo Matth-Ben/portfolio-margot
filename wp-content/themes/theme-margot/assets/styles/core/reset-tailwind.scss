@@ -1,8 +1,46 @@
-$margins: map-get($data, margins);
+$margins: map-get($data, spacings);
+$breakpoints: map-get($data, breakpoints);
 
 .container {
     width: 100%;
     max-width: initial;
-    padding-left: map-get($margins, l) + rem;
-    padding-right: map-get($margins, l) + rem;
-} 
+    padding-left: map-get($margins, m) + rem;
+    padding-right: map-get($margins, m) + rem;
+
+    @media (min-width: '#{map-get($breakpoints, l)}px') {
+        padding-left: map-get($margins, desktop, m) + rem;
+        padding-right: map-get($margins, desktop, m) + rem;
+    }
+
+    &--full {
+        width: 100%;
+        max-width: initial;
+    }
+}
+
+html {
+    background-color: map-get($data, colors, primary-light);
+}
+
+/* du texte sélectionné sera jaune sur fond rouge */
+::-moz-selection {
+    color: white;
+    background-color: map-get($data, colors, primary);
+}
+  
+::selection {
+    color: white;
+    background-color: map-get($data, colors, primary);
+}
+
+.bg-primary {
+    ::-moz-selection {
+        color: map-get($data, colors, primary);
+        background-color: map-get($data, colors, primary-light);
+    }
+      
+    ::selection {
+        color: map-get($data, colors, primary);
+        background-color: map-get($data, colors, primary-light);
+    }
+}
