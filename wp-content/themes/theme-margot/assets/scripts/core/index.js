@@ -13,7 +13,7 @@ export default ( () => {
 
     document.addEventListener( 'ContentLoaded', () => {
         taxi()
-        headroom()
+        new headroom()
         splitText()
         timelineAnimation()
         smoothScroll()

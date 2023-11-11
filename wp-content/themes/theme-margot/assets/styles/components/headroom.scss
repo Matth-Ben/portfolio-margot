@@ -3,18 +3,188 @@ header {
     @apply fixed top-0 left-0 w-full z-[100];
 
     &.header {
-        transition: transform 0.6s ease-out;
-        transform: translateY(0);
+        @apply transition duration-700 ease-in-out;
 
         &.hide--header {
             transform: translateY(-100%);
         }
+
+        &.active {
+            @apply text-white;
+
+            .menu--item {
+                &:not(.active) {
+                    a {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
     }
 }
 
-body.headroom {
+.header {
+    &--background {
+        @apply absolute top-0 left-0 w-full h-screen transition duration-700 ease-in-out;
 
-    &--unpinned header {
-        top: calc((5rem + var(--margin)) * -1);
+        background: rgba(0, 0, 0, 0.20);
+        z-index: -1;
+    }
+
+    &:not(.active) {
+        .header--background {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+}
+
+.menu {
+    &--burger {
+        // @apply block lg:hidden;
+        @apply relative z-20 w-[5rem] h-[5rem] rounded-[5rem] border border-primary;
+
+        &.active {
+            @apply border-white;
+
+            .menu--burger-line {
+                @apply bg-white;
+            }
+        }
+
+        &-line {
+            @apply bg-primary w-[1.8rem] h-[0.1rem];
+            transition: width 0.6s ease-in-out;
+            transition-delay: 0;
+            transform-origin: center;
+
+            &:nth-child(2) {
+                @apply w-[1.2rem];
+            }
+
+            &s {
+                @apply absolute top-1/2 left-1/2 flex flex-col items-end justify-center gap-[0.5rem] -translate-x-1/2 -translate-y-1/2;
+            }
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                .menu--burger-line {
+                    @apply w-[1.8rem];
+                }
+            }
+        }
+
+        &-allcross {
+            @apply relative w-[5rem] h-[5rem] -mt-[1px] -ml-[1px];
+        
+            .menu--burger-cross {
+                @apply absolute top-1/2 left-1/2 bg-white w-0 h-[0.1rem];
+                transition: width 0.6s ease-in-out;
+                transition-delay: 0;
+                transform-origin: center;
+
+                &:first-child {
+                    transform: translate(-50%, -50%) rotate(45deg);
+                }
+
+                &:last-child {
+                    transform: translate(-50%, -50%) rotate(-45deg);
+                }
+            }
+        }
+
+        &.active {
+            .menu--burger-line {
+                width: 0;
+                transition-delay: 0;
+            }
+
+            .menu--burger-cross {
+                width: 1.8rem;
+                transition-delay: 0.6s;
+            }
+        }
+    }
+
+    &--list {
+        @apply flex gap-s;
+
+        @media (max-width: 1024px) {
+            @apply absolute top-0 left-0 flex-col w-full h-screen bg-primary pt-[9rem] px-m gap-0;
+        }
+    }
+
+    &--item {
+        a,
+        button {
+            transition: opacity 0.7s ease-out;
+
+            @apply relative z-20;
+
+            @media (min-width: 1024px) {
+                @apply italic;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            @apply text-white py-[3rem] border-t border-white last:border-b w-full text-right;
+        }
+    }
+
+    &--dropdown {
+        @apply relative z-20;
+
+        &-contain {
+            @apply bg-primary text-white top-0 left-0 flex items-end justify-end w-full h-screen lg:h-[50vh] z-10 overflow-hidden;
+        
+            @media (max-width: 1024px) {
+                @apply px-0;
+            }
+
+            @media (min-width: 1024px) {
+                @apply absolute pt-xxl pb-s;
+            }
+        }
+
+        &-image {
+            left: 5rem;
+
+            @apply absolute bottom-s w-[43.8rem] h-[28rem];
+
+            &--item {
+                @apply opacity-0 transition duration-700 ease-in-out;
+            }
+
+            .image {
+                @apply w-full h-full;
+            }
+        }
+
+        &-list {
+            @apply flex flex-col gap-[1.5rem] text-right pointer-events-none;
+            
+            @media (max-width: 1024px) {
+                @apply gap-[3rem];
+            }
+        }
+
+        &-item {
+            @apply flex justify-end text-right pointer-events-none overflow-hidden;
+            
+            @media (hover: hover) {
+                &:hover {
+                    .menu--dropdown-image--item {
+                        @apply opacity-100;
+                    }
+                }
+            }
+        }
+
+        &-link {
+            @apply leading-none pointer-events-auto;
+
+            font-style: normal !important;
+        }
     }
 }

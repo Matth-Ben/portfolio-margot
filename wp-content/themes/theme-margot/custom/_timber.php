@@ -37,6 +37,8 @@ add_filter( 'timber/twig', function( $twig )
     $twig->addFunction( new \Timber\Twig_Function( 'get_meta', 'get_meta' ) );
     $twig->addFunction( new \Timber\Twig_Function( 'wp_list_categories', 'wp_list_categories' ) );
     $twig->addFunction( new \Timber\Twig_Function( 'get_field', 'get_field' ) );
+    $twig->addFunction( new \Timber\Twig_Function( 'wp_get_nav_menu_items', 'wp_get_nav_menu_items' ) );
+    $twig->addFunction( new \Timber\Twig_Function( 'wp_get_nav_menu_object', 'wp_get_nav_menu_object' ) );
 
     // custom
     $twig->addFunction( new \Timber\Twig_Function( 'get_last_realisation', 'get_last_realisation' ) );

@@ -1,14 +1,57 @@
+{% import "@components/image.twig" as image %}
+
 <header class="header container">
-    <nav class="flex justify-between items-center mt-m">
-        <a class="block h-50 child:h-full" href="{{ function('get_bloginfo', 'url') }}">
-            {% include "@assets/svg/logo.svg" %}
+    <div class="header--background"></div>
+    <nav class="flex max-w:items-center justify-between mt-m lg:mt-s">
+        <a class="block relative z-20 ts-h4 ts-heading uppercase text-center child:h-full" href="{{ function('get_bloginfo', 'url') }}">
+            Margot <span class="max-lg:block">Jollit</span>
         </a>
         {% if menus['header-primary'] and menus['header-primary'].items %}
-            <ul class="flex gap-m">
-                {% for item in menus['header-primary'].items %}
-                    <li><a href="{{ item.url }}">{{ item.name }}</a></li>
-                {% endfor %}
-            </ul>
+            <div class="menu">
+                <button class="menu--burger block lg:hidden">
+                    <div class="menu--burger-lines">
+                        <div class="menu--burger-line"></div>
+                        <div class="menu--burger-line"></div>
+                        <div class="menu--burger-line"></div>
+                    </div>
+                    <div class="menu--burger-allcross">
+                        <span class="menu--burger-cross"></span>
+                        <span class="menu--burger-cross"></span>
+                    </div>
+                </button>
+                <ul class="menu--list">
+                    <div class="min-l:hidden menu--dropdown-image menu--dropdown-image--default bottom-m left-0 overflow-hidden aspect-video !w-full !h-auto px-m">
+                        {% set image_id = get_field('image', wp_get_nav_menu_object(menus['header-primary'])) %}
+                        {{ image.default(image_id) }}
+                    </div>
+                    {% for item in menus['header-primary'].items %}
+                        <li class="menu--item max-l:leading-none">
+                            {% if item.has_child_class %}
+                                <button class="menu--dropdown max-l:leading-none">{{ item.name }}</button>
+                                <div class="menu--dropdown-contain container min-l:relative">
+                                    <div class="max-l:hidden menu--dropdown-image menu--dropdown-image--default">
+                                        {% set image_id = get_field('image', wp_get_nav_menu_object(menus['header-primary'])) %}
+                                        {{ image.default(image_id) }}
+                                    </div>
+                                    <ul class="menu--dropdown-list">
+                                        {% for child in item.children %}
+                                            <li class="menu--dropdown-item">
+                                                <div class="max-l:hidden menu--dropdown-image menu--dropdown-image--item">
+                                                    {% set image_id = get_field('image', child.object_id) %}
+                                                    {{ image.default(image_id) }}
+                                                </div>
+                                                <a class="menu--dropdown-link" href="{{ child.url }}">{{ child.name }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <a class="max-l:leading-none" href="{{ item.url }}">{{ item.name }}</a>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         {% endif %}
     </nav>
 </header>
