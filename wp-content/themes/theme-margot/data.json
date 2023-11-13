@@ -32,9 +32,11 @@
         "darkultrasoft": "rgba(0,0,0,.2)",
         "lightsoft": "rgba(255,255,255,.5)",
         "lightultrasoft": "rgba(255,255,255,.2)",
-        "primary": "#A98D6C",
+        "primary": "#A58561",
         "primary-light": "#FEF1EC",
-        "secondary": "#D9D9D9"
+        "secondary": "#EEEAE0",
+        "cta-light": "rgba(238, 234, 224, 0.30)",
+        "cta-dark": "rgba(165, 133, 97, 0.30)"
     },
     "fonts": {
         "heading": {
@@ -48,8 +50,8 @@
     },
     "textStyles": {
         "h1": {
-            "font-size": "5.4rem",
-            "line-height": "5.8rem"
+            "font-size": "5.5rem",
+            "line-height": "8rem"
         },
         "h2": {
             "font-size": "4rem",
@@ -82,10 +84,11 @@
             "font-family": "primary"
         },
         "big": {
-            "font-size": "5rem",
-            "line-height": "7rem",
+            "font-size": "7rem",
+            "line-height": "8rem",
             "font-weight": 300,
-            "font-family": "heading"
+            "font-family": "heading",
+            "text-transform": "uppercase"
         },
         "mini": {
             "font-size": "1.5rem",
@@ -100,7 +103,7 @@
             "font-family": "heading"
         },
         "custom2": {
-            "font-size": "1.8rem",
+            "font-size": "2rem",
             "line-height": "3rem",
             "font-weight": 300
         },
@@ -122,32 +125,37 @@
                 "line-height": "5rem"
             },
             "big": {
-                "font-size": "10rem",
-                "line-height": "12rem",
-                "font-weight": 300,
-                "font-family": "heading"
+                "font-size": "15rem",
+                "font-weight": "300",
+                "line-height": "normal",
+                "text-transform": "uppercase"
             },
             "custom1": {
                 "font-size": "5.5rem",
                 "line-height": "8rem",
                 "font-weight": 300,
                 "font-family": "heading"
+            },
+            "custom2": {
+                "font-size": "1.8rem",
+                "line-height": "3rem",
+                "font-weight": 300
             }
         }
     },
     "spacings": {
         "s": 0.4,
         "m": 2,
-        "l": 4,
-        "xl": 5,
-        "xxl": 8,
+        "l": 5,
+        "xl": 8,
+        "xxl": 10,
         "xxxl": 15,
         "desktop": {
             "s": 2,
             "m": 5,
-            "l": 6,
-            "xl": 8,
-            "xxl": 10,
+            "l": 8,
+            "xl": 10,
+            "xxl": 20,
             "xxxl": 20
         }
     },
