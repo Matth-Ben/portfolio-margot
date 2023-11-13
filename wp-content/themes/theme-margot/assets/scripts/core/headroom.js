@@ -31,6 +31,7 @@ export default class Menu {
     init() {
         gsap.set(this.$submenus, {
             yPercent: -100,
+            height: '50vh',
             stagger: 0.01
         })
         
@@ -38,6 +39,10 @@ export default class Menu {
             yPercent: 100,
             opacity: 0,
             stagger: 0.01
+        })
+
+        gsap.set(this.$menuList, {
+            clearProps: true
         })
         
         gsap.set(this.$imageDefault, {
@@ -63,6 +68,11 @@ export default class Menu {
         gsap.set(this.$menuList, {
             xPercent: 100
         })
+
+        gsap.set(this.$imageDefault, {
+            yPercent: 0,
+            opacity: 1
+        })
     }
     
     addEvents() {
@@ -81,7 +91,8 @@ export default class Menu {
 
         this.onPageChange(window.location.href)
 
-        window.addEventListener("resize", function(){
+        window.addEventListener("resize", () => {
+            gsap.timeline({ clearProps: true });
             if (window.innerWidth < 1024) {
                 this.initMobile()
             } else {

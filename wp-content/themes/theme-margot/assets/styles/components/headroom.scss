@@ -12,10 +12,12 @@ header {
         &.active {
             @apply text-white;
 
-            .menu--item {
-                &:not(.active) {
-                    a {
-                        opacity: 0.6;
+            @media (min-width: 1024px) {
+                .menu--item {
+                    &:not(.active) {
+                        a {
+                            opacity: 0.6;
+                        }
                     }
                 }
             }
