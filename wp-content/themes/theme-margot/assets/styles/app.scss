@@ -36,6 +36,10 @@
     --animation-property: 0.92s cubic-bezier(0.215, 0.61, 0.352, 1);
 }
 
+body {
+    @apply bg-secondary;
+}
+
 #app-body {
     opacity: 1;
     transition: opacity .3s ease;

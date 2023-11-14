@@ -1,66 +1,13 @@
 {% extends "base-page.twig" %}
 
 {% import "@components/image.twig" as image %}
+{% import "@acf-components/cover.twig" as cover %}
 
 {% set data = function('get_fields') %}
 {% set realisations = function('get_last_realisation') %}
 
 {% block pageContent %}
-    <div class="bg-secondary text-primary relative flex flex-col justify-end h-screen overflow-hidden" show-elements>
-        <div class="canvasContainer">
-            <canvas class="canvas"></canvas>
-        </div>
-        <div class="absolute top-0 left-0 w-full h-screen">
-            <div class="container w-full">
-                <div class="cover--realisations w-full h-screen">
-                    <div class="cover--realisations__item grid grid-cols-8 lg:grid-cols-12 gap h-full">
-                        <div class="col-span-3 col-start-2 mt-[14rem] max-lg:hidden">
-                            <div class="cover--realisations__item-wrapper aspect-video aspect-[16/11]">
-                            {% for index, item in realisations %}
-                                {% set images = function('get_field', 'images-preview', item.id) %}
-                                <a href="{{ item.link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
-                                    {{ image.default(images.0, '', 'video') }}
-                                    <div class="cover--realisations__item-title {% if index == 0 %}active{% endif %}">{{ item.title }}</div>
-                                </a>
-                            {% endfor %}
-                            </div>
-                        </div>
-                        <div class="col-span-4 lg:col-span-2 lg:col-start-6 mt-0 lg:!mt-auto mb-[30rem] lg:!mb-[14rem] max-lg:order-2">
-                            <div class="cover--realisations__item-wrapper aspect-[185/237] lg:aspect-[107/134]">
-                            {% for index, item in realisations %}
-                                {% set images = function('get_field', 'images-preview', item.id) %}
-                                <a href="{{ item.link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
-                                    {{ image.default(images.1, '', '[107/134]', '[185/237]') }}
-                                </a>
-                            {% endfor %}
-                            </div>
-                        </div>
-                        <div class="col-span-2 lg:col-span-1 mt-0 lg:!mt-[14rem] max-lg:order-3">
-                            <div class="flex flex-col items-end gap">
-                                <button class="button button--before button--small">{% include "@assets/svg/arrow-left.svg" %}</button>
-                                <button class="button button--after button--small">{% include "@assets/svg/arrow-right.svg" %}</button>
-                            </div>
-                        </div>
-                        <div class="col-span-6 lg:col-span-4 col-start-3 max-lg:-mr-[2rem] mt-xxl lg:!mt-[14rem]">
-                            <div class="cover--realisations__item-wrapper aspect-[305/218] lg:aspect-[4/3] js--transition-realisation">
-                            {% for index, item in realisations %}
-                                {% set images = function('get_field', 'images-preview', item.id) %}
-                                <a href="{{ item.link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
-                                    {{ image.default(images.2, '', '[4/3]', '[305/218]') }}
-                                </a>
-                            {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container relative z-10 mb-l lg:mb-s max-lg:text-center">
-            <h1 class="ts-custom2 ts-heading normal-case mb-m lg:mb-s">Architecte d’intérieur et décorative</h1>
-            <div class="ts-big uppercase flex max-lg:flex-col justify-between items-center"><span>Margot</span><span>Jollit</span></div>
-        </div>
-    </div>
+    {{ cover.project(data.cover) }}
 
     <section class="bg-primary text-white pt-[8rem] pb-[38rem] lg:py-xxl relative">
         <div class="container">

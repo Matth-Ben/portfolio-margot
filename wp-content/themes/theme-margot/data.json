@@ -107,6 +107,12 @@
             "line-height": "3rem",
             "font-weight": 300
         },
+        "heading": {
+            "font-family": "heading"
+        },
+        "primary": {
+            "font-family": "primary"
+        },
         "desktop": {
             "h1": {
                 "font-size": "15rem",

@@ -71,7 +71,7 @@ class CoverRealisations
             xPercent: 100 * this.direction,
             duration: 0.6,
             ease: "power4.out",
-            stagger: 0.2,
+            stagger: 0.06,
             onComplete: () => {
                 for (let index = 0; index <= 2; index++) {
                     this.$items[index].querySelectorAll('.cover--realisations__item-wrapper__elem')[this.oldCurrent].classList.remove('active')
@@ -82,7 +82,7 @@ class CoverRealisations
             xPercent: -100 * this.direction,
             duration: 0.6,
             ease: "power4.out",
-            stagger: 0.2
+            stagger: 0.06
         })
         gsap.to(this.array[this.oldCurrent]['title'], {
             yPercent: 100,
@@ -95,12 +95,12 @@ class CoverRealisations
             xPercent: -100 * this.direction,
             duration: 0.6,
             ease: "power4.out",
-            stagger: 0.2
+            stagger: 0.06
         }, {
             xPercent: 0,
             duration: 0.6,
             ease: "power4.out",
-            stagger: 0.2,
+            stagger: 0.06,
             onComplete: () => {
                 for (let index = 0; index <= 2; index++) {
                     this.$items[index].querySelectorAll('.cover--realisations__item-wrapper__elem')[this.current].classList.add('active')
@@ -111,12 +111,12 @@ class CoverRealisations
             xPercent: 100 * this.direction,
             duration: 0.6,
             ease: "power4.out",
-            stagger: 0.2
+            stagger: 0.06
         }, {
             xPercent: 0,
             duration: 0.6,
             ease: "power4.out",
-            stagger: 0.2
+            stagger: 0.06
         })
         gsap.to(this.array[this.current]['title'], {
             yPercent: 0,
