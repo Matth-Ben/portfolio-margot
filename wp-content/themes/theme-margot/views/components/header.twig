@@ -20,7 +20,7 @@
                     </div>
                 </button>
                 <ul class="menu--list">
-                    <div class="min-l:hidden menu--dropdown-image menu--dropdown-image--default bottom-m left-0 overflow-hidden aspect-video !w-full !h-auto px-m">
+                    <div class="lg:hidden menu--dropdown-image menu--dropdown-image--default bottom-m left-0 overflow-hidden aspect-video !w-full !h-auto px-m">
                         {% set image_id = get_field('image', wp_get_nav_menu_object(menus['header-primary'])) %}
                         {{ image.default(image_id) }}
                     </div>
