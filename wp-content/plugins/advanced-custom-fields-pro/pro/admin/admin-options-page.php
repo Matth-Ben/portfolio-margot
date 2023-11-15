@@ -61,12 +61,10 @@ if ( ! class_exists( 'acf_admin_options_page' ) ) :
 
 				// vars
 				$slug = '';
-
 				// parent
 				if ( empty( $page['parent_slug'] ) ) {
 
 					$slug = add_menu_page( $page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], array( $this, 'html' ), $page['icon_url'], $page['position'] );
-
 					// child
 				} else {
 
@@ -117,6 +115,16 @@ if ( ! class_exists( 'acf_admin_options_page' ) ) :
 
 					// save
 					acf_save_post( $this->page['post_id'] );
+
+					/**
+					 * Fires after publishing a save on an options page.
+					 *
+					 * @since 6.1.7
+					 *
+					 * @param string|int  $post_id   The current id.
+					 * @param string      $menu_slug The current options page menu slug.
+					 */
+					do_action( 'acf/options_page/save', $this->page['post_id'], $this->page['menu_slug'] );
 
 					// redirect
 					wp_redirect( add_query_arg( array( 'message' => '1' ) ) );
@@ -187,7 +195,7 @@ if ( ! class_exists( 'acf_admin_options_page' ) ) :
 			);
 
 			// notices
-			if ( ! empty( $_GET['message'] ) && $_GET['message'] == '1' ) {
+			if ( ! empty( $_GET['message'] ) && $_GET['message'] == '1' ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Used to display a notice.
 				acf_add_admin_notice( $this->page['updated_message'], 'success' );
 			}
 
@@ -284,25 +292,20 @@ if ( ! class_exists( 'acf_admin_options_page' ) ) :
 		}
 
 
-		/*
-		*  render_meta_box
-		*
-		*  description
-		*
-		*  @type    function
-		*  @date    24/02/2014
-		*  @since   5.0.0
-		*
-		*  @param   $post (object)
-		*  @param   $args (array)
-		*  @return  n/a
-		*/
-
+		/**
+		 * Renders a postbox on an ACF options page.
+		 *
+		 * @date    24/02/2014
+		 * @since   5.0.0
+		 *
+		 * @param object $post
+		 * @param array  $args
+		 *
+		 * @return void
+		 */
 		function postbox_acf( $post, $args ) {
-
-			// extract args
-			extract( $args ); // all variables from the add_meta_box function
-			extract( $args ); // all variables from the args argument
+			$id          = $args['id'];
+			$field_group = $args['args']['field_group'];
 
 			// vars
 			$o = array(
@@ -337,7 +340,6 @@ if( typeof acf !== 'undefined' ) {
 }
 </script>
 			<?php
-
 		}
 
 
