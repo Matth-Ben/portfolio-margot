@@ -1,0 +1,23 @@
+{% macro default(data) %}
+    <section class="bg-primary text-white pt-[8rem] pb-[38rem] lg:py-xxl relative">
+        <div class="container">
+            <div class="grid grid-cols-8 lg:grid-cols-12 gap">
+                <div class="col-span-8 lg:col-span-7 lg:col-start-2">
+                    <div class="mb-m">A propos de moi</div>
+                    <h2 class="italic">Architecte d’intérieur à Lyon, Margot Jollit est spécialisé dans la rénovation, la décoration et l'aménagement d’appartements  et de maisons depuis 2020</h2>
+                    <a href="" class="button mt-xl max-lg:mx-auto">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-[6rem] lg:bottom-[21rem] right-[2.4rem] lg:right-[10rem] rotate-[10deg] w-[19.7rem] lg:w-[32.6rem] h-[23.5rem] lg:h-[38.7rem]">
+            <figure>
+                <img class="aspect-[197/235] lg:aspect-[163/193]" src="https://margot-jollit.matthiasbenoit.fr/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+            </figure>
+        </div>
+        <div class="absolute -bottom-[10rem] max-lg:left-[2.4rem] lg:right-[32.5rem] -rotate-[10deg] w-[19.7rem] lg:w-[32.6rem] h-[23.5rem] lg:h-[38.7rem] z-10">
+            <figure>
+                <img class="aspect-[197/235] lg:aspect-[163/193]" src="https://margot-jollit.matthiasbenoit.fr/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
+            </figure>
+        </div>
+    </section>
+{% endmacro %}
