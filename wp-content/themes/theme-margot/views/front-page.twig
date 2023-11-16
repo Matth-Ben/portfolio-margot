@@ -2,13 +2,14 @@
 
 {% import "@components/image.twig" as image %}
 {% import "@acf-components/cover.twig" as cover %}
+{% import "@components/flex-content.twig" as flex %}
 
 {% set data = function('get_fields') %}
 
 {% block pageContent %}
     {{ cover.project(data.cover) }}
 
-    {% include "@components/flex-content.twig" with {content: post.meta('content')} %}
+    {{ flex.default(post.meta('content')) }}
 
     {# <section class="relative container pt-xxxl mb-xxxl">
         <div class="canvasContainer">
