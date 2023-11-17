@@ -1,0 +1,7 @@
+{% macro default(data) %}
+    {% import "@components/image.twig" as image %}
+
+    <section class="lg:container my-xxxl" show-elements>
+        {{ image.default(data.image, '', 'full', 'full-mobile') }}
+    </section>
+{% endmacro %}
