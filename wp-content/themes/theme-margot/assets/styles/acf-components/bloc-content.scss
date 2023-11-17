@@ -1,0 +1,13 @@
+#bloc-content {
+    &-2 {
+        .bloc-content {
+            &-text {
+                &-2 {
+                    @media (min-width: 1024px) {
+                        margin-top: -33rem;
+                    }
+                }
+            }
+        }
+    }
+}
