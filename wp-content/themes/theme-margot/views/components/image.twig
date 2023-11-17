@@ -2,7 +2,7 @@
 	{% set image = data.id ? data : timber_post(data) %}
 	
 
-    <div class="image {% if aspectMobile %} aspect-{{aspectMobile}} lg:aspect-{{aspect}} {% else %} aspect-{{aspect}} {% endif %}">
+    <div class="image {% if aspectMobile %} aspect-{{aspectMobile}} aspect-{{aspect}} {% else %} aspect-{{aspect}} {% endif %}">
 		{% if image.id %}
 			{% if "svg" in image.mime_type or "svg" in image.post_mime_type %}
 				{% set path = function('get_attached_file', image.id) %}

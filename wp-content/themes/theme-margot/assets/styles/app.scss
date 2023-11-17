@@ -61,5 +61,11 @@ body {
 .aspect-v-4col { aspect-ratio: 551/720; }
 .aspect-v-6col { aspect-ratio: 664/886; }
 .aspect-side { aspect-ratio: 263/868; }
-.aspect-full { aspect-ratio: 1340/790; }
-.aspect-full-mobile { aspect-ratio: 428/700; }
+
+.aspect-full {
+    aspect-ratio: 1340/790;
+
+    @media (min-width: 1024px) {
+        &-mobile { aspect-ratio: 428/700; }
+    }
+}
