@@ -4,13 +4,13 @@
 {% macro project(data) %}
     {% import "@components/image.twig" as image %}
 
-    <div class="text-primary relative flex flex-col justify-end h-screen overflow-hidden" show-elements>
+    <div class="text-primary relative flex flex-col justify-end lg:h-screen overflow-hidden" show-elements>
         <div class="canvasContainer">
             <canvas class="canvas"></canvas>
         </div>
-        <div class="absolute top-0 left-0 w-full h-screen">
+        <div class="relative lg:absolute top-0 left-0 w-full lg:h-screen">
             <div class="container w-full">
-                <div class="cover--realisations w-full h-screen">
+                <div class="cover--realisations w-full lg:h-screen">
                     <div class="cover--realisations__item grid grid-cols-8 lg:grid-cols-12 gap h-full">
                         <div class="col-span-3 col-start-2 mt-[14rem] max-lg:hidden">
                             <div class="cover--realisations__item-wrapper aspect-[326/211]">
@@ -23,7 +23,7 @@
                             {% endfor %}
                             </div>
                         </div>
-                        <div class="col-span-4 lg:col-span-2 lg:col-start-6 mt-0 lg:!mt-auto mb-[30rem] lg:!mb-[14rem] max-lg:order-2">
+                        <div class="col-span-4 lg:col-span-2 lg:col-start-6 mt-0 lg:!mt-auto lg:!mb-[14rem] max-lg:order-2">
                             <div class="cover--realisations__item-wrapper aspect-[185/237] lg:aspect-[107/134]">
                             {% for index, item in data.preview_realisations %}
                                 {% set images = function('get_field', 'images-preview', item.ID) %}
@@ -54,7 +54,7 @@
             </div>
         </div>
 
-        <div class="container relative z-10 mb-l lg:mb-s max-lg:text-center">
+        <div class="container relative z-10 mb-l lg:mb-s max-lg:text-center max-lg:mt-[6.4rem]">
             <h1 class="ts-custom2 ts-primary normal-case mb-m lg:mb-s">{{ data.title }}</h1>
             <div class="ts-big uppercase flex max-lg:flex-col justify-between items-center"><span>Margot</span><span>Jollit</span></div>
         </div>
