@@ -18,6 +18,13 @@ $breakpoints: map-get($data, breakpoints);
     }
 }
 
+.lg\:container {
+    @media (min-width: 1024px) {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
+
 html {
     background-color: map-get($data, colors, primary-light);
 }
