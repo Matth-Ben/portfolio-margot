@@ -4,11 +4,11 @@
         padding-bottom: 433px;
     }
 
-    .cover {
-        @apply relative container flex items-center justify-center w-full h-screen overflow-hidden;
+    // .cover {
+    //     @apply relative container flex items-center justify-center w-full h-screen overflow-hidden;
 
-        &--back {
-            @apply absolute top-0 right-0 aspect-[4/3];
-        }
-    }
+    //     &--back {
+    //         @apply absolute top-0 right-0 aspect-[4/3];
+    //     }
+    // }
 }
