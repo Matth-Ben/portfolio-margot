@@ -65,7 +65,7 @@ body {
 .aspect-full {
     aspect-ratio: 1340/790;
 
-    @media (min-width: 1024px) {
+    @media (max-width: 1024px) {
         &-mobile { aspect-ratio: 428/700; }
     }
 }

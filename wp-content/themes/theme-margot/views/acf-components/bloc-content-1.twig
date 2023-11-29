@@ -1,7 +1,7 @@
 {% macro default(data) %}
     {% import "@components/image.twig" as image %}
 
-    <section class="relative container pt-xxl mb-xxl overflow-hidden">
+    <section id="bloc-content-1" class="relative container pt-xxl mb-xxl overflow-hidden">
         <div class="canvasContainer">
             <canvas class="canvas"></canvas>
         </div>
@@ -10,7 +10,7 @@
                 <h2 class="text-primary italic">{{ data.title }}</h2>
             </div>
 
-            <div class="relative lg:absolute top-0 w-[12.7rem] lg:w-[26.3rem] aspect-side" style="right: -5rem;">
+            <div class="bloc-content-image-side relative lg:absolute top-0 w-[12.7rem] lg:w-[26.3rem] aspect-side">
                 {{ image.default(data.image_side, '', 'side') }}
             </div>
         </div>

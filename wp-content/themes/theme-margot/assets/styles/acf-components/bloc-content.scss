@@ -1,4 +1,18 @@
 #bloc-content {
+    &-1 {
+        .bloc-content {
+            &-image {
+                &-side {
+                    @media (max-width: 1024px) {
+                        right: 0;
+                    }
+    
+                    right: -5rem;
+                }
+            }
+        }
+    }
+
     &-2 {
         .bloc-content {
             &-text {
