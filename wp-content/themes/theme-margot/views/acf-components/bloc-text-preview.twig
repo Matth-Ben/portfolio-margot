@@ -1,0 +1,11 @@
+{% macro default(data) %}
+    <section class="my-xxxl">
+        <div class="container">
+            <div class="grid grid-cols-8 lg:grid-cols-12 gap">
+                <div class="col-span-8 lg:col-span-10 lg:col-start-2 text-center">
+                    <div class="ts-custom1 text-primary italic">{{ data.text }}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
