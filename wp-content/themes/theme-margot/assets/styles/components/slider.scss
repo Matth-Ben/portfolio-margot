@@ -12,9 +12,13 @@
     }
 
     &--nav {
-        transform: translateX(calc(-100% - 1rem));
+        transform: translateY(calc(100% + 1rem));
 
         @apply absolute bottom-0 left-0 z-20;
+
+        @media (min-width: 1024px) {
+            transform: translate(calc(-100% - 1rem), 0);
+        }
     }
 
     &-project {
