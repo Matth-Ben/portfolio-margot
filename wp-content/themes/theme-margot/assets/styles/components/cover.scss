@@ -13,7 +13,7 @@
     }
 
     &--back {
-        @apply absolute top-0 right-0 aspect-[4/3];
+        @apply absolute top-0 right-0 lg:aspect-[4/3] h-full;
     }
 
     &--title {
@@ -34,12 +34,34 @@
 
     &--info {
         @apply text-center;
+
+        &s {
+            &--content {
+                gap: 5rem;
+
+                @media (min-width: 1024px) {
+                    gap: 1rem;
+                }
+            }
+        }
+    }
+
+    &--label {
+        font-size: 2rem;
+        
+        @media (min-width: 1024px) {
+            font-size: 1.6rem;
+        }
     }
 
     &--value {
         font-family: map-get($data, fonts, heading, name);
-        font-size: 2.5rem;
+        font-size: 4rem;
         font-weight: 400;
         line-height: normal;
+
+        @media (min-width: 1024px) {
+            font-size: 2.5rem;
+        }
     }
 }
