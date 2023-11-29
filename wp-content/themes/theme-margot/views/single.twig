@@ -1,5 +1,7 @@
 {% extends "base-page.twig" %}
 
+{% import "@components/flex-content.twig" as flex %}
+
 {% block pageContent %}
     <div class="cover">
         <figure class="cover--back">
@@ -15,16 +17,28 @@
 
         <div class="cover--infos" show-elements>
             <div class="container cover--list">
-                <div class="grid grid-cols-12">
-                    <div class="col-span-2 cover--info">
+                <div class="cover--infos--content grid grid-cols-8 lg:grid-cols-12">
+                    <div class="col-span-8 lg:col-span-2 cover--info">
                         <div class="cover--label">Surface</div>
                         <div class="cover--value ts-heading">37m2</div>
                     </div>
-                    <div class="col-span-2 cover--info">
+                    <div class="col-span-8 lg:col-span-2 cover--info">
                         <div class="cover--label">Année</div>
                         <div class="cover--value ts-heading">2021</div>
                     </div>
-                    <div class="col-span-2 cover--info">
+                    <div class="col-span-8 lg:col-span-2 cover--info">
+                        <div class="cover--label">Lieu</div>
+                        <div class="cover--value ts-heading">Lyon 07</div>
+                    </div>
+                    <div class="col-span-8 lg:col-span-2 cover--info">
+                        <div class="cover--label">Surface</div>
+                        <div class="cover--value ts-heading">37m2</div>
+                    </div>
+                    <div class="col-span-8 lg:col-span-2 cover--info">
+                        <div class="cover--label">Année</div>
+                        <div class="cover--value ts-heading">2021</div>
+                    </div>
+                    <div class="col-span-8 lg:col-span-2 cover--info">
                         <div class="cover--label">Lieu</div>
                         <div class="cover--value ts-heading">Lyon 07</div>
                     </div>
@@ -33,104 +47,12 @@
         </div>
     </div>
 
-    <section class="container my-xxxl" show-elements>
-        <div class="grid grid-cols-12">
-            <div class="col-span-10 col-start-2 ts-custom1 text-center italic text-primary" style="display: block">
-                <div class="split animation--text" show-element>
-                    Un pied-à-terre sur la région Lyonnaise  les clients ont souhaité faire de cet appartement  une suite  entièrement ouverte.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container my-xxxl" show-elements>
-        <div class="grid grid-cols-12">
-            <div class="col-span-5 col-start-2">
-                <figure>
-                    <img class="aspect-[4/3]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                </figure>
-            </div>
-            <div class="col-span-4 col-start-8">
-                <div>
-                    <p>L'appartement a été travaillé dans un style Mid Century, se concentrant davantage sur des espaces épurés, des lignes pures sans fioriture et des pièces décloisonnées. Nous avons composé le design avec d’éléments aux couleurs neutres, dans des tons chauds de brun, de crème, de beige et de blanc. On y retrouve aussi des teintes de bois mêler à de joli lustre en fer forgé, élégant et délicat à la fois.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container my-xxxl" show-elements>
-        <div class="grid grid-cols-12 items-center">
-            <div class="col-span-3 col-start-2">
-                <figure>
-                    <img class="aspect-[335/398]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                </figure>
-            </div>
-            <div class="col-span-5 col-start-7">
-                <figure>
-                    <img class="aspect-[283/395]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                </figure>
-            </div>
-        </div>
-    </section>
-
-    <section class="container my-xxxl" show-elements>
-        <div class="grid grid-cols-12 items-center">
-            <div class="col-span-3 col-start-2">
-                <figure>
-                    <img class="aspect-[16/9]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                </figure>
-
-                <div class="mt-xxl">
-                    <p>Un pied-à-terre sur la région Lyonnaise, les clients ont souhaité faire de cet appartement une suite entièrement ouverte. Ce choix permet d'obtenir ainsi un volume dégagé et éclairé avec l'intégration d'une verrière dans la salle de bain.</p>
-                </div>
-            </div>
-            <div class="col-span-3 col-start-6">
-                <div class="mb-xxl">
-                    <p>L'appartement a été travaillé dans un style Mid Century, se concentrant davantage sur des espaces épurés, des lignes pures sans fioriture et des pièces décloisonnées. Nous avons composé le design avec d’éléments aux couleurs neutres, dans des tons chauds de brun, de crème, de beige et de blanc.
-On y retrouve aussi des teintes de bois mêler à de joli lustre en fer forgé, élégant et délicat à la fois.</p>
-                </div>
-                <figure>
-                    <img class="aspect-[335/408]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                </figure>
-            </div>
-            <div class="col-span-2 col-start-10">
-                <figure class="rounded-t-[20rem]">
-                    <img class="aspect-[109/130]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                </figure>
-            </div>
-        </div>
-    </section>
-
-    <section class="container my-xxxl" show-elements>
-        <figure>
-            <img class="aspect-[16/9]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-        </figure>
-    </section>
-
-    <section class="container my-xxxl" show-elements>
-        <div class="grid grid-cols-12 items-end">
-            <div class="col-span-3 col-start-2">
-                <p>L'appartement a été travaillé dans un style Mid Century, se concentrant davantage sur des espaces épurés, des lignes pures sans fioriture et des pièces décloisonnées. Nous avons composé le design avec d’éléments aux couleurs neutres, dans des tons chauds de brun, de crème, de beige et de blanc.
-On y retrouve aussi des teintes de bois mêler à de joli lustre en fer forgé, élégant et délicat à la fois.</p>
-            </div>
-            <div class="col-span-6 col-start-7">
-                <figure class="w-full">
-                    <img class="aspect-[340/395]" src="//localhost:8080/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                </figure>
-            </div>
-        </div>
-    </section>
-    
-    <div class="flex items-center justify-center bg-primary text-white py-xxl">
-        <div class="text-center">
-            <h2 class="mb-xl">Un projet en tête ?</h2>
-            <a class="button mx-auto" href="/contact">Me contacter</a>
-        </div>
+    <div>
+        {{ flex.default(post.meta('content')) }}
     </div>
 
     <div class="next-realisation text-white overflow-hidden js--switch-realisation">
         {% set previous = function('get_previous_realisation', '{{ post.id }}') %}
-            {# {{ dump(previous) }} #}
         <a class="next-realisation--body" href="{{ previous.link }}">
             <div class="next-realisation--text">
                 <div class="ts-label">Projet suivant</div>
