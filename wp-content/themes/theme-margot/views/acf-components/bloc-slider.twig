@@ -1,0 +1,22 @@
+{% macro default(data) %}
+    {% import "@components/image.twig" as image %}
+    <section class="slider container my-xxxl">
+        <div class="grid grid-cols-8 lg:grid-cols-12 gap">
+            <div class="relative col-span-8 lg:col-span-10 lg:col-start-4">
+                <div class="slider--nav">
+                    <div class="flex flex-col items-end gap">
+                        <button class="button button--before button--small">{% include "@assets/svg/arrow-left.svg" %}</button>
+                        <button class="button button--after button--small">{% include "@assets/svg/arrow-right.svg" %}</button>
+                    </div>
+                </div>
+                <div class="slider--wrapper aspect-h-9col">
+                    {% for index, item in data.images %}
+                        <div class="slider--item">
+                            {{ image.default(item, '', 'h-9col') }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>        
+    </section>
+{% endmacro %}
