@@ -1,5 +1,17 @@
+$size: 100vh;
+$radius1: 50%;
+$radius2: 35%;
+
 .next-realisation {
-    @apply absolute bottom-0 left-0 w-full h-screen;
+    @apply absolute bottom-0 left-0 w-full h-screen overflow-hidden;
+
+    border-top-right-radius: 50% 10%;
+        border-top-left-radius: 50% 10%;
+
+    @media (min-width: 1024px) {
+        border-top-right-radius: 50% 35%;
+        border-top-left-radius: 50% 35%;
+    }
 
     &--content {
         @apply flex flex-col items-center justify-center relative block w-full h-full;
