@@ -15,10 +15,10 @@
 
 <body class="{{ body_class }} {% if _context._session.welcome %}welcome{% endif %}">
 	{% include "@components/header.twig" %}
-	<div data-taxi id="app" role="main">
+	<div data-taxi id="app">
 		{% block content %}{% endblock %}
 	</div>
-	
+
 	{{ function('wp_footer') }}
 	{% include "_grid-helper.twig" %}
 	

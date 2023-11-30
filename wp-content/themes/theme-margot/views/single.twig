@@ -1,4 +1,4 @@
-{% extends "base-page.twig" %}
+{% extends "base-realisation.twig" %}
 
 {% import "@components/flex-content.twig" as flex %}
 
@@ -49,20 +49,5 @@
 
     <div>
         {{ flex.default(post.meta('content')) }}
-    </div>
-
-    <div class="next-realisation text-white overflow-hidden js--switch-realisation">
-        {% set previous = function('get_previous_realisation', '{{ post.id }}') %}
-        <a class="next-realisation--body" href="{{ previous.link }}">
-            <div class="next-realisation--text">
-                <div class="ts-label">Projet suivant</div>
-                <div class="ts-h1">{{ previous.title }}</div>
-            </div>
-            <div class="next-realisation--image">
-                <figure>
-                    <img class="aspect-[4/3]" src="{{ previous.thumbnail.src }}" alt="">
-                </figure>
-            </div>
-        </a>
     </div>
 {% endblock %}
