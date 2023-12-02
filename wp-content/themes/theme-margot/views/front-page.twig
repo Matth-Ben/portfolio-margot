@@ -9,7 +9,10 @@
 {% block pageContent %}
     {{ cover.project(data.cover) }}
 
-    {{ flex.default(post.meta('content')) }}
+    <div class="component component--acf-flex-content">
+        {{ flex.default(post.meta('content')) }}
+        <div class="page-compensation" style="height:20rem"></div>
+    </div>
 
     {# 
     <section class="container my-xxxl" show-elements>

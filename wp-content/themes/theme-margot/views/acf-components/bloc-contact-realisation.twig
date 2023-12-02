@@ -1,0 +1,18 @@
+{% macro default(data) %}
+    <section class="bg-primary text-white relative pb-xl overflow-x-hidden">
+        <div class="absolute left-1/2 -translate-x-1/2">
+            <svg width="1094" height="729" viewBox="0 0 1094 729" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="547" cy="366" r="546.5" stroke="#EEEAE0" stroke-opacity="0.3"/>
+            </svg>
+        </div>
+        <div class="container relative z-10">
+            <div class="flex flex-col items-center justify-center gap-xl h-screen">
+                <h2 class="italic">{{ data.text }}</h2>
+                <a class="button" href="{{ data.link.url }}">
+                    <span>{{ data.link.title }}</span>
+                    {# {% include "@icons/chevron-right.svg" %} #}
+                </a>
+            </div>
+        </div>
+    </section>
+{% endmacro %}

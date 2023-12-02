@@ -10,7 +10,6 @@
 			</div>
 		</div>
 
-		{# {% include "@components/footer.twig" %} #}
 		<footer class="next-realisation text-primary bg-primary-light js--switch-realisation">
 			{% set previous = function('get_previous_realisation', '{{ post.id }}') %}
 			<a class="next-realisation--body" href="{{ previous.link }}">
@@ -19,11 +18,6 @@
 						<div class="ts-label">Projet suivant</div>
 						<div class="ts-h1">{{ previous.title }}</div>
 					</div>
-					{# <div class="next-realisation--image">
-						<figure>
-							<img class="aspect-[4/3]" src="{{ previous.thumbnail.src }}" alt="">
-						</figure>
-					</div>         #}
 				</div>
 			</a>
 		</footer>
