@@ -3,18 +3,20 @@
     <section class="bg-primary text-white pt-xl pb-[38rem] lg:py-xxl relative">
         <div class="container">
             <div class="grid grid-cols-8 lg:grid-cols-12 gap">
-                <div class="col-span-8 lg:col-span-7 lg:col-start-2">
-                    <div class="mb-m lg:mb-s">{{ data.suptitle }}</div>
-                    <h2 class="italic">{{ data.title }}</h2>
+                <div class="col-span-8 lg:col-span-7 lg:col-start-2" show-elements>
+                    <div class="mb-m lg:mb-s split animation--text" show-element>{{ data.suptitle }}</div>
+                    <h2 class="split animation--text italic" show-element>{{ data.title }}</h2>
                     <a href="{{ data.button.url }}" class="button mt-l">{{ data.button.title }}</a>
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-[6rem] lg:bottom-[21rem] right-[2.4rem] lg:right-[10rem] rotate-[10deg] w-[19.7rem] lg:w-[32.6rem] h-[23.5rem] lg:h-[38.7rem] aspect-v-2col lg:aspect-v-3col">
-            {{ image.default(data.images.0, '', 'v-3col', 'v-2col') }}
-        </div>
-        <div class="absolute -bottom-[10rem] max-lg:left-[2.4rem] lg:right-[32.5rem] -rotate-[10deg] w-[19.7rem] lg:w-[32.6rem] h-[23.5rem] lg:h-[38.7rem] z-10 aspect-v-2col lg:aspect-v-3col">
-            {{ image.default(data.images.1, '', 'v-3col', 'v-2col') }}
+        <div show-elements show-delay="300">
+            <div class="absolute w-[19.7rem] lg:w-[32.6rem] h-[23.5rem] lg:h-[38.7rem] aspect-v-2col lg:aspect-v-3col animation--image--fade-up rotate-2" show-element>
+                {{ image.default(data.images.0, '', 'v-3col', 'v-2col') }}
+            </div>
+            <div class="absolute w-[19.7rem] lg:w-[32.6rem] h-[23.5rem] lg:h-[38.7rem] z-10 aspect-v-2col lg:aspect-v-3col animation--image--fade-up rotate-1" show-element>
+                {{ image.default(data.images.1, '', 'v-3col', 'v-2col') }}
+            </div>
         </div>
     </section>
 {% endmacro %}

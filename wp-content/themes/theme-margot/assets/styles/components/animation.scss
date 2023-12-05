@@ -6,7 +6,6 @@
             visibility: hidden;
         
             &.words {
-        
                 .word {
                     display: inline-block;
                     overflow: hidden;
@@ -27,6 +26,14 @@
                     }
                 }
             }
+
+            &.italic {
+                .word {
+                    span {
+                        padding: 0 0.6rem;
+                    }
+                }
+            }
         }
     }
 
@@ -38,6 +45,46 @@
         &.is-in-view {
             opacity: 1;
             transform: translate3d(0, 0, 0);
+        }
+    }
+
+    &--image {
+        &--fade-up {
+            right: 40%;
+            bottom: -20rem;
+            // opacity: 0;
+            transform: rotate(0);
+            transition: all var(--animation-property);
+
+            @media (min-width: 1024px) {
+                right: 21rem;
+                bottom: -20rem;
+            }
+
+            &.is-in-view {
+                // opacity: 1;
+
+                &.rotate-1 {
+                    right: 32.5rem;
+                    bottom: -10rem;
+                    transform: rotate(-10deg);
+
+                    @media (min-width: 1024px) {
+                        right: 32.5rem;
+                    }
+                }
+
+                &.rotate-2 {
+                    right: 2.4rem;
+                    bottom: 6rem;
+                    transform: rotate(10deg);
+
+                    @media (min-width: 1024px) {
+                        right: 10rem;
+                        bottom: 21rem;
+                    }
+                }
+            }
         }
     }
 }
