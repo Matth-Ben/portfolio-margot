@@ -21,7 +21,9 @@
         }
     }
 
-    &-project {
+    &-realisation {
+        @apply sticky top-0;
+
         &--number {
             @apply relative;
     
@@ -37,9 +39,22 @@
                 @apply first:relative absolute top-0 first:left-0 left-1/2 w-max mx-auto first:translate-x-0 -translate-x-1/2;
             }
         }
+
+        &--container {
+            @apply lg:absolute top-0 left-0 z-20 w-full lg:w-[42.5%] h-full bg-primary pt-[9rem] pb-[12.8rem] lg:py-xxl;
+        }
     
         &--wrapper {
-            @apply hidden lg:block absolute top-0 left-0 w-full h-full overflow-hidden;
+            // @apply hidden lg:block absolute top-0 left-0 w-full h-full overflow-hidden;
+            counter-reset: count;
+
+            @apply hidden lg:block relative z-10 flex w-full h-full overflow-hidden;
+
+            &-item {
+                counter-increment: count;
+        
+                @apply absolute top-0 left-0 w-full h-full overflow-hidden z-10;
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 
 {% import "@components/image.twig" as image %}
 {% import "@acf-components/cover.twig" as cover %}
+{% import "@acf-components/slider-realisation.twig" as sliderRealisation %}
 {% import "@components/flex-content.twig" as flex %}
 
 {% set data = function('get_fields') %}
@@ -11,6 +12,9 @@
 
     <div class="component component--acf-flex-content">
         {{ flex.default(post.meta('content')) }}
+
+        {{ sliderRealisation.default() }}
+
         <div class="page-compensation" style="height:20rem"></div>
     </div>
 
@@ -58,52 +62,7 @@
                 </figure>
             </div>
         </div>
-    </section>
-
-    <section class="relative" style="height: 130vh;">
-        <div class="slider container--full mt-xxxl sticky top-0">
-            <div class="relative flex items-stretch">
-                <div class="relative z-10 w-full lg:w-[42.5%] bg-primary pt-[9rem] pb-[12.8rem] lg:py-xxl">
-                    <div class="slider--container flex flex-col items-center justify-center gap-[4rem]">
-                        <div class="slider--header">
-                            <div class="slider--number text-center">
-                                <div class="slider--number-item ts-h5 lg:ts-h4 active">01</div>
-                                <div class="slider--number-item ts-h5 lg:ts-h4">02</div>
-                                <div class="slider--number-item ts-h5 lg:ts-h4">03</div>
-                            </div>
-                            <div class="slider--title text-center">
-                                <div class="slider--title-item ts-custom1 active">Projet Romans 01</div>
-                                <div class="slider--title-item ts-custom1">Projet Romans 02</div>
-                                <div class="slider--title-item ts-custom1">Projet Romans 03</div>
-                            </div>
-                        </div>
-                        <div class="slider--preview flex items-center">
-                            <div class="rounded-t-[20rem] w-[21rem] h-[29rem] overflow-hidden">
-                                <figure>
-                                    <img class="aspect-[71/98]" src="https://margot-jollit.matthiasbenoit.fr/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="slider--buttons flex items-center justify-center gap">
-                            <button class="button button--before button--small button--small-light">{% include "@assets/svg/arrow-left.svg" %}</button>
-                            <button class="button button--after button--small button--small-light">{% include "@assets/svg/arrow-right.svg" %}</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="slider--wrapper">
-                    <figure class="slider--wrapper-item active absolute first:relative top-0 left-0">
-                        <img src="https://margot-jollit.matthiasbenoit.fr/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                    </figure>
-                    <figure class="slider--wrapper-item absolute first:relative top-0 left-0">
-                        <img src="https://margot-jollit.matthiasbenoit.fr/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                    </figure>
-                    <figure class="slider--wrapper-item absolute first:relative top-0 left-0">
-                        <img src="https://margot-jollit.matthiasbenoit.fr/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </section> #}
+    </section>#}
 
     {# {{ post.post_content }} #}
 {% endblock %}

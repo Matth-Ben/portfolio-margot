@@ -14,7 +14,7 @@ let content = ""
 if ( data?.spacings ) {
     for ( const [key, item] of Object.entries( data.spacings ) ) {
         if ( key !== 'desktop' ) {
-            spacings[key] = `var(--spacing-${key}) !important`
+            spacings[key] = `var(--spacing-${key})`
             content += `w-${key} h-${key} `
             content += `m-${key} mt-${key} mr-${key} mb-${key} ml-${key}  my-${key}  mx-${key} `
             content += `p-${key} pt-${key} pr-${key} pb-${key} pl-${key}  py-${key}  px-${key} `
