@@ -1,33 +1,31 @@
 {% macro default() %}
     {% import "@components/image.twig" as image %}
 
-    {% set posts = get_posts('realisations') %}
+    {% set posts = get_posts('realisations', 6) %}
 
     <section class="slider-realisation">
         <div class="container--full">
             <div class="relative h-screen">
                 <div class="slider-realisation--container">
-                    <div class="slider-realisation--content flex flex-col items-center justify-center gap-[4rem]">
-                        <div class="slider-realisation--header">
+                    <div class="slider-realisation--content flex flex-col items-center justify-center gap-m h-full">
+                        <div class="slider-realisation--header text-white">
                             <div class="slider-realisation--number text-center">
-                                {% for index, post in posts %}
-                                    <div class="slider-realisation--number-item ts-h5 lg:ts-h4">0{{ index + 1 }}</div>
-                                {% endfor %}
+                                <div class="ts-h5 lg:ts-h4">0{% for index, post in posts %}<span class="slider-realisation--number-item">{{ index + 1 }}</span>{% endfor %}</div>
                             </div>
                             <div class="slider-realisation--title text-center">
                                 {% for post in posts %}
-                                    <div class="slider-realisation--title-item ts-custom1">{{ post.title }}</div>
+                                    <div class="slider-realisation--title-item ts-h3">{{ post.title }}</div>
                                 {% endfor %}
                             </div>
                         </div>
                         <div class="slider-realisation--preview flex items-center">
                             {% for post in posts %}
-                                <div class="rounded-t-[20rem] w-[21rem] h-[29rem] overflow-hidden">
+                                <div class="slider-realisation--preview-item rounded-t-[20rem] overflow-hidden">
                                     {{ image.default(post.thumbnail, '', 'v-3col') }}
                                 </div>    
                             {% endfor %}
                         </div>
-                        <div class="slider-realisation--buttons flex items-center justify-center gap">
+                        <div class="slider-realisation--buttons flex items-center justify-center gap-xl">
                             <button class="button button--before button--small button--small-light">{% include "@assets/svg/arrow-left.svg" %}</button>
                             <button class="button button--after button--small button--small-light">{% include "@assets/svg/arrow-right.svg" %}</button>
                         </div>
@@ -39,13 +37,6 @@
                             {{ image.default(post.thumbnail, '', 'video') }}
                         </div>    
                     {% endfor %}
-                    
-                    {# <figure class="slider-realisation--wrapper-item absolute first:relative top-0 left-0">
-                        <img src="https://margot-jollit.matthiasbenoit.fr/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                    </figure> #}
-                    {# <figure class="slider-realisation--wrapper-item absolute first:relative top-0 left-0">
-                        <img src="https://margot-jollit.matthiasbenoit.fr/wp-content/uploads/2023/09/1-21-sur-25.jpg" alt="">
-                    </figure> #}
                 </div>
             </div>
         </div>

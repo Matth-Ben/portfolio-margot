@@ -25,10 +25,10 @@
         @apply sticky top-0;
 
         &--number {
-            @apply relative;
+            @apply relative w-max overflow-hidden pr-[1.5rem] mx-auto;
     
-            div {
-                @apply first:relative absolute top-0 first:left-0 left-1/2 w-max mx-auto first:translate-x-0 -translate-x-1/2;
+            &-item {
+                @apply block absolute top-0 left-[1.5rem];
             }
         }
     
@@ -41,7 +41,22 @@
         }
 
         &--container {
-            @apply lg:absolute top-0 left-0 z-20 w-full lg:w-[42.5%] h-full bg-primary pt-[9rem] pb-[12.8rem] lg:py-xxl;
+            @apply lg:absolute top-0 left-0 z-20 w-full lg:w-[42.5%] h-full bg-primary overflow-hidden;
+        }
+
+        &--preview {
+            position: relative;
+            width: 31rem;
+            height: 45rem;
+            margin: 0 auto;
+
+            &-item {
+                position: absolute;
+                bottom: 0;
+                transform-origin: bottom;
+
+                @apply w-[31rem] h-[43rem];
+            }
         }
     
         &--wrapper {
