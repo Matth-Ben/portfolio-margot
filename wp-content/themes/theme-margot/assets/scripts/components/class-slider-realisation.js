@@ -4,11 +4,13 @@ class SliderRealisation
 {
     constructor( element )
     {
+        this.$wrapper = element.querySelector( '.slider-realisation--wrapper' )
         this.$items = element.querySelectorAll( '.slider-realisation--wrapper-item' )
         this.$itemsPreview = element.querySelectorAll( '.slider-realisation--preview-item' )
         this.$itemsImage = element.querySelectorAll( 'figure' )
         this.$numbers = element.querySelectorAll( '.slider-realisation--number-item' )
         this.$titles = element.querySelectorAll( '.slider-realisation--title-item' )
+        this.$buttons = this.$wrapper.querySelectorAll( '.button' )
         this.$previous = element.querySelector( '.button--before' )
         this.$next = element.querySelector( '.button--after' )
         this.$carousel = element.querySelector( '.slider-realisation--preview' )
@@ -24,6 +26,7 @@ class SliderRealisation
         this.titlesWrap = gsap.utils.wrap(0, this.$titles.length);
         this.numbersWrap = gsap.utils.wrap(0, this.$numbers.length);
         this.carouselWrap = gsap.utils.wrap(0, this.$itemsCarousel.length);
+        this.buttonWrap = gsap.utils.wrap(0, this.$buttons.length);
 
         this.init()
         this.events()
@@ -41,6 +44,16 @@ class SliderRealisation
             this.transitionOutTitle(index);
             this.transitionOutSlide(index, 0);
             this.transitionOutNumber(index, 0);
+        });
+
+        this.$buttons.forEach((button, i) => {
+            if (i != 0) {
+                gsap.set(button, {
+                    yPercent: 100,
+                    opacity: 0,
+                    duration: 0.6
+                });
+            }
         });
 
         gsap.set(this.$itemsCarousel, {
@@ -73,6 +86,7 @@ class SliderRealisation
     events() {
         this.$previous.addEventListener('click', () => { this.handlePrev() })
         this.$next.addEventListener('click', () => { this.handleNext() })
+        window.addEventListener('resize', () => { this.init() })
     }
 
     transitionInSlide(slide, direction = 1, duration = 1) {
@@ -83,7 +97,21 @@ class SliderRealisation
             },
             {
                 xPercent: 0,
-                duration
+                duration,
+                onComplete: () => {
+                    gsap.fromTo(
+                        this.$buttons[slide],
+                        {
+                            yPercent: 100,
+                            opacity: 0
+                        },
+                        {
+                            yPercent: 0,
+                            opacity: 1,
+                            duration: 0.6
+                        }
+                    );
+                }
             }
         );
         
@@ -102,13 +130,24 @@ class SliderRealisation
     transitionOutSlide(slide, direction = 1, duration = 1) {
         gsap.to(this.$items[slide], {
             xPercent: direction > 0 ? -100 : 100,
-            duration
+            duration,
+            onComplete: () => {
+                gsap.to(this.$buttons[slide], {
+                    yPercent: 100,
+                    opacity: 0,
+                    duration: 0.6
+                });
+            }
         });
         
         gsap.to(this.$items[slide].querySelector('figure'), {
             xPercent: direction > 0 ? 100 : -100,
             duration
         });
+    }
+
+    transitionOutButton(slide) {
+        
     }
 
     transitionInTitle(title) {

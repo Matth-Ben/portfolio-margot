@@ -25,10 +25,10 @@
         @apply sticky top-0;
 
         &--number {
-            @apply relative w-max overflow-hidden pr-[1.5rem] mx-auto;
+            @apply relative w-max overflow-hidden pr-[1.1rem] mx-auto;
     
             &-item {
-                @apply block absolute top-0 left-[1.5rem];
+                @apply block absolute top-0 left-[1.1rem];
             }
         }
     
@@ -45,17 +45,14 @@
         }
 
         &--preview {
-            position: relative;
-            width: 31rem;
-            height: 45rem;
-            margin: 0 auto;
+            @apply relative w-[31rem] h-[40rem] mx-auto;
 
             &-item {
-                position: absolute;
-                bottom: 0;
-                transform-origin: bottom;
+                @apply absolute bottom-0 w-[31rem] h-[40rem] origin-bottom	;
 
-                @apply w-[31rem] h-[43rem];
+                .button {
+                    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14rem] h-[14rem] bg-white text-primary;
+                }
             }
         }
     
@@ -69,6 +66,10 @@
                 counter-increment: count;
         
                 @apply absolute top-0 left-0 w-full h-full overflow-hidden z-10;
+ 
+                .button {
+                    @apply absolute bottom-[5rem] right-[5rem] z-20 bg-white text-primary;
+                }
             }
         }
     }

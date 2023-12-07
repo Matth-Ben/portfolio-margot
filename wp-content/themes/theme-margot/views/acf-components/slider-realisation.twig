@@ -10,7 +10,7 @@
                     <div class="slider-realisation--content flex flex-col items-center justify-center gap-m h-full">
                         <div class="slider-realisation--header text-white">
                             <div class="slider-realisation--number text-center">
-                                <div class="ts-h5 lg:ts-h4">0{% for index, post in posts %}<span class="slider-realisation--number-item">{{ index + 1 }}</span>{% endfor %}</div>
+                                <div>0{% for index, post in posts %}<span class="slider-realisation--number-item">{{ index + 1 }}</span>{% endfor %}</div>
                             </div>
                             <div class="slider-realisation--title text-center">
                                 {% for post in posts %}
@@ -18,10 +18,12 @@
                                 {% endfor %}
                             </div>
                         </div>
-                        <div class="slider-realisation--preview flex items-center">
+                        <div class="slider-realisation--preview flex items-end">
                             {% for post in posts %}
                                 <div class="slider-realisation--preview-item rounded-t-[20rem] overflow-hidden">
                                     {{ image.default(post.thumbnail, '', 'v-3col') }}
+
+                                    <a href="{{ post.link }}" class="button lg:hidden">Découvrir</a>
                                 </div>    
                             {% endfor %}
                         </div>
@@ -35,6 +37,8 @@
                     {% for post in posts %}
                         <div class="slider-realisation--wrapper-item">
                             {{ image.default(post.thumbnail, '', 'video') }}
+
+                            <a href="{{ post.link }}" class="button">Découvrir</a>
                         </div>    
                     {% endfor %}
                 </div>
