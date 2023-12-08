@@ -3,8 +3,8 @@
 
     <section id="bloc-content-3" class="relative container overflow-hidden my-xxl">
         <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap">
-            <div class="col-span-6 lg:col-span-6 col-start-3 lg:col-start-7">
-                <h2 class="text-primary italic">{{ data.title }}</h2>
+            <div class="col-span-6 lg:col-span-6 col-start-3 lg:col-start-7" show-elements>
+                <h2 class="text-primary italic split animation--text" show-element>{{ data.title }}</h2>
             </div>
         </div>
 
@@ -15,8 +15,8 @@
                 </div>
             </div>
 
-            <div class="col-span-6 lg:col-span-3 lg:col-start-4 lg:order-1 max-lg:mt-xl">
-                <div>{{ data.texte_1 }}</div>
+            <div class="col-span-6 lg:col-span-3 lg:col-start-4 lg:order-1 max-lg:mt-xl" show-elements>
+                <div class="split animation--text" show-element>{{ data.texte_1 }}</div>
             </div>
         </div>
 
@@ -24,8 +24,8 @@
             <div class="col-span-8 lg:col-span-5 lg:!col-start-2">
                 {{ image.default(data.image_primary, '', 'v-4col') }}
             </div>
-            <div class="col-span-6 lg:col-span-3 lg:!col-start-8 mt-xl lg:!mt-auto">
-                <div class="max-lg:mt-l">{{ data.texte_2 }}</div>
+            <div class="col-span-6 lg:col-span-3 lg:!col-start-8 mt-xl lg:!mt-auto" show-elements>
+                <div class="max-lg:mt-l split animation--text" show-element>{{ data.texte_2 }}</div>
 
                 {% if data.button %}
                     <div class="max-lg:hidden child:ml-auto mt-m">

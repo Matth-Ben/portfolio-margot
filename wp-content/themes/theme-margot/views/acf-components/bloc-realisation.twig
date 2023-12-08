@@ -1,10 +1,10 @@
 {% macro default(data) %}
     {% import "@components/image.twig" as image %}
 
-    <section id="bloc-content-3" class="relative container overflow-hidden my-xxl">
+    <section id="bloc-realisation" class="relative container overflow-hidden my-xxl">
         <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap">
-            <div class="flex items-end col-span-6 lg:col-span-3 lg:col-start-3 max-lg:order-2 max-lg:mb-m max-lg:mt-xl">
-                <div class="lg:mb-[35rem]">{{ data.texte }}</div>
+            <div class="flex items-end col-span-6 lg:col-span-3 lg:col-start-3 max-lg:order-2 max-lg:mb-m max-lg:mt-xl" show-elements>
+                <div class="lg:mb-[35rem] split animation--text" show-element>{{ data.texte }}</div>
             </div>
             <div class="col-span-7 lg:col-span-6 col-start-2 lg:col-start-7 max-lg:order-1 max-lg:-mr-[2rem]">
                 {{ image.default(data.image_1, '', 'v-6col') }}

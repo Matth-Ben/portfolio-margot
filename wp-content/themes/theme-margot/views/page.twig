@@ -1,11 +1,24 @@
 {% extends "base-page.twig" %}
 
 {% import "@components/flex-content.twig" as flex_content %}
+{% import "@acf-components/cover.twig" as cover %}
+{% import "@acf-components/slider-realisation.twig" as sliderRealisation %}
+
+{% set data = function('get_fields') %}
 
 {% block pageContent %}
-	<div class="container mb-xl">
-		<h1 class="split animation--text" show-element>{{ post.title }}</h1>
-	</div>
+	<div class="component component--acf-flex-content">
+		{% if data.display %}
+			{{ cover.pageAdvance(data.cover_advance) }}
+		{% else %}
+			{{ cover.page(data.cover) }}		
+		{% endif %}
+		
 
-	{{ flex_content.default(post.meta('content')) }}
+		{{ flex_content.default(post.meta('content')) }}
+
+		{{ sliderRealisation.default() }}
+
+        <div class="page-compensation" style="height:20rem"></div>
+    </div>
 {% endblock %}

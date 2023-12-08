@@ -1,11 +1,11 @@
 {% macro default(data) %}
-    <section class="container my-xxxl">
+    <section class="container my-xxxl" show-elements>
         <div class="grid grid-cols-8 lg:grid-cols-12 gap">
             <div class="col-span-8 lg:col-span-3">
-                <div class="ts-h2 text-primary italic">{{ data.title }}</div>
+                <div class="ts-h2 text-primary italic split animation--text" show-element>{{ data.title }}</div>
             </div>
             <div class="col-span-8 lg:col-span-6 lg:col-start-6 ts-highlight">
-                <div class="my-m text-primary">{{ data.content }}</div>
+                <div class="my-m text-primary split animation--text" show-element>{{ data.content }}</div>
                 <div class="flex gap-l">
                     <div>{{ data.name }}</div>
                     <div class="opacity-30">{{ data.type }}</div>

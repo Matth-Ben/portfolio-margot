@@ -2,6 +2,6 @@
     {% import "@components/image.twig" as image %}
 
     <section class="container container--custom my-xxxl" show-elements>
-        {{ image.default(data.image, '', 'full', 'full-mobile') }}
+        {{ image.default(data.image, '', 'full', 'full-mobile', true) }}
     </section>
 {% endmacro %}

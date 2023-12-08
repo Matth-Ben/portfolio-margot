@@ -27,7 +27,7 @@
                 }
             }
 
-            &.italic {
+            &.text-italic {
                 .word {
                     span {
                         padding: 0 0.6rem;
@@ -83,6 +83,19 @@
                         right: 10rem;
                         bottom: 21rem;
                     }
+                }
+            }
+        }
+
+        &--full {
+            .image--shader {
+                opacity: 1;
+                transition: opacity var(--animation-property);
+            }
+
+            &.is-in-view {
+                .image--shader {
+                    opacity: 0;
                 }
             }
         }

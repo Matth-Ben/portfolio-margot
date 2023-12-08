@@ -6,8 +6,8 @@
             <canvas class="canvas"></canvas>
         </div>
         <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap mt-xxl">
-            <div class="col-span-5 lg:col-span-4 col-start-2 lg:col-start-7">
-                <h2 class="text-primary italic">{{ data.title }}</h2>
+            <div class="col-span-5 lg:col-span-4 col-start-2 lg:col-start-7" show-elements>
+                <h2 class="text-primary italic split animation--text" show-element>{{ data.title }}</h2>
             </div>
 
             <div class="bloc-content-image-side relative lg:absolute top-0 w-[12.7rem] lg:w-[26.3rem] aspect-side">
@@ -15,16 +15,16 @@
             </div>
         </div>
         <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap mt-xl lg:mt-xxl">
-            <div class="col-span-6 lg:col-span-3 lg:col-start-3 mb-l lg:mb-m">
-                <div>{{ data.texte_1 }}</div>
+            <div class="col-span-6 lg:col-span-3 lg:col-start-3 mb-l lg:mb-m" show-elements>
+                <div class="split animation--text" show-element>{{ data.texte_1 }}</div>
             </div>
         </div>
         <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 lg:gap">
             <div class="col-span-8 lg:col-span-5 !col-start-1">
                 {{ image.default(data.image_primary, '', 'v-4col') }}
             </div>
-            <div class="col-span-6 lg:col-span-3 col-start-3 lg:col-start-7 mt-xl lg:mt-auto mb-l lg:mb-m">
-                <div>{{ data.texte_2 }}</div>
+            <div class="col-span-6 lg:col-span-3 col-start-3 lg:col-start-7 mt-xl lg:mt-auto mb-l lg:mb-m" show-elements>
+                <div class="split animation--text" show-element>{{ data.texte_2 }}</div>
             </div>
             <div class="col-span-6 lg:col-span-2 col-start-3 lg:col-start-11 lg:mt-auto mb-l lg:mb-m">
                 {{ image.default(data.image_secondary, '', 'h-2col') }}
