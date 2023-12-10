@@ -1,9 +1,8 @@
 {% macro default(data) %}
 {% endmacro %}
 
-{% macro project(data) %}
+{% macro project(data) %} 
     {% import "@components/image.twig" as image %}
-
     <div class="text-primary relative flex flex-col justify-end lg:h-screen overflow-hidden" show-elements>
         <div class="canvasContainer">
             <canvas class="canvas"></canvas>
@@ -55,8 +54,52 @@
         </div>
 
         <div class="container relative z-10 mb-l lg:mb-s max-lg:text-center max-lg:mt-[6.4rem]">
-            <h1 class="ts-custom2 ts-primary normal-case mb-m lg:mb-s">{{ data.title }}</h1>
-            <div class="ts-big uppercase flex max-lg:flex-col justify-between items-center"><span>Margot</span><span>Jollit</span></div>
+            <h1 class="ts-custom2 ts-primary normal-case mb-m lg:mb-s split animation--text" show-element>{{ data.title }}</h1>
+            <div class="ts-big uppercase flex max-lg:flex-col justify-between items-center split animation--text" show-element><span>Margot</span><span>Jollit</span></div>
         </div>
     </div>
+{% endmacro %}
+
+{% macro page(data) %}
+    {% import "@components/image.twig" as image %}
+    <section class="container mb-xl">
+        <div class="relative grid grid-cols-8 lg:grid-cols-12 gap">
+            <div class="col-span-8 lg:col-span-3 lg:absolute top-0 right-0 w-[32.6rem] h-[42.6rem]">
+                <div class="rounded-t-[20rem] overflow-hidden">
+                    {{ image.default(data.image_primary, '', 'v-3col', '', false) }}
+                </div>
+            </div>
+            <div class="col-span-8 lg:col-span-11 lg:col-start-2 lg:mt-xxl">
+                <h1 class="ts-big text-primary split animation--text" show-element>{{data.title}}</h1>
+            </div>
+            <div class="col-span-6 lg:col-span-3 col-start-3 lg:col-start-9 lg:-mt-xl">
+                {{ data.content }}
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro pageAdvance(data) %}
+    {% import "@components/image.twig" as image %}
+    <section class="container mb-xl">
+        <div class="relative grid grid-cols-8 lg:grid-cols-12 gap">
+            <div class="col-span-8 lg:col-span-2 lg:col-start-2">
+                {{ image.default(data.image_secondary, '', 'v-2col', '', false) }}
+            </div>
+            <div class="col-span-8 lg:col-span-3 lg:absolute top-0 right-0 w-[32.6rem] h-[42.6rem]">
+                <div class="rounded-t-[20rem] overflow-hidden">
+                    {{ image.default(data.image_primary, '', 'v-3col', '', false) }}
+                </div>
+            </div>
+            <div class="col-span-8 lg:col-span-10 lg:col-start-2">
+                <h1 class="ts-big text-primary split animation--text" show-element>{{data.title}}</h1>
+            </div>
+            <div class="col-span-8 lg:col-span-2">
+                {{ image.default(data.image_third, '', 'h-2col', '', false) }}
+            </div>
+            <div class="col-span-6 lg:col-span-3 col-start-3 lg:col-start-9 lg:-mt-xl">
+                {{ data.content }}
+            </div>
+        </div>
+    </section>
 {% endmacro %}
