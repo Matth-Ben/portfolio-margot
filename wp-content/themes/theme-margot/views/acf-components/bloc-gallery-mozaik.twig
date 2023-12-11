@@ -1,0 +1,39 @@
+{% macro default(data) %}
+    {% import "@components/image.twig" as image %}
+    {% set sizes = {
+        '0' : {'width': 263, 'height': 174},
+        '1' : {'width': 326, 'height': 206},
+        '2' : {'width': 213, 'height': 213},
+        '3' : {'width': 263, 'height': 391},
+        '4' : {'width': 213, 'height': 172},
+        '5' : {'width': 326, 'height': 213}
+     } %}
+
+    <section id="bloc-gallery-mozaik" class="bloc-gallery-mozaik relative bg-primary overflow-hidden my-xxl">
+        <div class="bloc-gallery-mozaik--content flex items-center justify-center h-screen">
+            <div class="text-center text-white">
+                <div class="number mb-[1rem]">
+                    0
+                    {% for i, elem in data.elements %}
+                        <span>{{ i + 1 }}</span>
+                    {% endfor %}
+                </div>
+                <div class="title relative overflow-hidden">
+                    {% for elem in data.elements %}
+                        <div>{{ elem.title }}</div>
+                    {% endfor %}
+                </div>
+                <div class="flex items-center justify-center gap-xl mt-m">
+                    <button class="button button--before button--small button--small-light">{% include "@assets/svg/arrow-left.svg" %}</button>
+                    <button class="button button--after button--small button--small-light">{% include "@assets/svg/arrow-right.svg" %}</button>
+                </div>
+            </div>
+        </div>
+
+        {% for i, elem in data.elements %}
+            <div class="absolute top-0 bloc-gallery-mozaik--image" style="width: {{sizes[i]['width']}}px; height: {{sizes[i]['height']}}px">
+                {{ image.default(elem.image, '', 'mozaik-'~(i + 1)) }}
+            </div>
+        {% endfor %}
+    </section>
+{% endmacro %}

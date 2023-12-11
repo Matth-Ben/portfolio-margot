@@ -74,6 +74,17 @@ body {
 .aspect-v-6col { aspect-ratio: 664/886; }
 .aspect-side { aspect-ratio: 263/868; }
 
+.aspect {
+    &-mozaik {
+        &-1 { aspect-ratio: 263/175; }
+        &-2 { aspect-ratio: 326/206; }
+        &-3 { aspect-ratio: 213/213; }
+        &-4 { aspect-ratio: 263/391; }
+        &-5 { aspect-ratio: 213/172; }
+        &-6 { aspect-ratio: 326/213; }
+    }
+}
+
 .aspect-full {
     aspect-ratio: 1340/790;
 
