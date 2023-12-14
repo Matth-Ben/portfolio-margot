@@ -1,0 +1,11 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<main role="main" data-taxi-view>
+		<div id="app-content" class="post-type-{{ post.post_type }} {{ body_class }}">
+			<div id="app-body">
+				{% block pageContent %}{% endblock %}
+			</div>
+		</div>
+	</main>
+{% endblock %}

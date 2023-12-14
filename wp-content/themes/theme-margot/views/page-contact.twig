@@ -1,0 +1,26 @@
+{% extends "base-default.twig" %}
+
+{% import "@components/image.twig" as image %}
+{% import "@components/flex-content.twig" as flex_content %}
+
+{% block pageContent %}
+	<div class="page-contact relative">
+		<div class="page-contact--background fixed w-full h-full child:h-full">
+			{{ image.default(post.thumbnail, '', 'screen') }}
+		</div>
+		<div class="container relative pt-[13rem] h-screen">
+			<div class="bg-white h-full">
+				<div class="grid grid-cols-8 lg:grid-cols-12 gap">
+					<div class="col-span-8 lg:col-span-3 lg:col-start-3">
+						<h2 class="italic">Parlons ensemble de votre projet</h2>
+					</div>
+					<div class="col-span-8 lg:col-span-4 lg:col-start-7">
+						<div class="component component--acf-flex-content">
+							{{ flex_content.default(post.meta('content')) }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
