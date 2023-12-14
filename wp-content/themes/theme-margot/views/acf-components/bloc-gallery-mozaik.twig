@@ -31,7 +31,7 @@
         </div>
 
         {% for i, elem in data.elements %}
-            <div class="absolute top-0 bloc-gallery-mozaik--image" style="width: {{sizes[i]['width']}}px; height: {{sizes[i]['height']}}px">
+            <div class="absolute bloc-gallery-mozaik--image" style="width: {{sizes[i]['width']}}px; height: {{sizes[i]['height']}}px">
                 {{ image.default(elem.image, '', 'mozaik-'~(i + 1)) }}
             </div>
         {% endfor %}
