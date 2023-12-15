@@ -1,0 +1,55 @@
+.contact {
+    &--form {
+        p {
+            @apply flex flex-col gap;
+        }
+
+        br { display: none; }
+
+        textarea,
+        input {
+            &:not([type=submit]) {
+                width: 100%;
+                padding: 1.5rem 2rem;
+                font-size: 1.6rem;
+                line-height: 3rem;
+                border-bottom: 1px solid rgba(165, 133, 97, 0.30);
+    
+    
+                &::placeholder {
+                    font-size: 1.6rem;
+                    line-height: 3rem;
+                    opacity: 1;
+    
+                    @apply text-grey;
+                }
+    
+                &::-ms-input-placeholder {
+                    font-size: 1.6rem;
+                    line-height: 3rem;
+                    @apply text-grey;
+                }
+    
+                &:focus {
+                    outline-width: 0;
+                    border: none;
+                    border-bottom: 1px solid rgba(165, 133, 97, 1);
+                }
+            }
+
+            &[type=submit] {
+                width: 16.5rem;
+                height: 16.5rem;
+                margin-left: auto;
+
+                @apply mt-m mx-auto lg:mr-0;
+            }
+
+            .wpcf7-spinner { display: none; }
+        }
+
+        textarea {
+            height: 15rem;
+        }
+    }
+}

@@ -4,19 +4,29 @@
 {% import "@components/flex-content.twig" as flex_content %}
 
 {% block pageContent %}
-	<div class="page-contact relative">
+	<div class="page-contact relative h-screen">
 		<div class="page-contact--background fixed w-full h-full child:h-full">
 			{{ image.default(post.thumbnail, '', 'screen') }}
 		</div>
-		<div class="container relative pt-[13rem] h-screen">
-			<div class="bg-white h-full">
-				<div class="grid grid-cols-8 lg:grid-cols-12 gap">
-					<div class="col-span-8 lg:col-span-3 lg:col-start-3">
-						<h2 class="italic">Parlons ensemble de votre projet</h2>
-					</div>
-					<div class="col-span-8 lg:col-span-4 lg:col-start-7">
-						<div class="component component--acf-flex-content">
-							{{ flex_content.default(post.meta('content')) }}
+		<div class="container relative lg:absolute bottom-0 left-0 max-lg:pt-[13rem]">
+			<div class="grid grid-cols-8 lg:grid-cols-12">
+				<div class="col-span-8 lg:col-span-10 lg:col-start-2 bg-white">
+					<div class="grid grid-cols-8 lg:grid-cols-10 gap pt-l lg:pt-m pb-m lg:pb-s h-full">
+						<div class="col-span-6 lg:col-span-3 col-start-2 lg:col-start-2">
+							<div class="flex flex-col justify-between h-full max-lg:text-center">
+								<div>
+									<h2 class="text-primary italic">Parlons ensemble de votre projet</h2>
+									<a class="block mt-l lg:mt-m" href="mailto:margot.jollit@gmail.com">margot.jollit@gmail.com</a>
+								</div>
+								<div class="flex items-center max-lg:justify-center gap max-lg:mt-l">
+									<a href="" target="_blank">Linkedin</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-span-6 lg:col-span-4 col-start-2 lg:col-start-6 max-lg:mt-xl">
+							<div class="component component--acf-flex-content">
+								{{ flex_content.default(post.meta('content')) }}
+							</div>
 						</div>
 					</div>
 				</div>
