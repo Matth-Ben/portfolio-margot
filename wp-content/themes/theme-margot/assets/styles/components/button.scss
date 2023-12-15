@@ -1,8 +1,16 @@
 .button {
     @apply ts-label flex justify-center items-center w-[21.3rem] h-[21.3rem] border border-white text-white rounded-full;
 
-    &--light {
+    &--primary {
+        @apply border border-primary text-white bg-primary;
+    }
+
+    &--dark {
         @apply border border-dark text-dark bg-transparent;
+    }
+
+    &--light {
+        @apply border border-primary text-dark bg-white;
     }
 
     &--small {
