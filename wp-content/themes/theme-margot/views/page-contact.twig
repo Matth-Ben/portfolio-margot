@@ -8,6 +8,7 @@
 		<div class="page-contact--background fixed w-full h-full child:h-full">
 			{{ image.default(post.thumbnail, '', 'screen') }}
 		</div>
+
 		<div class="container relative lg:absolute bottom-0 left-0 max-lg:pt-[13rem]">
 			<div class="grid grid-cols-8 lg:grid-cols-12">
 				<div class="col-span-8 lg:col-span-10 lg:col-start-2 bg-white">
@@ -15,11 +16,13 @@
 						<div class="col-span-6 lg:col-span-3 col-start-2 lg:col-start-2">
 							<div class="flex flex-col justify-between h-full max-lg:text-center">
 								<div>
-									<h2 class="text-primary italic">Parlons ensemble de votre projet</h2>
-									<a class="block mt-l lg:mt-m" href="mailto:margot.jollit@gmail.com">margot.jollit@gmail.com</a>
+									<h2 class="text-primary italic">{{ post.title_acf }}</h2>
+									{% if post.email %}<a class="block mt-l lg:mt-m" href="mailto:{{ post.email }}">{{ post.email }}</a>{% endif %}
 								</div>
-								<div class="flex items-center max-lg:justify-center gap max-lg:mt-l">
-									<a href="" target="_blank">Linkedin</a>
+								<div class="flex items-center max-lg:justify-center gap-m max-lg:mt-l">
+									{% if post.instagram %}<a href="{{ post.instagram }}" target="_blank">Instagram</a>{% endif %}
+									{% if post.linkedin %}<a href="{{ post.linkedin }}" target="_blank">Linkedin</a>{% endif %}
+									{% if post.facebook %}<a href="{{ post.facebook }}" target="_blank">Facebook</a>{% endif %}
 								</div>
 							</div>
 						</div>
