@@ -49,6 +49,32 @@
     }
 
     &--image {
+        &-up {
+            &--content {
+                transform: translate3d(0, 100%, 0);
+                transition: opacity var(--animation-property), transform var(--animation-property);
+
+                @apply opacity-0 overflow-hidden;
+
+                .image {
+                    transform: translate3d(0, -100%, 0);
+
+                    transition: transform var(--animation-property);
+                }
+            }
+
+            &.is-in-view {
+                .animation--image-up--content {
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0);
+
+                    .image {
+                        transform: translate3d(0, 0, 0);
+                    }
+                }
+            }
+        }
+
         &--fade-up {
             right: 40%;
             bottom: -20rem;
