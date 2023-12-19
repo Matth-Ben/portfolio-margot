@@ -4,12 +4,12 @@
 {% import "@components/flex-content.twig" as flex_content %}
 
 {% block pageContent %}
-	<div class="page-contact relative h-screen">
+	<div class="page-contact relative h-screen overflow-hidden" show-elements>
 		<div class="page-contact--background fixed w-full h-full child:h-full">
 			{{ image.default(post.thumbnail, '', 'screen') }}
 		</div>
 
-		<div class="contact container relative lg:absolute bottom-0 left-0 max-lg:pt-[13rem]">
+		<div class="contact container relative lg:absolute bottom-0 left-0 max-lg:pt-[13rem] animation--fade-up" show-element show-delay="300">
 			<div class="grid grid-cols-8 lg:grid-cols-12">
 				<div class="col-span-8 lg:col-span-10 lg:col-start-2 bg-white">
 					<div class="grid grid-cols-8 lg:grid-cols-10 gap pt-l lg:pt-m pb-m lg:pb-s h-full">
