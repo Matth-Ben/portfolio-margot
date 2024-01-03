@@ -9,6 +9,11 @@ export default class TransitionDefault extends Transition {
      */
     onLeave({ from, trigger, done }) {
         document.body.classList.add( 'hide-article' )
+        
+        setTimeout( () => {
+            lenis.scrollTo( 0, { immediate: true } )
+        }, animation_duration )
+        
         setTimeout( done, animation_duration )
     }
     

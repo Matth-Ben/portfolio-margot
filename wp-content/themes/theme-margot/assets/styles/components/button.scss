@@ -1,25 +1,75 @@
 .button {
-    @apply ts-label flex justify-center items-center w-[21.3rem] h-[21.3rem] border border-white text-white rounded-full;
+    @apply ts-label flex justify-center items-center w-[21.3rem] h-[21.3rem] border border-white text-white rounded-full transition ease-in-out delay-150;
+
+    path { @apply transition ease-in-out delay-150; }
+
+    @media (hover: hover) {
+        &:hover {
+            @apply text-white bg-primary;
+
+            path { @apply stroke-white; }
+        }
+    }
 
     &--primary {
         @apply border border-primary text-white bg-primary;
+        
+        path { @apply stroke-white; }
+
+        @media (hover: hover) {
+            &:hover {
+                @apply border-white text-primary bg-white;
+    
+                path { @apply stroke-primary; }
+            }
+        }
     }
 
     &--dark {
-        @apply border border-dark text-dark bg-transparent;
+        @apply border border-primary text-primary bg-transparent;
+
+        path { @apply stroke-primary; }
+
+        @media (hover: hover) {
+            &:hover {
+                @apply text-white bg-primary;
+    
+                path { @apply stroke-white; }
+            }
+        }
     }
 
     &--light {
-        @apply border border-primary text-dark bg-white;
+        @apply border border-white text-white bg-transparent;
+
+        path { @apply stroke-white; }
+
+        @media (hover: hover) {
+            &:hover {
+                @apply text-primary bg-white;
+    
+                path { @apply stroke-primary; }
+            }
+        }
+    }
+
+    &--white {
+        @apply border border-white text-primary bg-white cursor-pointer;
+
+        path { @apply stroke-primary; }
+
+        @media (hover: hover) {
+            &:hover {
+                @apply border-primary text-white bg-primary;
+
+                path { @apply stroke-white; }
+            }
+        }
     }
 
     &--small {
-        @apply w-[8rem] h-[8rem] border-primary text-primary;
+        @apply w-[8rem] h-[8rem];
 
-        &-light {
-            @apply border border-white text-white bg-transparent;
-
-            path { stroke: white; }
-        }
+        svg { @apply w-[2.5rem] h-auto; }
     }
 }

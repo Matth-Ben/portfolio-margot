@@ -58,6 +58,11 @@ elseif ( $wp_query->is_archive ) {
 	$templates = array( 'archive.twig', 'index.twig' );
 	$context['title'] = 'Archive';
 
+	$context['realisations'] = Timber::get_posts( [
+		'post_type'     => 'realisations',
+		'category_name' => $wp_query->query['category_name'],
+	]);
+
 	if ( is_day() ) {
 		$context['title'] = 'Archive: ' . get_the_date( 'D M Y' );
 	} elseif ( is_month() ) {

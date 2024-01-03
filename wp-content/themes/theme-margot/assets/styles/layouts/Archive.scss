@@ -1,3 +1,28 @@
 #app-content.archive  {
-    @apply mt-180;
+    .projects {
+        @apply container relative grid grid-cols-8 lg:grid-cols-12 pt-[15rem] lg:pt-[25rem] pb-[8rem] lg:pb-[5rem];
+
+        &--svg {
+            @apply fixed top-[10rem] left-0 w-full h-[14rem];
+        }
+    }
+
+    .project-item {
+        &--content {
+            @apply max-lg:h-[80vh];
+
+            &-img,
+            .image { @apply h-full lg:h-[80vh] lg:w-full; }
+
+            &-img {
+                @apply relative;
+
+                &::before {
+                    content: "";
+                    
+                    @apply absolute top-0 left-0 z-10 w-full h-full bg-darkultrasoft;
+                }
+            }
+        }
+    }
 }

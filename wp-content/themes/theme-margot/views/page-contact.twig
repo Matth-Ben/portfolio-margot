@@ -19,10 +19,10 @@
 									<h2 class="text-primary italic">{{ post.title_acf }}</h2>
 									{% if post.email %}<a class="block mt-l lg:mt-m" href="mailto:{{ post.email }}">{{ post.email }}</a>{% endif %}
 								</div>
-								<div class="flex items-center max-lg:justify-center gap-m max-lg:mt-l">
-									{% if post.instagram %}<a href="{{ post.instagram }}" target="_blank">Instagram</a>{% endif %}
-									{% if post.linkedin %}<a href="{{ post.linkedin }}" target="_blank">Linkedin</a>{% endif %}
-									{% if post.facebook %}<a href="{{ post.facebook }}" target="_blank">Facebook</a>{% endif %}
+								<div class="flex items-center max-lg:justify-center gap-m max-lg:mt-l ts-highlight text-primary">
+									{% if post.instagram %}<a href="{{ post.instagram }}" target="_blank"><i class="fa-brands fa-instagram"></i></a>{% endif %}
+									{% if post.linkedin %}<a href="{{ post.linkedin }}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>{% endif %}
+									{% if post.facebook %}<a href="{{ post.facebook }}" target="_blank"><i class="fa-brands fa-facebook"></i></a>{% endif %}
 								</div>
 							</div>
 						</div>

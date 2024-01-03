@@ -10,6 +10,7 @@ export default () => {
         smoothTouch: false,
         touchMultiplier: 2,
     })
+    window.lenis = lenis
     
     lenis.on('scroll', (e) => {
         // console.log(e)
@@ -19,10 +20,6 @@ export default () => {
         lenis.raf(time)
         requestAnimationFrame(raf)
     }
-
-    // document.addEventListener( 'NewContentLoaded', () => {
-    //     lenis.scrollTo('top', { "immediate": true })
-    // })
     
     requestAnimationFrame(raf)
 }

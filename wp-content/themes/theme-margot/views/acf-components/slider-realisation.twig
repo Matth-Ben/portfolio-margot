@@ -28,8 +28,8 @@
                             {% endfor %}
                         </div>
                         <div class="slider-realisation--buttons flex items-center justify-center gap-xl">
-                            <button class="button button--before button--small button--small-light">{% include "@assets/svg/arrow-left.svg" %}</button>
-                            <button class="button button--after button--small button--small-light">{% include "@assets/svg/arrow-right.svg" %}</button>
+                            <button class="button button--light button--before button--small button--small">{% include "@assets/svg/arrow-left.svg" %}</button>
+                            <button class="button button--light button--after button--small button--small">{% include "@assets/svg/arrow-right.svg" %}</button>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         <div class="slider-realisation--wrapper-item">
                             {{ image.default(post.thumbnail, '', 'video') }}
 
-                            <a href="{{ post.link }}" class="button">Découvrir</a>
+                            <a href="{{ post.link }}" class="button button--white">Découvrir</a>
                         </div>    
                     {% endfor %}
                 </div>

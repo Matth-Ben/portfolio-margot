@@ -119,6 +119,11 @@
             "line-height": "normal",
             "font-weight": 400
         },
+        "title-big": {
+            "font-size": "5rem",
+            "font-weight": "300",
+            "line-height": "8rem"
+        },
         "desktop": {
             "h1": {
                 "font-size": "15rem",
@@ -152,6 +157,11 @@
                 "font-size": "1.8rem",
                 "line-height": "3rem",
                 "font-weight": 300
+            },
+            "title-big": {
+                "font-size": "8rem",
+                "font-weight": "300",
+                "line-height": "1"
             }
         }
     },

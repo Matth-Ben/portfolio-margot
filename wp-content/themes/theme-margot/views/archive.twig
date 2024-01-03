@@ -1,12 +1,28 @@
-{% extends "base-page.twig" %}
+{% extends "base-default.twig" %}
 
-{% import "@components/breadcrumbs.twig" as breadcrumbs %}
+{% import "@components/image.twig" as image %}
 
 {% block pageContent %}
-    <div class="container flex flex-col gap-m mb-xl" show-elements>
-		<h1 class="split animation--text" show-element>{{ post.title }}</h1>
-        <div class="animation--fade-up" show-element show-delay="300">
-            {{ breadcrumbs.default() }}
+    <div class="projects">
+        <div class="canvasContainer !fixed">
+            <canvas class="canvas"></canvas>
         </div>
+
+        {% for key, item in realisations %}
+            <a class="project-item sticky top-[15rem] col-span-8 lg:col-span-10 col-start-1 lg:col-start-2" href="{{ item.link }}">
+                <div class="project-item--content relative" show-elements>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-full text-center text-white">
+                        <div class="ts-custom2">{% if key < 10 %}0{% endif %}{{ key + 1 }}</div>
+                        <h2 class="ts-title-big uppercase split animation--text" show-element>{{ item.title }}</h2>
+                        <div class="block lg:hidden mt-l">
+                            <div class="button button--light mx-auto">Découvrir</div>
+                        </div>
+                    </div>
+                    <div class="project-item--content-img relative overflow-hidden">
+                        {{ image.default(item.thumbnail, '', 'full', 'full-mobile', false) }}
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
 	</div>
 {% endblock %}

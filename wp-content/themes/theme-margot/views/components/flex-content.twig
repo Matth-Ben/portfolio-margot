@@ -6,11 +6,8 @@
                 {% set filename = filename ~ ".twig" %}
                 {% set path = function('get_template_directory') ~ '/views/acf-components/' ~ filename %}
                 {% if function('file_exists', path) %}
-                    {% import path as c %}
-                    {% set source = source(path) %}
-                    {% if 'macro default' in source %}
-                        {{ c.default(component[component.acf_fc_layout]) }}
-                    {% endif %}
+                    {% import "@acf-components/" ~ filename as c %}
+                    {{ c.default(component[component.acf_fc_layout]) }}
                 {% endif %}
             {% endif %}
         {% endfor %}

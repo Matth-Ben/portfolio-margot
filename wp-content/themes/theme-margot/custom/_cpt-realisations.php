@@ -8,7 +8,7 @@ function realisation_register_post_types() {
         'singular_name' => 'Réalisation',
         'add_new_item' => 'Ajouter une réalisation',
         'edit_item' => 'Modifier la réalisation',
-        'menu_name' => 'Réalisations'
+        'menu_name' => 'Réalisations',
     );
 
 	$args = array(
@@ -19,6 +19,7 @@ function realisation_register_post_types() {
         'supports' => array( 'title', 'editor','thumbnail' ),
         'menu_position' => 5, 
         'menu_icon' => 'dashicons-admin-customizer',
+        'taxonomies'  => array( 'category' )
 	);
 
 	register_post_type( 'realisations', $args );

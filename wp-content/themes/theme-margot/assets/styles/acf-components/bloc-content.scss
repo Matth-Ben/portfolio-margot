@@ -1,6 +1,8 @@
 #bloc-content {
     &-1 {
         .bloc-content {
+            &--title { @apply mt-xxl; }
+
             &-image {
                 &-side {
                     @media (max-width: 1024px) {
@@ -22,6 +24,20 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.post-type-page {
+    &:not(.home) {
+        #bloc-content-1 {
+            @apply pt-0;
+
+            .bloc-content {
+                &--title { @apply mt-0; }
+            }
+
+            .canvasContainer { @apply hidden; }
         }
     }
 }

@@ -1,6 +1,8 @@
 import { Transition } from '@unseenco/taxi'
 import gsap from 'gsap';
 
+const animation_duration = 500
+
 export default class TransitionHomeToRealisation extends Transition {
   /**
    * Handle the transition leaving the previous page.
@@ -13,15 +15,23 @@ export default class TransitionHomeToRealisation extends Transition {
     document.body.querySelector('.header').classList.add('hide--header')
 
     gsap.to(this.parent, {
-        width: window.innerWidth + 'px',
-        top: 0,
-        right: 0,
-        zIndex: 100,
-        duration: 0.6,
-        ease: 'power1.in',
-        onComplete: () => {
-            setTimeout(() => { done() }, 500)
-        }
+      width: window.innerWidth + 'px',
+      top: 0,
+      right: 0,
+      zIndex: 100,
+      duration: 0.6,
+      ease: 'power1.in',
+      onComplete: () => {
+        setTimeout(() => {
+          document.body.classList.add( 'hide-article' )
+          
+          setTimeout( () => {
+            lenis.scrollTo( 0, { immediate: true } )
+          }, animation_duration )
+          
+          setTimeout( done, animation_duration )
+        }, 500)
+      }
     })
   }
 

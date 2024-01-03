@@ -1,6 +1,7 @@
 // utils
 @import './functions.scss';
 @import './mixins.scss';
+@import './fontawesome.scss';
 
 // tailwinds
 @tailwind base;
@@ -17,5 +18,6 @@
 // others
 @import './split-text.scss';
 @import './grid-helper.scss';
+@import './lenis.scss';
 
 @import './fonts.scss';
