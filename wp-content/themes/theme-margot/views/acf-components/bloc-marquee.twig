@@ -1,0 +1,10 @@
+{% macro default(data) %}
+    <section class="marquee bg-primary text-white py-m overflow-hidden w-full flex items-center gap-m lg:gap-s">
+        <div class="marquee--content ts-h2 !leading-none italic flex items-center gap-m lg:gap-s w-max">
+            {% for key, item in data.repeater %}
+                <span class="block w-max">{{ item.text }}</span>
+                <span class="separator">•</span>
+            {% endfor %}
+        </div>
+    </section>
+{% endmacro %}
