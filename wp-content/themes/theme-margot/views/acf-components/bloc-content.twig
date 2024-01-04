@@ -1,0 +1,17 @@
+{% macro default(data) %}
+    <section class="bloc-content container my-xl">
+        <div class="bloc-content--title relative z-10 grid grid-cols-8 lg:grid-cols-12 gap">
+            {% if data.content_1 %}
+                <div class="col-span-5 lg:col-span-3 col-start-2 lg:col-start-3">
+                    {{ fn('wpautop', data.content_1) }}
+                </div>
+            {% endif %}
+
+            {% if data.content_2 %}
+                <div class="col-span-6 lg:col-span-3 col-start-3 lg:col-start-9 mt-m">
+                    {{ fn('wpautop', data.content_2) }}
+                </div>
+            {% endif %}
+        </div>  
+    </section>
+{% endmacro %}

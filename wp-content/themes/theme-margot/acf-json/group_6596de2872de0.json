@@ -1,0 +1,115 @@
+{
+    "key": "group_6596de2872de0",
+    "title": "[BLOCK] - CONTENT",
+    "fields": [
+        {
+            "key": "field_6596de28789a3",
+            "label": "",
+            "name": "bloc-content",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "sub_fields": [
+                {
+                    "key": "field_6596de4a156af",
+                    "label": "Contenu 1",
+                    "name": "content_1",
+                    "aria-label": "",
+                    "type": "advanced_wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "has_h1": 0,
+                    "has_h2": 1,
+                    "has_h3": 1,
+                    "has_h4": 1,
+                    "has_h5": 1,
+                    "has_h6": 1,
+                    "has_p": 0,
+                    "has_button": 0,
+                    "has_bold": 1,
+                    "has_italic": 1,
+                    "has_underline": 1,
+                    "has_bullist": 1,
+                    "has_numlist": 1,
+                    "has_link": 1,
+                    "has_forecolor": 0
+                },
+                {
+                    "key": "field_6596de82156b0",
+                    "label": "Contenu 2",
+                    "name": "content_2",
+                    "aria-label": "",
+                    "type": "advanced_wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "has_h1": 0,
+                    "has_h2": 1,
+                    "has_h3": 1,
+                    "has_h4": 1,
+                    "has_h5": 1,
+                    "has_h6": 1,
+                    "has_p": 0,
+                    "has_button": 0,
+                    "has_bold": 1,
+                    "has_italic": 1,
+                    "has_underline": 1,
+                    "has_bullist": 1,
+                    "has_numlist": 1,
+                    "has_link": 1,
+                    "has_forecolor": 0
+                }
+            ],
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1704386191
+}
