@@ -1,0 +1,55 @@
+.slider-circle {
+    &--container { @apply relative; }
+
+    &--nav { @apply absolute bottom-[7rem] left-1/2 z-20 -translate-x-1/2; }
+    
+    &--wrapper {
+        @apply absolute top-xl left-1/2 z-10 -translate-x-1/2;
+
+        &-content { @apply relative w-[40rem]; }
+    }
+
+    &--item { @apply absolute top-0 w-[40rem] text-center; }
+
+    &--number { @apply text-primary; }
+
+    &--title { @apply text-primary; }
+
+    &--svg {
+        @apply relative z-10 flex w-max mx-auto;
+
+        svg {
+            // @apply w-full h-auto;
+
+            circle {
+                stroke: rgba(165, 133, 97, 0.30);
+    
+                &#circlePath {
+                    stroke: #A58561;
+                    stroke-dasharray: 1950;
+                    stroke-dashoffset: 1950;
+                    transform-origin: center;
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+    }
+
+    &--img {
+        @apply absolute -z-10 w-[21.4rem] h-[25rem] overflow-hidden;
+
+        &s {
+            @apply absolute top-0 left-0;
+        }
+    }
+
+    &--dot {
+        @apply absolute top-0 left-0 w-[2rem] h-[2rem] bg-secondary border border-primary border-2 rounded-full scale-50 transition ease-in-out delay-150;
+        
+        @media (hover: hover) {
+            &:hover { @apply scale-100; }
+        }
+
+        // &s { @apply absolute top-0 left-0 z-10 w-full h-full; }
+    }
+}

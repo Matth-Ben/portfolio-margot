@@ -1,0 +1,77 @@
+{% macro default(data) %}
+    {% import "@components/image.twig" as image %}
+
+    <section class="slider-circle my-xxl">
+        <div class="container">
+            <div class="grid grid-cols-8 lg:grid-cols-12 gap items-end">
+                <div class="col-span-6 lg:col-span-5 col-start-1 lg:col-start-2" show-elements>
+                    <h2 class="text-primary italic split animation--text" show-element>{{ data.title }}</h2>
+                </div>
+
+                {% if data.button.url %}
+                    <div class="hidden lg:block col-span-4 lg:col-span-2 col-start-3 lg:col-start-10">
+                        <a href="{{ data.button.url }}" class="button button--dark">{{ data.button.title }}</a>
+                    </div>
+                {% endif %}
+            </div>
+
+            {# <div class="grid grid-cols-8 lg:grid-cols-12 mt-l"> #}
+                {# <div class="col-span-8 lg:col-span-6 col-start-1 lg:col-start-4"> #}
+                    <div class="slider-circle--container">
+                        <div class="slider-circle--svg">
+                            <svg width="664" height="664" viewBox="0 0 664 664" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="332" cy="332" r="332" stroke="#9192C2" stroke-width="2"></circle>
+                                <circle cx="332" cy="332" r="332" stroke="#0d0c66" id="circlePath" stroke-width="2" style="stroke-dashoffset: -1350;"></circle>
+                            </svg>
+
+                            <div class="slider-circle--dots">
+                                {% for item in data.repeater %}
+                                    <button class="slider-circle--dot"></button>
+                                {% endfor %}
+                            </div>
+
+                            <div class="slider-circle--imgs">
+                                {% for item in data.repeater %}
+                                    <div class="slider-circle--img">
+                                        {{ image.default(item.image, 'v-2col', 'v-2col') }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="slider-circle--wrapper">
+                            <div class="slider-circle--wrapper-content">
+                                {% for key, item in data.repeater %}
+                                    <div class="slider-circle--item">
+                                        <div class="overflow-hidden">
+                                            <div class="slider-circle--number">0{{key+1}}</div>
+                                        </div>
+                                        <div class="overflow-hidden">
+                                            <h3 class="slider-circle--title">{{ item.title }}</h3>
+                                        </div>
+                                        <div class="overflow-hidden mt-s">
+                                            <div class="slider-circle--content ts-body">{{ fn('wpautop', item.content) }}</div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="slider-circle--nav">
+                            <div class="flex items-center justify-center gap-m">
+                                <button class="button button--dark button--before button--small">{% include "@assets/svg/arrow-left.svg" %}</button>
+                                <button class="button button--dark button--after button--small">{% include "@assets/svg/arrow-right.svg" %}</button>
+                            </div>
+                        </div>
+                    </div>
+                {# </div> #}
+            {# </div> #}
+
+            {% if data.button.url %}
+                <div class="grid lg:hidden w-full">
+                        <a href="{{ data.button.url }}" class="button button--dark mx-auto">{{ data.button.title }}</a>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endmacro %}

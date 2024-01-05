@@ -83,14 +83,14 @@
     {% import "@components/image.twig" as image %}
     <section class="container mb-xl">
         <div class="relative grid grid-cols-8 lg:grid-cols-12 gap">
-            <div class="col-span-8 lg:col-span-2 lg:col-start-2">
+            <div class="hidden lg:block col-span-8 lg:col-span-2 lg:col-start-2">
                 <div class="animation--image-up" show-elements>
                     <div class="animation--image-up--content" show-element>
                         {{ image.default(data.image_secondary, '', 'v-2col', '', false) }}
                     </div>
                 </div>
             </div>
-            <div class="col-span-8 lg:col-span-3 lg:absolute top-0 right-0 w-[32.6rem] h-[42.6rem]">
+            <div class="col-span-8 lg:col-span-3 lg:absolute top-0 right-0 w-full lg:w-[32.6rem] h-[42.6rem]">
                 <div class="rounded-t-[20rem] overflow-hidden">
                     <div class="animation--image-up" show-elements>
                         <div class="animation--image-up--content" show-element>
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="col-span-8 lg:col-span-10 lg:col-start-2">
-                <h1 class="ts-big text-primary split animation--text" show-element>{{data.title}}</h1>
+                <h1 class="lg:ts-big text-primary split animation--text" show-element>{{data.title}}</h1>
             </div>
             <div class="col-span-8 lg:col-span-2">
                 <div class="animation--image-up" show-elements>
