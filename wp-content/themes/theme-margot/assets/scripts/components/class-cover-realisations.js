@@ -26,12 +26,11 @@ class CoverRealisations
         });
 
         this.wrapper.forEach((element, index) => {
-            if (index === this.current) {
-                this.transitionInSlide(index, 0);
+            if (index !== this.current) {
+                this.transitionOutSlide(index, 0);
                 return;
             }
             
-            this.transitionOutSlide(index, 0);
         })
 
         this.events()

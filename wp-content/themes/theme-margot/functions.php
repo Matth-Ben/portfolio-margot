@@ -31,3 +31,19 @@ function acf_export_json( $path ) {
 	return $path;
 }
 add_filter( 'acf/settings/save_json', 'acf_export_json' );
+
+/**
+ * Create all image sizes
+ */
+add_image_size('xs', 240, 0, true);
+add_image_size('sm', 480, 0, true);
+add_image_size('md', 768, 0, true);
+add_image_size('lg', 1024, 0, true);
+add_image_size('xl', 1200, 0, true);
+add_image_size('xxl', 1400, 0, true);
+add_image_size('xxxl', 1600, 0, true);
+add_image_size('hd', 1920, 1080, true);
+
+remove_image_size('1536x1536');
+remove_image_size('2048x2048');
+update_option('medium_large_size_w', '0');

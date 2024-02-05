@@ -2,18 +2,16 @@
     {% import "@components/image.twig" as image %}
 
     <section id="bloc-content-1" class="relative container pt-xxl mb-xxl overflow-hidden">
-        <div class="canvasContainer">
+        {# <div class="canvasContainer">
             <canvas class="canvas"></canvas>
-        </div>
+        </div> #}
         <div class="bloc-content--title relative z-10 grid grid-cols-8 lg:grid-cols-12 gap">
             <div class="col-span-5 lg:col-span-4 col-start-2 lg:col-start-7" show-elements>
                 <h2 class="text-primary italic split animation--text" show-element>{{ data.title }}</h2>
             </div>
 
             <div class="bloc-content-image-side relative lg:absolute top-0 w-[12.7rem] lg:w-[26.3rem] aspect-side animation--image-up" show-elements>
-                <div class="animation--image-up--content" show-element>
-                    {{ image.default(data.image_side, '', 'side') }}
-                </div>
+                {{ image.default(data.image_side, '', 'side') }}
             </div>
         </div>
         <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap mt-xl lg:mt-xxl">
@@ -23,17 +21,13 @@
         </div>
         <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 lg:gap">
             <div class="col-span-8 lg:col-span-5 !col-start-1 animation--image-up" show-elements>
-                <div class="animation--image-up--content" show-element>
-                    {{ image.default(data.image_primary, '', 'v-4col') }}
-                </div>
+                {{ image.default(data.image_primary, '', 'v-4col') }}
             </div>
             <div class="col-span-6 lg:col-span-3 col-start-3 lg:col-start-7 mt-xl lg:mt-auto mb-l lg:mb-m">
                 <div>{{ data.texte_2 }}</div>
             </div>
             <div class="col-span-6 lg:col-span-2 col-start-3 lg:col-start-11 lg:mt-auto mb-l lg:mb-m animation--image-up" show-elements>
-                <div class="animation--image-up--content" show-element>
-                    {{ image.default(data.image_secondary, '', 'h-2col') }}
-                </div>
+                {{ image.default(data.image_secondary, '', 'h-2col') }}
             </div>
         </div>
         {% if data.button.url %}

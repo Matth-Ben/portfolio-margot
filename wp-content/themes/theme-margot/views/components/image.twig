@@ -1,7 +1,6 @@
 {% macro default(data, params, aspect, aspectMobile, animate = false) %}
 	{% set image = data.id ? data : timber_post(data) %}
 	
-
     <div class="image {% if aspectMobile %} aspect-{{aspectMobile}} aspect-{{aspect}} {% else %} aspect-{{aspect}} {% endif %} {% if animate %} animation--fade-up {% endif %}" {% if animate %} show-element show-desktop-delay="300" {% endif %}>
 		{% if image.id %}
 			{% if "svg" in image.mime_type or "svg" in image.post_mime_type %}
@@ -11,13 +10,17 @@
 					{% include path %}
 				{% endif %}
 			{% else %}
+				{% set srcset = function('wp_get_attachment_image_srcset', image.id) %}
+				{% set path = function('get_attached_file', image.id) %}
+				
 				<div class="
 					relative w-full h-full childs:w-full childs:h-full child:absolute 
 					{{ aspect_class }} 
 					{% if contain %}childs:object-contain{% else %}childs:object-cover{% endif %}" 
 					{% if parallax %}parallax{% endif %}>
 					<figure>
-						{{ get_image_html(image.id) }}
+						<source type="image/webp" media="(min-width : 300px)" sizes="(max-width: 1023px) 100vw" srcset="{{ srcset }}" />
+						<img src="{{ srcset }}" width="150" height="150" alt="{{ image.alt }}" title="{{ image.title }}" srcset="{{ srcset }}">
 					</figure>
 				</div>
 			{% endif %}
@@ -27,7 +30,6 @@
 
 {% macro full(data, params) %}
 	{% set image = data.id ? data : timber_post(data) %}
-
 	{% if image.id %}
 		{% if "svg" in image.mime_type or "svg" in image.post_mime_type %}
 			{% set path = function('get_attached_file', image.id) %}
@@ -36,12 +38,16 @@
 				{% include path %}
 			{% endif %}
 		{% else %}
+			{% set path = function('wp_get_attachment_image', image.id) %}
+
 			<div class="
 				image relative w-full h-full bg-darkultrasoft childs:w-full childs:h-full child:absolute 
 				{{ aspect_class }} 
 				{% if contain %}childs:object-contain{% else %}childs:object-cover{% endif %}" 
 				{% if parallax %}parallax{% endif %}>
-				{{ get_image_html(image.id) }}
+				<figure>
+					{{ path }}
+				</figure>
 			</div>
 		{% endif %}
 	{% endif %}

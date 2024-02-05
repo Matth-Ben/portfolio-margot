@@ -14,17 +14,13 @@
             </div>
             
             <div class="col-span-8 lg:col-span-6 lg:!col-start-2 lg:order-1 animation--image-up" show-elements>
-                <div class="animation--image-up--content" show-element>
-                    {{ image.default(data.image_primary, '', 'v-6col') }}
-                </div>
+                {{ image.default(data.image_primary, '', 'v-6col') }}
             </div>
         </div>
 
         <div class="bloc-content-text-2 grid grid-cols-8 lg:grid-cols-12 gap">
             <div class="col-span-6 lg:col-span-3 col-start-3 lg:!col-start-10 max-lg:mt-xl animation--image-up" show-elements>
-                <div class="animation--image-up--content" show-element>
-                    {{ image.default(data.image_primary, '', 'h-3col') }}
-                </div>
+                {{ image.default(data.image_primary, '', 'h-3col') }}
                 <div class="mt-l lg:mt-m">{{ data.texte_2 }}</div>
             </div>
         </div>

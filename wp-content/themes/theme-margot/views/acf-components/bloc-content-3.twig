@@ -13,9 +13,7 @@
         <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap">
             <div class="col-span-7 lg:col-span-3 col-start-2 lg:!col-start-9 lg:order-2">
                 <div class="relative lg:-bottom-[13rem] animation--image-up" show-elements>
-                    <div class="animation--image-up--content" show-element>
-                        {{ image.default(data.image_primary, '', 'h-3col') }}
-                    </div>
+                    {{ image.default(data.image_primary, '', 'h-3col') }}
                 </div>
             </div>
 
@@ -26,9 +24,7 @@
 
         <div class="grid grid-cols-8 lg:grid-cols-12 gap mt-l lg:mt-m">
             <div class="col-span-8 lg:col-span-5 lg:!col-start-2 animation--image-up" show-elements>
-                <div class="animation--image-up--content" show-element>
-                    {{ image.default(data.image_primary, '', 'v-4col') }}
-                </div>
+                {{ image.default(data.image_primary, '', 'v-4col') }}
             </div>
             <div class="col-span-6 lg:col-span-3 lg:!col-start-8 mt-xl lg:!mt-auto">
                 <div class="max-lg:mt-l">{{ data.texte_2 }}</div>
