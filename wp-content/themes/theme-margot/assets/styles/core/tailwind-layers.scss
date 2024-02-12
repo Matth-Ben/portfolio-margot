@@ -2,7 +2,7 @@
 
     @for $i from 1 through 24 {
 
-        .w-col-#{$i} {
+        .w-col-#{$i} { 
             width: get-width-of-columns($i);
         }
     }

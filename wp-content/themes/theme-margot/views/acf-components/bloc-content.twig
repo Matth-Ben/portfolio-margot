@@ -1,9 +1,11 @@
 {% macro default(data) %}
-    <section class="bloc-content container my-xl">
+    <section class="bloc-content container mt-l mb-xxl">
         <div class="bloc-content--title relative z-10 grid grid-cols-8 lg:grid-cols-12 gap">
             {% if data.content_1 %}
                 <div class="col-span-5 lg:col-span-3 col-start-2 lg:col-start-3">
-                    {{ fn('wpautop', data.content_1) }}
+                    <div class="wysiwyg">
+                        {{ fn('wpautop', data.content_1) }}
+                    </div>
                 </div>
             {% endif %}
 

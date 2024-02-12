@@ -95,3 +95,7 @@ body {
         &-mobile { aspect-ratio: 428/700; }
     }
 }
+
+.wysiwyg {
+    h3 { @apply text-primary; }
+}

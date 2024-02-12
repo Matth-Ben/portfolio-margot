@@ -6,13 +6,27 @@
             visibility: hidden;
         
             &.words {
+                &.ts-big {
+                    .word {
+                        padding-right: 3rem;
+                        padding-left: 3rem;
+                        margin-right: -3rem;
+                        margin-left: -3rem;
+                    }
+                }
+
                 .word {
                     display: inline-block;
                     overflow: hidden;
                     vertical-align: top;
+                    padding-right: 2rem;
+                    padding-left: 2rem;
+                    margin-right: -2rem;
+                    margin-left: -2rem;
         
                     span {
                         display: inline-block;
+                        // padding-left: 3rem;
                         transform: translate3d(0, 150%, 0) rotate(-4deg);
                         transition: transform var(--animation-property);
                     }
@@ -25,6 +39,14 @@
                         transform: translate3d(0, 0, 0);
                     }
                 }
+
+                // span {
+                //     &:first-child {
+                //         margin-left: -3rem;
+
+                //         span { margin-left: 0; }
+                //     }
+                // }
             }
 
             &.text-italic {

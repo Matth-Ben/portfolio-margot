@@ -19,7 +19,7 @@
         @apply relative z-10 flex w-max mx-auto;
 
         svg {
-            // @apply w-full h-auto;
+            @apply lg:w-[66rem] h-auto;
 
             circle {
                 stroke: rgba(165, 133, 97, 0.30);
@@ -44,7 +44,7 @@
     }
 
     &--dot {
-        @apply absolute top-0 left-0 w-[2rem] h-[2rem] bg-secondary border border-primary border-2 rounded-full scale-50 transition ease-in-out delay-150;
+        @apply absolute top-0 left-1/2 w-[2rem] h-[2rem] bg-secondary border border-primary border-2 rounded-full scale-50 transition ease-in-out delay-150;
         
         @media (hover: hover) {
             &:hover { @apply scale-100; }

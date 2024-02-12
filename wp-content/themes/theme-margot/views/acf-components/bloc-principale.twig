@@ -1,10 +1,10 @@
 {% macro default(data) %}
     {% import "@components/image.twig" as image %}
-    <section class="bg-primary text-white pt-xl pb-[38rem] lg:py-xxl relative">
+    <section class="bg-primary text-white pt-xl pb-[38rem] lg:py-[15rem] relative">
         <div class="container">
             <div class="grid grid-cols-8 lg:grid-cols-12 gap">
                 <div class="col-span-8 lg:col-span-7 lg:col-start-2" show-elements>
-                    <div class="mb-m lg:mb-s split animation--text" show-element>{{ data.suptitle }}</div>
+                    <div class="mb-s lg:mb-0 split animation--text" show-element>{{ data.suptitle }}</div>
                     <h2 class="split animation--text italic" show-element>{{ data.title }}</h2>
                     <a href="{{ data.button.url }}" class="button button--light mt-l">{{ data.button.title }}</a>
                 </div>
