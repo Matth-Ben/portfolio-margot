@@ -28,7 +28,7 @@
         {% if data.button %}
             <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap">
                 <div class="col-span-5 lg:col-span-2 col-start-4 lg:col-start-11 lg:mt-s">
-                    <a href="{{ data.button.url }}" class="button button--light">{{ data.button.title }}</a>
+                    <a href="{{ data.button.url }}" class="button button--light">{{ data.button.title }}{% include "@assets/svg/arrow-custom.svg" %}</a>
                 </div>
             </div>
         {% endif %}

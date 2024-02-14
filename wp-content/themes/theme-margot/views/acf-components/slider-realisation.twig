@@ -38,7 +38,7 @@
                         <div class="slider-realisation--wrapper-item">
                             {{ image.default(post.thumbnail, '', 'video') }}
 
-                            <a href="{{ post.link }}" class="button button--white">Découvrir</a>
+                            <a href="{{ post.link }}" class="button button--white">Découvrir{% include "@assets/svg/arrow-custom.svg" %}</a>
                         </div>    
                     {% endfor %}
                 </div>

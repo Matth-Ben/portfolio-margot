@@ -1,7 +1,11 @@
 .button {
-    @apply ts-label flex justify-center items-center w-[21.3rem] h-[21.3rem] border border-white text-white rounded-full transition ease-in-out delay-150;
+    @apply flex justify-center items-center gap-[1rem] w-[21.3rem] h-[21.3rem] border border-white text-white rounded-full transition ease-in-out delay-150;
 
     path { @apply transition ease-in-out delay-150; }
+
+    svg {
+        @apply w-auto h-[1.4rem];
+    }
 
     @media (hover: hover) {
         &:hover {

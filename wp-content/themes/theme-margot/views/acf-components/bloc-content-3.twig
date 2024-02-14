@@ -31,7 +31,7 @@
 
                 {% if data.button %}
                     <div class="max-lg:hidden child:ml-auto mt-m">
-                        <a href="{{ data.button.url }}" class="button button--dark">{{ data.button.title }}</a>
+                        <a href="{{ data.button.url }}" class="button button--dark">{{ data.button.title }}{% include "@assets/svg/arrow-custom.svg" %}</a>
                     </div>
                 {% endif %}
             </div>
@@ -39,7 +39,7 @@
             <div class="lg:hidden col-span-8">
                 {% if data.button %}
                     <div class="child:ml-auto mt-m">
-                        <a href="{{ data.button.url }}" class="button button--dark">{{ data.button.title }}</a>
+                        <a href="{{ data.button.url }}" class="button button--dark">{{ data.button.title }}{% include "@assets/svg/arrow-custom.svg" %}</a>
                     </div>
                 {% endif %}
             </div>

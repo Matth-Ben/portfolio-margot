@@ -149,3 +149,22 @@
         }
     }
 }
+
+.cover--home {
+    .ts-big.animation {
+        &--text {
+            line-height: 12rem;
+
+            &.split[show-element] {
+                &.words {
+                    &.ts-big {
+                        .word {
+                            padding-bottom: 3rem;
+                            margin-bottom: -3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

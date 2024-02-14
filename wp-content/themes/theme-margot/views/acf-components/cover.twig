@@ -3,7 +3,7 @@
 
 {% macro project(data) %} 
     {% import "@components/image.twig" as image %}
-    <div class="text-primary relative flex flex-col justify-end lg:h-screen overflow-hidden" show-elements>
+    <div class="cover--home text-primary relative flex flex-col justify-end lg:h-screen overflow-hidden" show-elements>
         {# <div class="canvasContainer">
             <canvas class="canvas"></canvas>
         </div> #}
@@ -53,8 +53,8 @@
             </div>
         </div>
 
-        <div class="container relative z-10 mb-l lg:mb-s max-lg:text-center max-lg:mt-[6.4rem]">
-            <h1 class="ts-custom2 ts-primary normal-case split animation--text" show-element>{{ data.title }}</h1>
+        <div class="container relative z-10 mb-l lg:mb-m max-lg:text-center max-lg:mt-[6.4rem]">
+            <h1 class="ts-custom2 ts-primary normal-case split animation--text mb-s" show-element>{{ data.title }}</h1>
             <div class="ts-big uppercase flex max-lg:flex-col justify-between items-center split animation--text" show-element><span>Margot</span><span>Jollit</span></div>
         </div>
     </div>
