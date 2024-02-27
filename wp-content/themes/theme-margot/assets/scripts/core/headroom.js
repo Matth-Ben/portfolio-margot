@@ -22,6 +22,7 @@ export default class Menu {
         this.$itemsDropdown = this.$menu.querySelectorAll('.menu--dropdown')
         this.$linksDropdown = this.$menu.querySelectorAll('.menu--dropdown-link')
         this.$imageDefault = this.$menu.querySelector('.menu--dropdown-image--default')
+        this.currentItem = 0
         this.currentSubMenu = 0
         this.menuOpen = false
         this.submenuIsOpen = false
@@ -77,7 +78,11 @@ export default class Menu {
     
     addEvents() {
         this.$itemsDropdown.forEach((item, i) => {
-            item.addEventListener('click', () => { this.toggleDropdown(item, i) })
+            item.addEventListener('mouseenter', () => { this.toggleDropdown(item, i) })
+
+            item.parentNode.addEventListener('mouseleave', () => {
+                this.submenuClose(item)
+            })
         });
 
         this.$background.addEventListener('click', () => {
@@ -128,12 +133,15 @@ export default class Menu {
     }
 
     toggleDropdown(item, index) {
-        this.currentSubMenu = index
-        
-        if (this.submenuIsOpen) {
-            this.submenuClose(item)
-            this.submenuIsOpen = false
-        } else {
+        if (!this.isAnimating) {
+            if (item.parentNode.classList.contains('active') && item !== this.currentItem) {
+                this.submenuClose(item)
+            }
+
+            this.isAnimating = true
+            this.currentSubMenu = index
+            this.currentItem = item
+
             this.submenuOpen(item)
             this.submenuIsOpen = true
         }
@@ -166,6 +174,8 @@ export default class Menu {
                         yPercent: 0,
                         opacity: 1
                     })
+
+                    this.isAnimating = false
                 }
             })
         }
@@ -197,6 +207,8 @@ export default class Menu {
                         yPercent: -100,
                         duration: 0.8
                     })
+
+                    this.isAnimating = false
                 }
             })
         }
