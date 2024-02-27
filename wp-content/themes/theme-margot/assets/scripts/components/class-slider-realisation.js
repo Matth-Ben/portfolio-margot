@@ -69,17 +69,24 @@ class SliderRealisation
                     return i * this.$itemsCarousel[0].clientWidth
                 }
             },
-            // rotate: (i) => {
-            //     if (i == 0) {
-            //         return 0
-            //     }
+            y: (i) => {
+                if (i == 0) {
+                    return 0
+                } else {
+                    return 20
+                }
+            },
+            rotate: (i) => {
+                if (i == 0) {
+                    return 0
+                }
 
-            //     if (i == this.$itemsCarousel.length - 1) {
-            //         return -15
-            //     } else {
-            //         return 15
-            //     }
-            // }
+                if (i == this.$itemsCarousel.length - 1) {
+                    return -10
+                } else {
+                    return 10
+                }
+            }
         })
     }
 
@@ -98,20 +105,20 @@ class SliderRealisation
             {
                 xPercent: 0,
                 duration,
-                onComplete: () => {
-                    gsap.fromTo(
-                        this.$buttons[slide],
-                        {
-                            yPercent: 100,
-                            opacity: 0
-                        },
-                        {
-                            yPercent: 0,
-                            opacity: 1,
-                            duration: 0.6
-                        }
-                    );
-                }
+            }
+        );
+
+        gsap.fromTo(
+            this.$buttons[slide],
+            {
+                yPercent: 100,
+                opacity: 0
+            },
+            {
+                yPercent: 0,
+                opacity: 1,
+                duration: 0.6,
+                delay: 0.3
             }
         );
         
@@ -131,23 +138,18 @@ class SliderRealisation
         gsap.to(this.$items[slide], {
             xPercent: direction > 0 ? -100 : 100,
             duration,
-            onComplete: () => {
-                gsap.to(this.$buttons[slide], {
-                    yPercent: 100,
-                    opacity: 0,
-                    duration: 0.6
-                });
-            }
+        });
+
+        gsap.to(this.$buttons[slide], {
+            yPercent: 100,
+            opacity: 0,
+            duration: 0.6
         });
         
         gsap.to(this.$items[slide].querySelector('figure'), {
             xPercent: direction > 0 ? 100 : -100,
             duration
         });
-    }
-
-    transitionOutButton(slide) {
-        
     }
 
     transitionInTitle(title) {
@@ -197,14 +199,16 @@ class SliderRealisation
                 gsap.to(item, {
                     x: direction > 0 ? "-=" + this.$itemsCarousel[0].clientWidth :  "+=" + this.$itemsCarousel[0].clientWidth,
                     scale: 1,
-                    // rotate: 0,
+                    y: 0,
+                    rotate: 0,
                     duration
                 });
             } else {
                 gsap.to(item, {
                     x: direction > 0 ? "-=" + this.$itemsCarousel[0].clientWidth :  "+=" + this.$itemsCarousel[0].clientWidth,
+                    y: 20,
+                    rotate: this.carouselWrap(slide - 1) == i ? -10 : 10,
                     scale: 0.75,
-                    // rotate: direction > 0 ? 15 : -15,
                     duration,
                     modifiers: {
                         x: gsap.utils.unitize(gsap.utils.wrap(-this.$itemsCarousel[0].clientWidth * 2, this.$itemsCarousel[0].clientWidth * 4), "px"),
