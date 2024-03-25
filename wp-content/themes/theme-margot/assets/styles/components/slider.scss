@@ -67,7 +67,7 @@
         
                 @apply absolute top-0 left-0 w-full h-full overflow-hidden z-10;
 
-                .image { @apply h-full; }
+                .image { @apply w-full h-full; }
  
                 .button {
                     @apply absolute bottom-[5rem] right-[5rem] z-20;
