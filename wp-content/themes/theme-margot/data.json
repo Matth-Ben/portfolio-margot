@@ -34,6 +34,7 @@
         "lightultrasoft": "rgba(255,255,255,.2)",
         "primary": "#A58561",
         "primary-light": "#FEF1EC",
+        "primary-dark": "#8F7557",
         "secondary": "#EEEAE0",
         "cta-light": "rgba(238, 234, 224, 0.30)",
         "cta-dark": "rgba(165, 133, 97, 0.30)",
@@ -52,7 +53,9 @@
     "textStyles": {
         "h1": {
             "font-size": "5.5rem",
-            "line-height": "8rem"
+            "line-height": "8rem",
+            "font-weight": 300,
+            "text-transform": "uppercase"
         },
         "h2": {
             "font-size": "3.5rem",

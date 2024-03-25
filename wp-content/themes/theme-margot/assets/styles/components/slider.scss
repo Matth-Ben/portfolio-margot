@@ -45,13 +45,21 @@
         }
 
         &--preview {
-            @apply relative w-[31rem] h-[40rem] mx-auto;
+            @apply relative w-[31rem] h-[50rem] d:h-[40rem] mx-auto;
 
             &-item {
-                @apply absolute bottom-0 w-[31rem] h-[40rem] origin-bottom	;
+                @apply absolute bottom-0 w-[31rem] h-[50rem] d:h-[40rem] origin-bottom;
+
+                .image {
+                    @apply max-l:aspect-[326/526]
+                }
 
                 .button {
-                    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14rem] h-[14rem] bg-white text-primary;
+                    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[18rem] d:w-[14rem] h-[18rem] d:h-[14rem] bg-white text-primary;
+
+                    path {
+                        @apply stroke-primary;
+                    }
                 }
             }
         }

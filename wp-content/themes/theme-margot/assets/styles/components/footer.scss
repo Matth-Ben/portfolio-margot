@@ -1,0 +1,9 @@
+footer {
+    &.next-realisation {
+        @apply max-lg:h-max;
+    }
+
+    .container {
+        @apply max-lg:pt-100 max-lg:pb-l;
+    }
+}

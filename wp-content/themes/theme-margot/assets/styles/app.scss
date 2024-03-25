@@ -25,6 +25,7 @@
 @import 'components/shader.scss';
 @import 'components/contact.scss';
 @import 'components/slider-circle.scss';
+@import 'components/footer.scss';
 
 // acf components
 @import 'acf-components/section.scss';
@@ -98,4 +99,8 @@ body {
 
 .wysiwyg {
     h3 { @apply text-primary; }
+}
+
+.space-scroll {
+    @apply h-[100vh] d:h-[75vh];
 }

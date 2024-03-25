@@ -14,7 +14,7 @@
                             </div>
                             <div class="slider-realisation--title text-center">
                                 {% for post in posts %}
-                                    <div class="slider-realisation--title-item ts-h3">{{ post.title }}</div>
+                                    <div class="slider-realisation--title-item ts-custom1 d:ts-h3">{{ post.title }}</div>
                                 {% endfor %}
                             </div>
                         </div>
@@ -23,7 +23,7 @@
                                 <div class="slider-realisation--preview-item rounded-t-[20rem] overflow-hidden">
                                     {{ image.default(post.thumbnail, '', 'v-3col') }}
 
-                                    <a href="{{ post.link }}" class="button lg:hidden">Découvrir</a>
+                                    <a href="{{ post.link }}" class="button lg:hidden">Découvrir{% include "@assets/svg/arrow-custom.svg" %}</a>
                                 </div>    
                             {% endfor %}
                         </div>

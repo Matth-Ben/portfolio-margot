@@ -64,15 +64,15 @@
     {% import "@components/image.twig" as image %}
     <section class="container mb-xl">
         <div class="relative grid grid-cols-8 lg:grid-cols-12 gap-0">
-            <div class="col-span-8 lg:col-span-3 col-start-1 lg:col-start-9 lg:absolute top-0 right-0 w-[32.5rem] h-[42.6rem]">
+            <div class="col-span-8 lg:col-span-3 col-start-1 lg:col-start-9 lg:absolute top-0 right-0 d:w-[32.5rem] d:h-[42.6rem]">
                 <div class="rounded-t-[20rem] overflow-hidden">
                     {{ image.default(data.image_primary, '', 'v-3col', '', false) }}
                 </div>
             </div>
-            <div class="col-span-8 lg:col-span-11 lg:col-start-2 lg:mt-xxl">
+            <div class="col-span-8 lg:col-span-11 lg:col-start-2 mt-l lg:mt-xxl">
                 <h1 class="d:ts-big text-primary split animation--text" show-element>{{data.title}}</h1>
             </div>
-            <div class="col-span-6 lg:col-span-3 col-start-3 lg:col-start-9 lg:-mt-xl">
+            <div class="col-span-6 lg:col-span-3 col-start-3 lg:col-start-9 mt-l lg:-mt-xl">
                 {{ data.content }}
             </div>
         </div>
