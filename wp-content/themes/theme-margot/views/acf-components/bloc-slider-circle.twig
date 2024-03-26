@@ -21,12 +21,14 @@
                         <div class="slider-circle--svg">
                             <svg width="664" height="664" viewBox="0 0 664 664" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="332" cy="332" r="332" stroke="#9192C2" stroke-width="2"></circle>
-                                <circle cx="332" cy="332" r="332" stroke="#0d0c66" id="circlePath" stroke-width="2" style="stroke-dashoffset: -1350;"></circle>
+                                <circle cx="332" cy="332" r="332" stroke="#0d0c66" id="circlePath" stroke-width="2" style="stroke-dashoffset: calc(700  * 3);"></circle>
                             </svg>
 
                             <div class="slider-circle--dots">
                                 {% for item in data.repeater %}
-                                    <button class="slider-circle--dot"></button>
+                                    <button class="slider-circle--dot">
+                                        <div class="slider-circle--dot__content"></div>
+                                    </button>
                                 {% endfor %}
                             </div>
 

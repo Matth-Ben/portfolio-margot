@@ -11,7 +11,7 @@ class SliderCircle
         this.$previous = element.querySelector( '.button--before' )
         this.$next = element.querySelector( '.button--after' )
         this.$mainCircle = element.querySelector(".slider-circle--svg");
-        // this.$svg = this.$mainCircle.getBBox();
+        this.$svg = element.querySelector("#circlePath");
         
         this.current = 0
         this.oldSlide = 0
@@ -39,86 +39,86 @@ class SliderCircle
         this.itemsWrap = gsap.utils.wrap(0, this.$items.length);
 
         this.init()
+        this.initGsap()
         this.events()
     }
 
     init()
     {
+        this.opts = {
+            angle: 0,
+            radius: 0,
+            width: null
+        }
+
         const circleHeight = Math.sqrt(Math.pow(this.$mainCircle.offsetWidth, 2))
         this.opts.radius = circleHeight / 2
+        
+        this.arrayItems.forEach((element, i) => {
+            const { width, height } = this.arrayItems[i].image.getBoundingClientRect()
+            const angle = 360 / this.arrayItems.length * i
+            this.transform(this.arrayItems[i].image, angle, width / 2, height / 2)
 
+            const dotBounding = this.arrayItems[i].dot.getBoundingClientRect()
+            const widthDot = dotBounding.width
+            const heightDot = dotBounding.height
+            this.transform(this.arrayItems[i].dot, angle, widthDot / 2, heightDot / 2)
+        });
+    }
+
+    initGsap() {
         for (let i = 1; i < this.$items.length; i++) {
             gsap.set([this.arrayItems[i]['number'], this.arrayItems[i]['title'], this.arrayItems[i]['content']], {
                 yPercent: 100,
                 stagger: 0.02
             })
-        }
-        
-        for (let i = 0; i < this.arrayItems.length; i++) {
-            const { width, height } = this.arrayItems[i].image.getBoundingClientRect()
-            const angle = 360 / this.arrayItems.length * i
-    
-            this.transform(this.arrayItems[i].dot, angle, 0, 0)
-            this.transform(this.arrayItems[i].image, angle, width / 2, height / 2)
-    
-            gsap.set(this.arrayItems[i].image, { rotate: 8 })
+
+            gsap.set(this.arrayItems[i]['image'], {
+                opacity: 0
+            })
         }
 
-        // this.positionElements(this.$dots)
-        // this.positionElements(this.$imgs)
+        this.arrayItems[0]['dot'].classList.add('current')
+
+        this.arrayItems.forEach((item, i) => {
+            gsap.set(this.arrayItems[i].image, { rotate: 8 })
+        });
     }
 
     events() {
         this.$previous.addEventListener('click', () => { this.handlePrev() })
         this.$next.addEventListener('click', () => { this.handleNext() })
+
+        this.arrayItems.forEach((item, i) => {
+            item['dot'].addEventListener('click', () => {
+                this.oldSlide = this.current;
+                this.current = this.itemsWrap(i);
+                this.transitionOutSlide(this.oldSlide);
+            })
+        });
+
         window.addEventListener('resize', () => { this.init() })
     }
 
     transform(el, angle, offsetX = 0, offsetY = 0) {
         let x, y
-    
-        console.log(this.opts.radius);
+
         if (angle <= 90) {
-            x = (Math.cos((90 - angle) * Math.PI / 180) * this.opts.radius) - 10
+            x = (Math.cos((90 - angle) * Math.PI / 180) * this.opts.radius)
             y = this.opts.radius - Math.sqrt(Math.pow(this.opts.radius, 2) - Math.pow(x, 2))
         } else if (angle > 90 && angle <= 180) {
-            x = (Math.cos((angle - 90) * Math.PI / 180) * this.opts.radius) - 10
+            x = (Math.cos((angle - 90) * Math.PI / 180) * this.opts.radius)
             y = this.opts.radius + Math.sqrt(Math.pow(this.opts.radius, 2) - Math.pow(x, 2))
         } else if (angle > 180 && angle <= 270) {
-            x = (- Math.cos((270 - angle) * Math.PI / 180) * this.opts.radius) - 10
+            x = (- Math.cos((270 - angle) * Math.PI / 180) * this.opts.radius)
             y = this.opts.radius + Math.sqrt(Math.pow(this.opts.radius, 2) - Math.pow(x, 2))
         } else if (angle > 270) {
-            x = (- Math.cos((angle - 270) * Math.PI / 180) * this.opts.radius) - 10
+            x = (- Math.cos((angle - 270) * Math.PI / 180) * this.opts.radius)
             y = this.opts.radius - Math.sqrt(Math.pow(this.opts.radius, 2) - Math.pow(x, 2))
         }
     
         el.style.transform = `translate(${x - offsetX}px, ${y - offsetY}px)`
     }    
-
-    positionElements(items) {
-        console.log(this.$svg);
-        const numImages = items.length;
-        const radius = 332;
-        const widthSVG = this.$svg.width;
-        const heightSVG = this.$svg.height;
-        const angleIncrement = (2 * Math.PI) / numImages;
-        
-        items.forEach((item, index) => {
-            const initialAngle = -Math.PI / 2;
-            const angle = initialAngle + angleIncrement * index;
-            const x = 332 + radius * Math.cos(angle) - item.offsetWidth / 2;
-            const y = 332 + radius * Math.sin(angle) - item.offsetHeight / 2;
-
-            console.log(item);
-            console.log(radius * Math.cos(angle));
-            console.log(item.offsetWidth / 2);
-            console.log(widthSVG);
-            console.log(heightSVG);
-            console.log('----------------------');
-            item.style.left = `${x}px`;
-            item.style.top = `${y}px`;
-        });
-    }
 
     transitionInSlide(slide, duration = 0.6) {
         gsap.fromTo([this.arrayItems[slide]['number'], this.arrayItems[slide]['title'], this.arrayItems[slide]['content']], {
@@ -130,6 +130,45 @@ class SliderCircle
             stagger: 0.1,
             duration
         });
+
+        this.arrayItems[slide]['dot'].classList.add('current')
+
+        gsap.fromTo(this.arrayItems[slide]['image'], {
+            opacity: 0,
+            duration
+        }, {
+            opacity: 1,
+            duration
+        })
+
+        if (slide == 0) {
+            slide = 3
+        }
+
+        let beforeSlide = slide - 1
+
+        if (this.current < this.oldSlide) {
+            beforeSlide = this.oldSlide
+        }
+
+        if (beforeSlide < 0) {
+            beforeSlide = 0
+        }
+
+        gsap.fromTo(this.$svg, {
+            strokeDashoffset: 700 * (3 - beforeSlide),
+        },{
+            strokeDashoffset: 700 * (3 - slide),
+            onComplete: () => {
+                if (slide == 3) {
+                    gsap.fromTo(this.$svg, {
+                        strokeDashoffset: 0,
+                    }, {
+                        strokeDashoffset: -2100,
+                    })
+                }
+            }
+        })
     }
 
     transitionOutSlide(slide, duration = 0.6) {
@@ -141,6 +180,16 @@ class SliderCircle
                 this.transitionInSlide(this.current);
             }
         });
+
+        this.arrayItems[slide]['dot'].classList.remove('current')
+
+        gsap.fromTo(this.arrayItems[slide]['image'], {
+            opacity: 1,
+            duration
+        }, {
+            opacity: 0,
+            duration
+        })
     }
 
     handlePrev() {
