@@ -6,21 +6,24 @@
         '2' : {'width': 213, 'height': 213},
         '3' : {'width': 263, 'height': 391},
         '4' : {'width': 213, 'height': 172},
-        '5' : {'width': 326, 'height': 213}
+        '5' : {'width': 213, 'height': 125},
+        '6' : {'width': 326, 'height': 213}
      } %}
 
     <section id="bloc-gallery-mozaik" class="bloc-gallery-mozaik relative bg-primary overflow-hidden my-xxl">
         <div class="bloc-gallery-mozaik--content flex items-center justify-center h-screen">
             <div class="text-center text-white">
-                <div class="number mb-[1rem]">
+                <div class="flex justify-center number ts-custom2 mb-[1rem] overflow-hidden">
                     0
-                    {% for i, elem in data.elements %}
-                        <span>{{ i + 1 }}</span>
-                    {% endfor %}
+                    <span class="relative block">
+                        {% for i, elem in data.elements %}
+                            <span class="number-item">{{ i + 1 }}</span>
+                        {% endfor %}
+                    </span>
                 </div>
                 <div class="title relative overflow-hidden">
                     {% for elem in data.elements %}
-                        <div>{{ elem.title }}</div>
+                        <div class="title-item ts-highlight d:w-col-6">{{ elem.title }}</div>
                     {% endfor %}
                 </div>
                 <div class="flex items-center justify-center gap-xl mt-m">
@@ -31,9 +34,9 @@
         </div>
 
         {% for i, elem in data.elements %}
-            <div class="absolute bloc-gallery-mozaik--image" style="width: {{sizes[i]['width']}}px; height: {{sizes[i]['height']}}px">
+            <button class="absolute bloc-gallery-mozaik--image bloc-gallery-mozaik--image-{{i + 1}} {% if i == 0 %}active{% endif %}" style="width: {{sizes[i]['width']}}px; height: {{sizes[i]['height']}}px">
                 {{ image.default(elem.image, '', 'mozaik-'~(i + 1)) }}
-            </div>
+            </button>
         {% endfor %}
     </section>
 {% endmacro %}
