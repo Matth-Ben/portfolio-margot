@@ -26,7 +26,7 @@
                         <div class="title-item ts-highlight d:w-col-6">{{ elem.title }}</div>
                     {% endfor %}
                 </div>
-                <div class="flex items-center justify-center gap-xl mt-m">
+                <div class="flex items-center justify-center gap-xxl d:gap-xl mt-l d:mt-m">
                     <button class="button button--before button--small button--small-light">{% include "@assets/svg/arrow-left.svg" %}</button>
                     <button class="button button--after button--small button--small-light">{% include "@assets/svg/arrow-right.svg" %}</button>
                 </div>
@@ -34,7 +34,7 @@
         </div>
 
         {% for i, elem in data.elements %}
-            <button class="absolute bloc-gallery-mozaik--image bloc-gallery-mozaik--image-{{i + 1}} {% if i == 0 %}active{% endif %}" style="width: {{sizes[i]['width']}}px; height: {{sizes[i]['height']}}px">
+            <button class="absolute bloc-gallery-mozaik--image bloc-gallery-mozaik--image-{{i + 1}} {% if i == 0 %}active{% endif %}">
                 {{ image.default(elem.image, '', 'mozaik-'~(i + 1)) }}
             </button>
         {% endfor %}

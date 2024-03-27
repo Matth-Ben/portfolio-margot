@@ -81,7 +81,13 @@ body {
 
 .aspect {
     &-mozaik {
-        &-1 { aspect-ratio: 263/175; }
+        &-1 {
+            aspect-ratio: 160/106;
+
+            @include desktop() {
+                aspect-ratio: 263/175;
+            }
+        } 
         &-2 { aspect-ratio: 326/206; }
         &-3 { aspect-ratio: 213/213; }
         &-4 { aspect-ratio: 263/391; }

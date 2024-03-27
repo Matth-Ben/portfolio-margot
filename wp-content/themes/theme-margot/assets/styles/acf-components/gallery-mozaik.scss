@@ -43,25 +43,25 @@
         @apply transition ease-in-out delay-150;
         
         &-1 {
-            @apply d:top-[15rem] d:left-0;
+            @apply w-160 d:w-263 h-106 d:h-174 top-150 d:top-[15rem] left-24 d:left-0 overflow-hidden;
         }
         &-2 {
-            @apply d:top-0 d:left-[39rem];
+            @apply w-185 d:w-326 h-117 d:h-206 top-0 left-122 d:left-[39rem] overflow-hidden;
         }
         &-3 {
-            @apply d:top-[4.2rem] d:right-[28rem];
+            @apply w-160 d:w-213 h-160 d:h-213 bottom-26 d:bottom-auto d:top-42 left-0 d:left-auto d:right-28 overflow-hidden;
         }
         &-4 {
-            @apply d:bottom-[5.3rem] d:right-0;
+            @apply w-160 d:w-263 h-238 d:h-391 bottom-0 d:bottom-[5.3rem] right-0 overflow-hidden;
         }
         &-5 {
-            @apply d:bottom-[5.3rem] d:right-[39rem];
+            @apply w-111 d:w-213 h-89 d:h-172 top-50 d:top-auto d:bottom-[5.3rem] right-[-4.8rem] d:right-[39rem] overflow-hidden;
         }
         &-6 {
-            @apply d:bottom-0 d:left-[50rem];
+            @apply w-136 d:w-213 h-80 d:h-125 bottom-205 d:bottom-0 left-73 d:left-[50rem] overflow-hidden;
         }
         &-7 {
-            @apply d:bottom-[19.5rem] d:left-[16.5rem];
+            @apply w-185 d:w-326 h-120 d:h-213 top-196 d:top-auto d:bottom-[19.5rem] right-[-7.4rem] d:right-auto d:left-[16.5rem] overflow-hidden;
         }
 
         &:not(.active) {
