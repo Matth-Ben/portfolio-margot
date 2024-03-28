@@ -13,7 +13,8 @@ class CoverRealisations
         this.direction = 1
 
         this.slides = this.$items[0].querySelectorAll('.cover--realisations__item-wrapper__elem')
-        this.titles = this.$items[0].querySelectorAll('.cover--realisations__item-title')
+        this.titles = element.querySelectorAll('.cover--realisations__item-title')
+        this.titlesMobile = element.querySelectorAll('.cover--realisations__item-titleMobile')
         this.slidesWrap = gsap.utils.wrap(0, this.slides.length);
         this.slidesWrapTitle = gsap.utils.wrap(0, this.titles.length);
 
@@ -21,7 +22,7 @@ class CoverRealisations
         this.$items.forEach((element, i) => {
             this.wrapper[i] = {
                 'elem': element.querySelectorAll('.cover--realisations__item-wrapper__elem'),
-                'figure': element.querySelectorAll('figure')
+                'figure': element.querySelectorAll('figure'),
             }
         });
 
@@ -50,8 +51,7 @@ class CoverRealisations
                 },
                 {
                     xPercent: 0,
-                    duration,
-                    delay: 0.04 * i
+                    duration
                 }
             );
             
@@ -62,8 +62,21 @@ class CoverRealisations
                 },
                 {
                     xPercent: 0,
+                    duration
+                }
+            );
+
+            gsap.fromTo(
+                [this.titles[slide], this.titlesMobile[slide]],
+                {
+                    yPercent: direction > 0 ? 100 : -100,
+                    opacity: 0
+                },
+                {
+                    yPercent: 0,
+                    opacity: 1,
                     duration,
-                    delay: 0.04 * i
+                    delay: 0.8
                 }
             );
         })
@@ -73,14 +86,19 @@ class CoverRealisations
         this.wrapper.forEach((element, i) => {
             gsap.to(element.elem[slide], {
                 xPercent: direction > 0 ? -100 : 100,
-                duration,
-                delay: 0.04 * i
+                duration
             });
             
             gsap.to(element.figure[slide], {
                 xPercent: direction > 0 ? 100 : -100,
+                duration
+            });
+
+            gsap.to([this.titles[slide], this.titlesMobile[slide]], {
+                yPercent: direction > 0 ? -100 : 100,
+                opacity: 0,
                 duration,
-                delay: 0.04 * i
+                delay: 0.4
             });
         })
     }

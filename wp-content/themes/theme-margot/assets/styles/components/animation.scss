@@ -153,7 +153,11 @@
 .cover--home {
     .ts-big.animation {
         &--text {
-            line-height: 12rem;
+            line-height: 8rem;
+
+            @include desktop() {
+                line-height: 12rem;
+            }
 
             &.split[show-element] {
                 &.words {

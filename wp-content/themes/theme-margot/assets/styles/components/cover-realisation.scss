@@ -21,11 +21,16 @@
             }
         }
 
-        &-title {
-            opacity: 0;
+        &-title,
+        &-titleMobile {
+            @apply absolute top-0;
 
-            &.active {
-                opacity: 1;
+            &:first-child {
+                @apply relative;
+            }
+
+            &:not(:first-child) {
+                opacity: 0;
             }
         }
     }
