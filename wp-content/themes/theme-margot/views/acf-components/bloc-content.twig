@@ -1,8 +1,8 @@
 {% macro default(data) %}
-    <section class="bloc-content container mt-l mb-xxl">
-        <div class="bloc-content--title relative z-10 grid grid-cols-8 lg:grid-cols-12 gap">
+    <section class="bloc-content container mt-l mb-xl d:mb-xxl">
+        <div class="bloc-content--title relative z-10 grid grid-cols-8 d:grid-cols-12 gap">
             {% if data.content_1 %}
-                <div class="col-span-5 lg:col-span-3 col-start-2 lg:col-start-3">
+                <div class="col-span-5 d:col-span-3 col-start-1 d:col-start-3">
                     <div class="wysiwyg">
                         {{ fn('wpautop', data.content_1) }}
                     </div>
@@ -10,7 +10,7 @@
             {% endif %}
 
             {% if data.content_2 %}
-                <div class="col-span-6 lg:col-span-3 col-start-3 lg:col-start-9 mt-m">
+                <div class="col-span-6 d:col-span-3 col-start-3 d:col-start-9 mt-l d:mt-m">
                     {{ fn('wpautop', data.content_2) }}
                 </div>
             {% endif %}

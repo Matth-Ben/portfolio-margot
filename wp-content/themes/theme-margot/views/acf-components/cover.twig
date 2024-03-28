@@ -3,15 +3,15 @@
 
 {% macro project(data) %} 
     {% import "@components/image.twig" as image %}
-    <div class="cover--home text-primary relative flex flex-col justify-end lg:h-screen overflow-hidden" show-elements>
+    <div class="cover--home text-primary relative flex flex-col justify-end d:h-screen overflow-hidden" show-elements>
         {# <div class="canvasContainer">
             <canvas class="canvas"></canvas>
         </div> #}
-        <div class="relative lg:absolute top-0 left-0 w-full lg:h-screen">
+        <div class="relative d:absolute top-0 left-0 w-full d:h-screen">
             <div class="container w-full">
-                <div class="cover--realisations w-full lg:h-screen">
-                    <div class="cover--realisations__item grid grid-cols-8 lg:grid-cols-12 gap h-full">
-                        <div class="col-span-3 col-start-2 mt-[14rem] max-lg:hidden">
+                <div class="cover--realisations w-full d:h-screen">
+                    <div class="cover--realisations__item grid grid-cols-8 d:grid-cols-12 gap h-full">
+                        <div class="col-span-3 col-start-2 mt-[14rem] max-d:hidden">
                             <div class="cover--realisations__item-wrapper aspect-[326/211]">
                             {% for index, item in data.preview_realisations %}
                                 {% set images = function('get_field', 'images-preview', item.ID) %}
@@ -22,8 +22,8 @@
                             {% endfor %}
                             </div>
                         </div>
-                        <div class="col-span-4 lg:col-span-2 lg:col-start-6 mt-0 lg:!mt-auto lg:!mb-[14rem] max-lg:order-2">
-                            <div class="cover--realisations__item-wrapper aspect-[185/237] lg:aspect-[107/134]">
+                        <div class="col-span-4 d:col-span-2 d:col-start-6 mt-0 d:!mt-auto d:!mb-[14rem] max-d:order-2">
+                            <div class="cover--realisations__item-wrapper aspect-[185/237] d:aspect-[107/134]">
                             {% for index, item in data.preview_realisations %}
                                 {% set images = function('get_field', 'images-preview', item.ID) %}
                                 <a href="{{ TimberPost(item.ID).link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
@@ -32,14 +32,14 @@
                             {% endfor %}
                             </div>
                         </div>
-                        <div class="col-span-2 lg:col-span-1 mt-0 lg:!mt-[14rem] max-lg:order-3">
+                        <div class="col-span-2 d:col-span-1 mt-0 d:!mt-[14rem] max-d:order-3">
                             <div class="flex flex-col items-end gap">
                                 <button class="button button--dark button--before button--small">{% include "@assets/svg/arrow-left.svg" %}</button>
                                 <button class="button button--dark button--after button--small">{% include "@assets/svg/arrow-right.svg" %}</button>
                             </div>
                         </div>
-                        <div class="col-span-6 lg:col-span-4 col-start-3 max-lg:-mr-[2rem] mt-xxl lg:!mt-[14rem]">
-                            <div class="cover--realisations__item-wrapper aspect-[305/218] lg:aspect-[4/3] js--transition-realisation">
+                        <div class="col-span-6 d:col-span-4 col-start-3 max-d:-mr-[2rem] mt-xxl d:!mt-[14rem]">
+                            <div class="cover--realisations__item-wrapper aspect-[305/218] d:aspect-[4/3] js--transition-realisation">
                             {% for index, item in data.preview_realisations %}
                                 {% set images = function('get_field', 'images-preview', item.ID) %}
                                 <a href="{{ TimberPost(item.ID).link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
@@ -53,9 +53,9 @@
             </div>
         </div>
 
-        <div class="container relative z-10 mb-l lg:mb-m max-lg:text-center max-lg:mt-[6.4rem]">
+        <div class="container relative z-10 mb-l d:mb-m max-d:text-center max-d:mt-[6.4rem]">
             <h1 class="ts-custom2 ts-primary normal-case split animation--text mb-s" show-element>{{ data.title }}</h1>
-            <div class="ts-big uppercase flex max-lg:flex-col justify-between items-center split animation--text" show-element><span>Margot</span><span>Jollit</span></div>
+            <div class="ts-big uppercase flex max-d:flex-col justify-between items-center split animation--text" show-element><span>Margot</span><span>Jollit</span></div>
         </div>
     </div>
 {% endmacro %}
@@ -63,16 +63,16 @@
 {% macro page(data) %}
     {% import "@components/image.twig" as image %}
     <section class="container mb-xl">
-        <div class="relative grid grid-cols-8 lg:grid-cols-12 gap-0">
-            <div class="col-span-8 lg:col-span-3 col-start-1 lg:col-start-9 lg:absolute top-0 right-0 d:w-[32.5rem] d:h-[42.6rem]">
+        <div class="relative grid grid-cols-8 d:grid-cols-12 gap-0">
+            <div class="col-span-8 d:col-span-3 col-start-1 d:col-start-9 d:absolute top-0 right-0 d:w-[32.5rem] d:h-[42.6rem]">
                 <div class="rounded-t-[20rem] overflow-hidden">
                     {{ image.default(data.image_primary, '', 'v-3col', '', false) }}
                 </div>
             </div>
-            <div class="col-span-8 lg:col-span-11 lg:col-start-2 mt-l lg:mt-xxl">
+            <div class="col-span-8 d:col-span-11 d:col-start-2 mt-l d:mt-xxl">
                 <h1 class="d:ts-big text-primary split animation--text" show-element>{{data.title}}</h1>
             </div>
-            <div class="col-span-6 lg:col-span-3 col-start-3 lg:col-start-9 mt-l lg:-mt-xl">
+            <div class="col-span-6 d:col-span-3 col-start-3 d:col-start-9 mt-l d:-mt-xl">
                 {{ data.content }}
             </div>
         </div>
@@ -82,28 +82,28 @@
 {% macro pageAdvance(data) %}
     {% import "@components/image.twig" as image %}
     <section class="container mt-xl mb-[15rem]">
-        <div class="relative grid grid-cols-8 lg:grid-cols-12">
-            <div class="hidden lg:block col-span-8 lg:col-span-2 lg:col-start-2">
+        <div class="relative grid grid-cols-8 d:grid-cols-12">
+            <div class="hidden d:block col-span-8 d:col-span-2 d:col-start-2">
                 <div class="animation--image-up" show-elements>
                     {{ image.default(data.image_secondary, '', 'v-2col', '', false) }}
                 </div>
             </div>
-            <div class="col-span-8 lg:col-span-3 lg:absolute top-0 right-0 w-full lg:w-[32.6rem] h-[42.6rem]">
+            <div class="col-span-8 d:col-span-3 d:absolute top-0 right-0 w-full d:w-[32.6rem] d:h-[42.6rem]">
                 <div class="rounded-t-[20rem] overflow-hidden">
                     <div class="animation--image-up" show-elements>
                         {{ image.default(data.image_primary, '', 'v-3col', '', false) }}
                     </div>
                 </div>
             </div>
-            <div class="col-span-8 lg:col-span-10 lg:col-start-2 my-m">
+            <div class="col-span-8 d:col-span-11 d:col-start-2 mt-l d:mt-xxl mb-m">
                 <h1 class="d:ts-big text-primary split animation--text" show-element>{{data.title}}</h1>
             </div>
-            <div class="col-span-8 lg:col-span-2">
+            <div class="col-span-3 d:col-span-2">
                 <div class="animation--image-up" show-elements>
                     {{ image.default(data.image_third, '', 'h-2col', '', false) }}
                 </div>
             </div>
-            <div class="col-span-6 lg:col-span-3 col-start-3 lg:col-start-9 lg:-mt-xl">
+            <div class="col-span-6 d:col-span-3 col-start-3 d:col-start-9 mt-[3rem] d:-mt-xl">
                 {{ data.content }}
             </div>
         </div>
