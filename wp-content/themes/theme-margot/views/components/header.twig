@@ -28,22 +28,24 @@
                         <li class="menu--item max-l:leading-none">
                             {% if item.has_child_class %}
                                 <button class="menu--dropdown max-l:leading-none">{{ item.name }}</button>
-                                <div class="menu--dropdown-contain container min-l:relative">
-                                    <div class="max-l:hidden menu--dropdown-image menu--dropdown-image--default">
-                                        {% set image_id = get_field('image', wp_get_nav_menu_object(menus['header-primary'])) %}
-                                        {{ image.default(image_id) }}
+                                <div class="absolute top-0 left-0 w-full h-dvh d:h-[50vh] translate-x-full d:-translate-y-full">
+                                    <div class="menu--dropdown-contain container min-l:relative">
+                                        <div class="max-l:hidden menu--dropdown-image menu--dropdown-image--default">
+                                            {% set image_id = get_field('image', wp_get_nav_menu_object(menus['header-primary'])) %}
+                                            {{ image.default(image_id) }}
+                                        </div>
+                                        <ul class="menu--dropdown-list">
+                                            {% for child in item.children %}
+                                                <li class="menu--dropdown-item">
+                                                    <div class="max-l:hidden menu--dropdown-image menu--dropdown-image--item">
+                                                        {% set image_id = get_field('image', child.object_id) %}
+                                                        {{ image.default(image_id) }}
+                                                    </div>
+                                                    <a class="menu--dropdown-link" href="{{ child.url }}">{{ child.name }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
                                     </div>
-                                    <ul class="menu--dropdown-list">
-                                        {% for child in item.children %}
-                                            <li class="menu--dropdown-item">
-                                                <div class="max-l:hidden menu--dropdown-image menu--dropdown-image--item">
-                                                    {% set image_id = get_field('image', child.object_id) %}
-                                                    {{ image.default(image_id) }}
-                                                </div>
-                                                <a class="menu--dropdown-link" href="{{ child.url }}">{{ child.name }}</a>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
                                 </div>
                             {% else %}
                                 <a class="max-l:leading-none" href="{{ item.url }}">{{ item.name }}</a>

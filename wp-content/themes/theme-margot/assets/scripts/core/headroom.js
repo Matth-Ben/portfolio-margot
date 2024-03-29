@@ -31,7 +31,6 @@ export default class Menu {
 
     init() {
         gsap.set(this.$submenus, {
-            yPercent: -100,
             height: '50vh',
             stagger: 0.01
         })
@@ -161,7 +160,7 @@ export default class Menu {
             item.parentNode.classList.add('active')
     
             gsap.to(this.submenu, {
-                yPercent: 0,
+                yPercent: 100,
                 duration: 0.8,
                 onComplete: () => {
                     gsap.to(item.parentNode.querySelectorAll('.menu--dropdown-link'), {
@@ -204,7 +203,7 @@ export default class Menu {
                 opacity: 0,
                 onComplete: () => {
                     gsap.to(this.submenu, {
-                        yPercent: -100,
+                        yPercent: 0,
                         duration: 0.8
                     })
 

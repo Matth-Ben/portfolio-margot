@@ -111,3 +111,9 @@ body {
 .space-scroll {
     @apply h-[100vh] d:h-[75vh];
 }
+
+.ts-big-title {
+    font-size: 15rem;
+    font-weight: 300;
+    line-height: 12rem;
+}

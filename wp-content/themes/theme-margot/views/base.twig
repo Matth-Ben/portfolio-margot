@@ -23,7 +23,16 @@
 	{% include "_grid-helper.twig" %}
 	
 	<div class="welcome">
-		<p class="ts-h2 animation--fade-up">Bienvenue</p>
+		<div class="container h-full">
+			<div class="welcome-content relative flex flex-col justify-between h-full overflow-hidden" style="width: 0;">
+				<div class="welcome-title flex justify-between gap-[9rem] ts-big ts-big-title ts-big-title w-full mt-m mb-l d:mb-m">
+					<span>Margot</span>
+					<span>Jollit</span>
+				</div>
+
+				<div class="percentage ts-h3"><span>0</span>%</div>
+			</div>
+		</div> 
 	</div>
 </body>
 </html>
