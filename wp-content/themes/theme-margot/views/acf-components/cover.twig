@@ -22,7 +22,7 @@
                             </div>
                             <div class="cover--realisation__titles-wrapper overflow-hidden relative mt-10">
                                 {% for index, item in data.preview_realisations %}
-                                    <div class="cover--realisations__item-title animation--fade-up" show-element show-delay="250">0{{index + 1}} / {{ item.post_title }}</div>
+                                    <div class="cover--realisations__item-title {% if index == 0 %}animation--fade-up{% endif %}" show-element show-delay="250">0{{index + 1}} / {{ item.post_title }}</div>
                                 {% endfor %}
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="cover--realisation__titles-wrapper overflow-hidden relative d:hidden mt-10">
                                 {% for index, item in data.preview_realisations %}
-                                    <div class="cover--realisations__item-titleMobile animation--fade-up" show-element show-delay="300">0{{index + 1}} / {{ item.post_title }}</div>
+                                    <div class="cover--realisations__item-titleMobile {% if index == 0 %}animation--fade-up{% endif %}" show-element show-delay="300">0{{index + 1}} / {{ item.post_title }}</div>
                                 {% endfor %}
                             </div>
                         </div>
