@@ -54,7 +54,8 @@ class CoverRealisations
                 },
                 {
                     xPercent: 0,
-                    duration,
+                    duration: 1.2,
+                    ease: "expo.out",
                     delay: 0.1 + (0.1 * i)
                 }
             );
@@ -66,7 +67,8 @@ class CoverRealisations
                 },
                 {
                     xPercent: 0,
-                    duration,
+                    duration: 1.2,
+                    ease: "expo.out",
                     delay: 0.1 + (0.1 * i)
                 }
             );
@@ -108,13 +110,15 @@ class CoverRealisations
         this.wrapper.forEach((element, i) => {
             gsap.to(element.elem[slide], {
                 xPercent: direction > 0 ? 100 : -100,
-                duration,
+                duration: 1.2,
+                ease: "expo.out",
                 delay: 0.1 + (0.1 * i)
             });
             
             gsap.to(element.figure[slide], {
                 xPercent: direction > 0 ? -100 : 100,
-                duration,
+                duration: 1.2,
+                ease: "expo.out",
                 delay: 0.1 + (0.1 * i)
             });
 
