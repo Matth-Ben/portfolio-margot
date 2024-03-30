@@ -11,10 +11,13 @@ class CoverRealisations
         this.current = 0
         this.oldSlide = 0
         this.direction = 1
+        this.isAnimated = false
 
         this.slides = this.$items[0].querySelectorAll('.cover--realisations__item-wrapper__elem')
-        this.titles = element.querySelectorAll('.cover--realisations__item-title')
-        this.titlesMobile = element.querySelectorAll('.cover--realisations__item-titleMobile')
+        this.titles = element.querySelectorAll('.cover--realisations__item-title__text')
+        this.numbers = element.querySelectorAll('.cover--realisations__item-title__number')
+        this.titlesMobile = element.querySelectorAll('.cover--realisations__item-titleMobile__text')
+        this.numbersMobile = element.querySelectorAll('.cover--realisations__item-titleMobile__number')
         this.slidesWrap = gsap.utils.wrap(0, this.slides.length);
         this.slidesWrapTitle = gsap.utils.wrap(0, this.titles.length);
 
@@ -47,22 +50,24 @@ class CoverRealisations
             gsap.fromTo(
                 element.elem[slide],
                 {
-                    xPercent: direction > 0 ? 100 : -100
+                    xPercent: direction > 0 ? -100 : 100
                 },
                 {
                     xPercent: 0,
-                    duration
+                    duration,
+                    delay: 0.1 + (0.1 * i)
                 }
             );
             
             gsap.fromTo(
                 element.figure[slide],
                 {
-                    xPercent: direction > 0 ? -100 : 100
+                    xPercent: direction > 0 ? 100 : -100
                 },
                 {
                     xPercent: 0,
-                    duration
+                    duration,
+                    delay: 0.1 + (0.1 * i)
                 }
             );
 
@@ -70,6 +75,23 @@ class CoverRealisations
                 [this.titles[slide], this.titlesMobile[slide]],
                 {
                     yPercent: direction > 0 ? 100 : -100,
+                    opacity: 0
+                },
+                {
+                    yPercent: 0,
+                    opacity: 1,
+                    duration,
+                    delay: 0.8,
+                    onComplete: () => {
+                        this.isAnimated = false
+                    }
+                }
+            );
+
+            gsap.fromTo(
+                [this.numbers[slide], this.numbersMobile[slide]],
+                {
+                    yPercent: direction > 0 ? -100 : 100,
                     opacity: 0
                 },
                 {
@@ -85,17 +107,27 @@ class CoverRealisations
     transitionOutSlide(slide, direction = 1, duration = 1) {
         this.wrapper.forEach((element, i) => {
             gsap.to(element.elem[slide], {
-                xPercent: direction > 0 ? -100 : 100,
-                duration
+                xPercent: direction > 0 ? 100 : -100,
+                duration,
+                delay: 0.1 + (0.1 * i)
             });
             
             gsap.to(element.figure[slide], {
-                xPercent: direction > 0 ? 100 : -100,
-                duration
+                xPercent: direction > 0 ? -100 : 100,
+                duration,
+                delay: 0.1 + (0.1 * i)
             });
 
+            console.log(this.titles[slide]);
             gsap.to([this.titles[slide], this.titlesMobile[slide]], {
                 yPercent: direction > 0 ? -100 : 100,
+                opacity: 0,
+                duration,
+                delay: 0.4
+            });
+
+            gsap.to([this.numbers[slide], this.numbersMobile[slide]], {
+                yPercent: direction > 0 ? 100 : -100,
                 opacity: 0,
                 duration,
                 delay: 0.4
@@ -104,17 +136,23 @@ class CoverRealisations
     }
 
     handlePrev() {
-        this.oldSlide = this.current;
-        this.current = this.slidesWrap(this.current - 1);
-        this.transitionInSlide(this.current, -1, 0.4);
-        this.transitionOutSlide(this.oldSlide, -1, 0.4);
+        if (!this.isAnimated) {
+            this.isAnimated = true
+            this.oldSlide = this.current;
+            this.current = this.slidesWrap(this.current - 1);
+            this.transitionInSlide(this.current, -1, 0.4);
+            this.transitionOutSlide(this.oldSlide, -1, 0.4);   
+        }
     }
   
     handleNext() {
-        this.oldSlide = this.current;
-        this.current = this.slidesWrap(this.current + 1);
-        this.transitionInSlide(this.current, 1, 0.4);
-        this.transitionOutSlide(this.oldSlide, 1, 0.4);
+        if (!this.isAnimated) {
+            this.isAnimated = true
+            this.oldSlide = this.current;
+            this.current = this.slidesWrap(this.current + 1);
+            this.transitionInSlide(this.current, 1, 0.4);
+            this.transitionOutSlide(this.oldSlide, 1, 0.4);   
+        }
     }
 }
 

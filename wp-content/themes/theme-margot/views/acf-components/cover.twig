@@ -21,9 +21,9 @@
                             {% endfor %}
                             </div>
                             <div class="cover--realisation__titles-wrapper overflow-hidden relative mt-10">
-                                {% for index, item in data.preview_realisations %}
-                                    <div class="cover--realisations__item-title {% if index == 0 %}animation--fade-up{% endif %}" show-element show-delay="250">0{{index + 1}} / {{ item.post_title }}</div>
-                                {% endfor %}
+                                <div class="cover--realisations__item-title animation--fade-up" show-element show-delay="250">
+                                    0<div class="relative inline">{% for index, item in data.preview_realisations %}<span class="cover--realisations__item-title__number">{{index + 1}}</span>{% endfor %}</div> / <div class="relative inline">{% for index, item in data.preview_realisations %}<span class="cover--realisations__item-title__text">{{item.post_title}}</span>{% endfor %}</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-span-4 d:col-span-2 d:col-start-6 mt-0 d:!mt-auto d:!mb-[14rem] max-d:order-2">
@@ -36,9 +36,9 @@
                             {% endfor %}
                             </div>
                             <div class="cover--realisation__titles-wrapper overflow-hidden relative d:hidden mt-10">
-                                {% for index, item in data.preview_realisations %}
-                                    <div class="cover--realisations__item-titleMobile {% if index == 0 %}animation--fade-up{% endif %}" show-element show-delay="300">0{{index + 1}} / {{ item.post_title }}</div>
-                                {% endfor %}
+                                <div class="cover--realisations__item-titleMobile animation--fade-up" show-element show-delay="250">
+                                    0<div class="relative inline">{% for index, item in data.preview_realisations %}<span class="cover--realisations__item-titleMobile__number">{{index + 1}}</span>{% endfor %}</div> / <div class="relative inline">{% for index, item in data.preview_realisations %}<span class="cover--realisations__item-titleMobile__text">{{item.post_title}}</span>{% endfor %}</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-span-2 d:col-span-1 mt-0 d:!mt-[14rem] max-d:order-3">
@@ -64,7 +64,7 @@
 
         <div class="container relative z-10 mb-l d:mb-m max-d:text-center max-d:mt-[6.4rem]">
             <h1 class="ts-custom2 ts-primary normal-case split animation--text mb-20 d:mb-s" show-element show-delay="600">{{ data.title }}</h1>
-            <div class="ts-big ts-big-title uppercase flex max-d:flex-col justify-between items-center" show-element><span>Margot</span><span>Jollit</span></div>
+            <div class="ts-big ts-big-title uppercase flex gap-[9rem] max-d:flex-col justify-between items-center" show-element><span>Margot</span><span>Jollit</span></div>
         </div>
     </div>
 {% endmacro %}

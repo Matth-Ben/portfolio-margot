@@ -32,6 +32,17 @@
             &:not(:first-child) {
                 opacity: 0;
             }
+
+            &__number,
+            &__text {
+                position: absolute;
+                left: 0;
+
+                &:first-child {
+                    position: relative;
+                    display: inline-block;
+                }
+            }
         }
     }
 }
