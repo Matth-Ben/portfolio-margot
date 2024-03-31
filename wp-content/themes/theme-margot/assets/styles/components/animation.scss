@@ -172,6 +172,15 @@
             }
         }
     }
+
+    &--opacity {
+        opacity: 0;
+        transition: opacity 0.92s cubic-bezier(0.16, 1, 0.3, 1);
+
+        &.is-in-view {
+            opacity: 1;
+        }
+    }
 }
 
 .cover--home {

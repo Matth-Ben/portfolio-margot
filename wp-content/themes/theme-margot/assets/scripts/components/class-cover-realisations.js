@@ -14,10 +14,8 @@ class CoverRealisations
         this.isAnimated = false
 
         this.slides = this.$items[0].querySelectorAll('.cover--realisations__item-wrapper__elem')
-        this.titles = element.querySelectorAll('.cover--realisations__item-title__text')
-        this.numbers = element.querySelectorAll('.cover--realisations__item-title__number')
-        this.titlesMobile = element.querySelectorAll('.cover--realisations__item-titleMobile__text')
-        this.numbersMobile = element.querySelectorAll('.cover--realisations__item-titleMobile__number')
+        this.titles = element.querySelectorAll('.cover--realisations__item-title')
+        this.titlesMobile = element.querySelectorAll('.cover--realisations__item-titleMobile')
         this.slidesWrap = gsap.utils.wrap(0, this.slides.length);
         this.slidesWrapTitle = gsap.utils.wrap(0, this.titles.length);
 
@@ -83,24 +81,11 @@ class CoverRealisations
                     yPercent: 0,
                     opacity: 1,
                     duration,
+                    ease: "expo.out",
                     delay: 0.8,
                     onComplete: () => {
                         this.isAnimated = false
                     }
-                }
-            );
-
-            gsap.fromTo(
-                [this.numbers[slide], this.numbersMobile[slide]],
-                {
-                    yPercent: direction > 0 ? -100 : 100,
-                    opacity: 0
-                },
-                {
-                    yPercent: 0,
-                    opacity: 1,
-                    duration,
-                    delay: 0.8
                 }
             );
         })
@@ -127,13 +112,7 @@ class CoverRealisations
                 yPercent: direction > 0 ? -100 : 100,
                 opacity: 0,
                 duration,
-                delay: 0.4
-            });
-
-            gsap.to([this.numbers[slide], this.numbersMobile[slide]], {
-                yPercent: direction > 0 ? 100 : -100,
-                opacity: 0,
-                duration,
+                ease: "expo.out",
                 delay: 0.4
             });
         })

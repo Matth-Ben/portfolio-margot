@@ -18,4 +18,20 @@ figure {
             @apply bg-primary;
         }
     }
+
+    &--parallax {
+        @apply overflow-hidden;
+
+        & > div {
+            @apply w-full h-full;
+
+            --tw-scale-x: 1.2;
+            --tw-scale-y: 1.2;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        
+            & > div {
+                @apply w-full h-full;
+            }
+        }
+    }
 }
