@@ -1,11 +1,12 @@
 {% extends "base-realisation.twig" %}
 
 {% import "@components/flex-content.twig" as flex %}
+{% import "@components/image.twig" as image %}
 
 {% block pageContent %}
     <div class="cover">
         <figure class="cover--back">
-            <img class="aspect-[4/3]" src="{{ post.thumbnail.src }}" alt="">
+            {{ image.default(post.thumbnail, '', '[4/3]') }}
         </figure>
         
         <div class="cover--container">
