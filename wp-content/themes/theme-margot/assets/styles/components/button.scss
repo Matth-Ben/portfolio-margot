@@ -2,7 +2,7 @@
     transition-duration: 0.92s;
     transition-property: cubic-bezier(0.16, 1, 0.3, 1);
     
-    @apply relative flex justify-center items-center gap-[1rem] w-[21.3rem] h-[21.3rem] border border-white text-white rounded-full transition overflow-hidden;
+    @apply relative flex justify-center items-center gap-[1rem] w-[21.3rem] h-[21.3rem] ts-cta border border-white text-white rounded-full transition overflow-hidden;
 
     path { @apply transition ease-in-out; }
 
