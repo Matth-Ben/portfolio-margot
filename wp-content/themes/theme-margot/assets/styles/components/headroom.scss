@@ -138,15 +138,7 @@ header {
         @apply relative z-20;
 
         &-contain {
-            @apply bg-primary text-white top-0 left-0 flex items-start justify-end w-full h-screen lg:h-[50vh] z-10 overflow-hidden;
-        
-            @media (max-width: 1024px) {
-                @apply px-0;
-            }
-
-            @media (min-width: 1024px) {
-                @apply absolute pt-xl pb-s;
-            }
+            @apply bg-primary text-white top-0 left-0 flex items-start justify-end w-full h-screen lg:h-[50vh] z-10 overflow-hidden max-d:px-0 d:absolute d:pt-xl d:pb-s;
         }
 
         &-image {
