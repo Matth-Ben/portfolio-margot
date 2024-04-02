@@ -47,7 +47,7 @@
     }
 
     &--dark {
-        @apply border border-primary text-primary bg-transparent;
+        @apply border border-primary-opacity text-primary bg-transparent;
 
         path { @apply stroke-primary; }
 
