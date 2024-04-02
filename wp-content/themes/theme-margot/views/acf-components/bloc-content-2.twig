@@ -2,32 +2,32 @@
     {% import "@components/image.twig" as image %}
 
     <section id="bloc-content-2" class="relative container overflow-hidden my-xxl">
-        <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap">
-            <div class="col-span-6 lg:col-span-5 lg:col-start-2" show-elements>
+        <div class="relative z-10 grid grid-cols-8 d:grid-cols-12 gap">
+            <div class="col-span-6 d:col-span-5 d:col-start-2" show-elements>
                 <h2 class="text-primary italic split animation--text" show-element>{{ data.title }}</h2>
             </div>
         </div>
 
-        <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap mt-xl lg:mt-xl">
-            <div class="col-span-7 lg:col-span-4 col-start-2 lg:col-start-9 mb-l lg:mb-m lg:order-2">
+        <div class="relative z-10 grid grid-cols-8 d:grid-cols-12 gap mt-xl d:mt-xl">
+            <div class="col-span-7 d:col-span-4 col-start-2 d:col-start-9 mb-l d:mb-m d:order-2">
                 <div class="ts-highlight text-primary-dark split animation--text">{{ data.texte_1 }}</div>
             </div>
             
-            <div class="col-span-8 lg:col-span-6 lg:!col-start-2 lg:order-1 animation--image-up" show-elements>
+            <div class="col-span-8 d:col-span-6 d:!col-start-1 d:order-1">
                 {{ image.default(data.image_primary, '', 'v-6col') }}
             </div>
         </div>
 
-        <div class="bloc-content-text-2 grid grid-cols-8 lg:grid-cols-12 gap">
-            <div class="col-span-6 lg:col-span-3 col-start-3 lg:!col-start-10 max-lg:mt-xl animation--image-up" show-elements>
+        <div class="bloc-content-text-2 grid grid-cols-8 d:grid-cols-12 gap">
+            <div class="col-span-6 d:col-span-4 col-start-3 d:!col-start-9 max-d:mt-xl">
                 {{ image.default(data.image_primary, '', 'h-3col') }}
-                <div class="mt-l lg:mt-[3rem]">{{ data.texte_2 }}</div>
+                <div class="mt-l d:mt-[3rem]">{{ data.texte_2 }}</div>
             </div>
         </div>
         
         {% if data.button %}
-            <div class="relative z-10 grid grid-cols-8 lg:grid-cols-12 gap">
-                <div class="col-span-5 lg:col-span-2 col-start-4 lg:col-start-11 lg:mt-s">
+            <div class="relative z-10 grid grid-cols-8 d:grid-cols-12 gap">
+                <div class="col-span-5 d:col-span-2 col-start-4 d:col-start-11 d:mt-s">
                     <a href="{{ data.button.url }}" class="button button--light">{{ data.button.title }}{% include "@assets/svg/arrow-custom.svg" %}</a>
                 </div>
             </div>
