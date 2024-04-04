@@ -10,7 +10,6 @@ class SliderRealisation
         this.$itemsImage = element.querySelectorAll( 'figure' )
         this.$numbers = element.querySelectorAll( '.slider-realisation--number-item' )
         this.$titles = element.querySelectorAll( '.slider-realisation--title-item' )
-        this.$buttons = this.$wrapper.querySelectorAll( '.button' )
         this.$previous = element.querySelector( '.button--before' )
         this.$next = element.querySelector( '.button--after' )
         this.$carousel = element.querySelector( '.slider-realisation--preview' )
@@ -26,7 +25,6 @@ class SliderRealisation
         this.titlesWrap = gsap.utils.wrap(0, this.$titles.length);
         this.numbersWrap = gsap.utils.wrap(0, this.$numbers.length);
         this.carouselWrap = gsap.utils.wrap(0, this.$itemsCarousel.length);
-        this.buttonWrap = gsap.utils.wrap(0, this.$buttons.length);
 
         this.init()
         this.events()
@@ -44,16 +42,6 @@ class SliderRealisation
             this.transitionOutTitle(index);
             this.transitionOutSlide(index, 0);
             this.transitionOutNumber(index, 0);
-        });
-
-        this.$buttons.forEach((button, i) => {
-            if (i != 0) {
-                gsap.set(button, {
-                    yPercent: 100,
-                    opacity: 0,
-                    duration: 0.6
-                });
-            }
         });
 
         gsap.set(this.$itemsCarousel, {
@@ -109,20 +97,6 @@ class SliderRealisation
         );
 
         gsap.fromTo(
-            this.$buttons[slide],
-            {
-                yPercent: 100,
-                opacity: 0
-            },
-            {
-                yPercent: 0,
-                opacity: 1,
-                duration: 0.6,
-                delay: 0.3
-            }
-        );
-        
-        gsap.fromTo(
             this.$items[slide].querySelector('figure'),
             {
                 xPercent: direction > 0 ? -100 : 100
@@ -138,12 +112,6 @@ class SliderRealisation
         gsap.to(this.$items[slide], {
             xPercent: direction > 0 ? -100 : 100,
             duration,
-        });
-
-        gsap.to(this.$buttons[slide], {
-            yPercent: 100,
-            opacity: 0,
-            duration: 0.6
         });
         
         gsap.to(this.$items[slide].querySelector('figure'), {
@@ -201,7 +169,10 @@ class SliderRealisation
                     scale: 1,
                     y: 0,
                     rotate: 0,
-                    duration
+                    duration,
+                    onComplete: () => {
+                        this.isAnimated = false
+                    }
                 });
             } else {
                 gsap.to(item, {
@@ -212,6 +183,9 @@ class SliderRealisation
                     duration,
                     modifiers: {
                         x: gsap.utils.unitize(gsap.utils.wrap(-this.$itemsCarousel[0].clientWidth * 2, this.$itemsCarousel[0].clientWidth * 4), "px"),
+                    },
+                    onComplete: () => {
+                        this.isAnimated = false
                     }
                 });
             }
@@ -219,28 +193,34 @@ class SliderRealisation
     }
 
     handlePrev() {
-        this.oldSlide = this.current;
-        this.current = this.slidesWrap(this.current - 1);
-        this.transitionInSlide(this.current, -1);
-        this.transitionOutSlide(this.oldSlide, -1);
-        this.transitionInTitle(this.current);
-        this.transitionOutTitle(this.oldSlide);
-        this.transitionInCarousel(this.current, -1);
-        this.transitionInNumber(this.current);
-        this.transitionOutNumber(this.oldSlide);
+        if (!this.isAnimated) {
+            this.isAnimated = true;
+            this.oldSlide = this.current;
+            this.current = this.slidesWrap(this.current - 1);
+            this.transitionInSlide(this.current, -1);
+            this.transitionOutSlide(this.oldSlide, -1);
+            this.transitionInTitle(this.current);
+            this.transitionOutTitle(this.oldSlide);
+            this.transitionInCarousel(this.current, -1);
+            this.transitionInNumber(this.current);
+            this.transitionOutNumber(this.oldSlide);
+        }
     }
   
     handleNext() {
-        this.oldSlide = this.current;
-        this.current = this.slidesWrap(this.current + 1);
-        this.transitionInSlide(this.current);
-        this.transitionOutSlide(this.oldSlide);
-        this.transitionInTitle(this.current);
-        this.transitionOutTitle(this.oldSlide);
-        this.transitionOutTitle(this.oldSlide);
-        this.transitionInCarousel(this.current);
-        this.transitionInNumber(this.current, -1);
-        this.transitionOutNumber(this.oldSlide, -1);
+        if (!this.isAnimated) {
+            this.isAnimated = true;
+            this.oldSlide = this.current;
+            this.current = this.slidesWrap(this.current + 1);
+            this.transitionInSlide(this.current);
+            this.transitionOutSlide(this.oldSlide);
+            this.transitionInTitle(this.current);
+            this.transitionOutTitle(this.oldSlide);
+            this.transitionOutTitle(this.oldSlide);
+            this.transitionInCarousel(this.current);
+            this.transitionInNumber(this.current, -1);
+            this.transitionOutNumber(this.oldSlide, -1);
+        }
     }
 }
 
