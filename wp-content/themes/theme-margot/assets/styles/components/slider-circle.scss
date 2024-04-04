@@ -13,12 +13,24 @@
 
     &--number { @apply text-primary; }
 
-    &--title { @apply text-primary; }
+    &--title {
+        @apply text-primary;
+
+        &.words {
+            .word {
+                @apply inline-block overflow-hidden;
+
+                span { @apply inline-block; }
+            }
+        }
+    }
 
     &--svg {
         @apply relative z-10 flex w-max mx-auto;
 
         svg {
+            overflow: initial;
+
             @apply lg:w-[66rem] h-auto;
 
             circle {

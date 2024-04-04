@@ -27,14 +27,19 @@ class SliderCircle
         }
 
         this.$items.forEach((item, i) => {
+            // Corriger la récupération des éléments
+            let titleWords = item.querySelectorAll('.slider-circle--title .word')
+            let contentWords = item.querySelectorAll('.slider-circle--title .word')
             this.arrayItems[i] = {
                 'number' : item.querySelector('.slider-circle--number'),
-                'title' : item.querySelector('.slider-circle--title'),
-                'content' : item.querySelector('.slider-circle--content'),
+                'title' : item.querySelectorAll('.slider-circle--title .word span'),
+                'content' : item.querySelector('.slider-circle--content .word span'),
                 'image' : this.$imgs[i],
                 'dot' : this.$dots[i],
             }
         });
+
+        console.log(this.arrayItems);
 
         this.itemsWrap = gsap.utils.wrap(0, this.$items.length);
 
@@ -68,7 +73,16 @@ class SliderCircle
 
     initGsap() {
         for (let i = 1; i < this.$items.length; i++) {
-            gsap.set([this.arrayItems[i]['number'], this.arrayItems[i]['title'], this.arrayItems[i]['content']], {
+            gsap.set([this.arrayItems[i]['number']], {
+                yPercent: 100,
+                stagger: 0.02
+            })
+            console.log();
+            gsap.set(this.arrayItems[i]['title'], {
+                yPercent: 100,
+                stagger: 0.02
+            })
+            gsap.set(this.arrayItems[i]['content'], {
                 yPercent: 100,
                 stagger: 0.02
             })
@@ -121,7 +135,7 @@ class SliderCircle
     }    
 
     transitionInSlide(slide, duration = 0.6) {
-        gsap.fromTo([this.arrayItems[slide]['number'], this.arrayItems[slide]['title'], this.arrayItems[slide]['content']], {
+        gsap.fromTo([this.arrayItems[slide]['number']], {
             yPercent: 100,
             stagger: 0.1,
             duration
@@ -131,13 +145,41 @@ class SliderCircle
             duration
         });
 
+        this.arrayItems[slide]['title'].forEach(word => {
+            gsap.fromTo(word, {
+                yPercent: 100,
+                stagger: 0.1,
+                duration
+            },{
+                yPercent: 0,
+                stagger: 0.1,
+                duration
+            });
+        });
+
+        console.log(this.arrayItems[slide]['content']);
+        this.arrayItems[slide]['content'].forEach(word => {
+            gsap.fromTo(word, {
+                yPercent: 100,
+                stagger: 0.1,
+                duration
+            },{
+                yPercent: 0,
+                stagger: 0.1,
+                duration
+            });
+        });
+
         this.arrayItems[slide]['dot'].classList.add('current')
 
         gsap.fromTo(this.arrayItems[slide]['image'], {
             opacity: 0,
+            scale: 0,
             duration
         }, {
             opacity: 1,
+            scale: 1,
+            ease: "expo.out",
             duration
         })
 
@@ -185,9 +227,12 @@ class SliderCircle
 
         gsap.fromTo(this.arrayItems[slide]['image'], {
             opacity: 1,
+            scale: 1,
             duration
         }, {
             opacity: 0,
+            scale: 0,
+            ease: "expo.out",
             duration
         })
     }

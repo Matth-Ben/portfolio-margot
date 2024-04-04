@@ -49,10 +49,10 @@
                                             <div class="slider-circle--number">0{{key+1}}</div>
                                         </div>
                                         <div class="overflow-hidden">
-                                            <h3 class="slider-circle--title">{{ item.title }}</h3>
+                                            <h3 class="slider-circle--title split">{{ item.title }}</h3>
                                         </div>
                                         <div class="overflow-hidden mt-s">
-                                            <div class="slider-circle--content ts-body">{{ fn('wpautop', item.content) }}</div>
+                                            <div class="slider-circle--content ts-body split lines">{{ fn('wpautop', item.content) }}</div>
                                         </div>
                                     </div>
                                 {% endfor %}
