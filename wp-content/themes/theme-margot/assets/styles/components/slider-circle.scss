@@ -4,7 +4,7 @@
     &--nav { @apply absolute bottom-[7rem] left-1/2 z-20 -translate-x-1/2; }
     
     &--wrapper {
-        @apply absolute top-xl left-1/2 z-10 -translate-x-1/2;
+        @apply absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2;
 
         &-content { @apply relative w-[40rem]; }
     }
@@ -16,6 +16,16 @@
     &--title {
         @apply text-primary;
 
+        &.words {
+            .word {
+                @apply inline-block overflow-hidden;
+
+                span { @apply inline-block; }
+            }
+        }
+    }
+
+    &--content {
         &.words {
             .word {
                 @apply inline-block overflow-hidden;

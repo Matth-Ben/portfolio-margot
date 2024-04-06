@@ -5,9 +5,12 @@ class SliderCircle
     constructor( element )
     {
         this.element = element
+        this.$container = element.querySelector( '.slider-circle--wrapper' )
         this.$items = element.querySelectorAll( '.slider-circle--item' )
         this.$imgs = element.querySelectorAll( '.slider-circle--img' )
         this.$dots = element.querySelectorAll( '.slider-circle--dot' )
+        this.$titles = element.querySelectorAll( '.slider-circle--title' )
+        this.$contents = element.querySelectorAll( '.slider-circle--content' )
         this.$previous = element.querySelector( '.button--before' )
         this.$next = element.querySelector( '.button--after' )
         this.$mainCircle = element.querySelector(".slider-circle--svg");
@@ -27,19 +30,17 @@ class SliderCircle
         }
 
         this.$items.forEach((item, i) => {
-            // Corriger la récupération des éléments
-            let titleWords = item.querySelectorAll('.slider-circle--title .word')
-            let contentWords = item.querySelectorAll('.slider-circle--title .word')
+            let titleWords = this.$titles[i].querySelectorAll('.word')
+            let contentWords = this.$contents[i].querySelectorAll('.word')
+
             this.arrayItems[i] = {
                 'number' : item.querySelector('.slider-circle--number'),
-                'title' : item.querySelectorAll('.slider-circle--title .word span'),
-                'content' : item.querySelector('.slider-circle--content .word span'),
+                'title' : titleWords,
+                'content' : contentWords,
                 'image' : this.$imgs[i],
                 'dot' : this.$dots[i],
             }
         });
-
-        console.log(this.arrayItems);
 
         this.itemsWrap = gsap.utils.wrap(0, this.$items.length);
 
@@ -73,24 +74,20 @@ class SliderCircle
 
     initGsap() {
         for (let i = 1; i < this.$items.length; i++) {
-            gsap.set([this.arrayItems[i]['number']], {
-                yPercent: 100,
-                stagger: 0.02
-            })
-            console.log();
-            gsap.set(this.arrayItems[i]['title'], {
-                yPercent: 100,
-                stagger: 0.02
-            })
-            gsap.set(this.arrayItems[i]['content'], {
-                yPercent: 100,
-                stagger: 0.02
-            })
+            gsap.set(this.arrayItems[i]['number'], { yPercent: 100 })
 
-            gsap.set(this.arrayItems[i]['image'], {
-                opacity: 0
-            })
+            this.arrayItems[i]['title'].forEach(tite => {
+                gsap.set(tite.querySelector('span'), { yPercent: 100 })
+            });
+
+            this.arrayItems[i]['content'].forEach(content => {
+                gsap.set(content.querySelector('span'), { yPercent: 100 })
+            });
+
+            gsap.set(this.arrayItems[i]['image'], { opacity: 0 })
         }
+
+        this.$container.style.height = this.$items[0].clientHeight + 'px'
 
         this.arrayItems[0]['dot'].classList.add('current')
 
@@ -135,6 +132,8 @@ class SliderCircle
     }    
 
     transitionInSlide(slide, duration = 0.6) {
+        this.$container.style.height = this.$items[slide].clientHeight + 'px'
+
         gsap.fromTo([this.arrayItems[slide]['number']], {
             yPercent: 100,
             stagger: 0.1,
@@ -145,27 +144,30 @@ class SliderCircle
             duration
         });
 
-        this.arrayItems[slide]['title'].forEach(word => {
-            gsap.fromTo(word, {
+        this.arrayItems[slide]['title'].forEach(title => {
+            const computedStyle = window.getComputedStyle(title);
+            const lineIndex = computedStyle.getPropertyValue('--line-index');
+
+            gsap.fromTo(title.querySelector('span'), {
                 yPercent: 100,
-                stagger: 0.1,
                 duration
             },{
                 yPercent: 0,
-                stagger: 0.1,
+                delay: 0.1 * lineIndex,
                 duration
             });
         });
 
-        console.log(this.arrayItems[slide]['content']);
-        this.arrayItems[slide]['content'].forEach(word => {
-            gsap.fromTo(word, {
+        this.arrayItems[slide]['content'].forEach(content => {
+            const computedStyle = window.getComputedStyle(content);
+            const lineIndex = computedStyle.getPropertyValue('--line-index');
+
+            gsap.fromTo(content.querySelector('span'), {
                 yPercent: 100,
-                stagger: 0.1,
                 duration
             },{
                 yPercent: 0,
-                stagger: 0.1,
+                delay: 0.1 * lineIndex,
                 duration
             });
         });
@@ -214,13 +216,34 @@ class SliderCircle
     }
 
     transitionOutSlide(slide, duration = 0.6) {
-        gsap.to([this.arrayItems[slide]['number'], this.arrayItems[slide]['title'], this.arrayItems[slide]['content']], {
+        gsap.to(this.arrayItems[slide]['number'], {
             yPercent: -100,
-            stagger: 0.1,
             duration,
             onComplete: () => {
                 this.transitionInSlide(this.current);
             }
+        });
+
+        this.arrayItems[slide]['title'].forEach(title => {
+            const computedStyle = window.getComputedStyle(title);
+            const lineIndex = computedStyle.getPropertyValue('--line-index');
+
+            gsap.to(title.querySelector('span'), {
+                yPercent: -100,
+                delay: 0.1 * lineIndex,
+                duration
+            });
+        });
+
+        this.arrayItems[slide]['content'].forEach(content => {
+            const computedStyle = window.getComputedStyle(content);
+            const lineIndex = computedStyle.getPropertyValue('--line-index');
+
+            gsap.to(content.querySelector('span'), {
+                yPercent: -100,
+                delay: 0.1 * lineIndex,
+                duration
+            });
         });
 
         this.arrayItems[slide]['dot'].classList.remove('current')
