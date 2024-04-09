@@ -5,7 +5,7 @@ class Slider
     constructor( element )
     {
         this.$items = element.querySelectorAll( '.slider--item' )
-        this.$itemsImage = element.querySelectorAll( 'figure' )
+        this.$itemsImage = element.querySelectorAll( '.image--parallax' )
         this.$previous = element.querySelector( '.button--before' )
         this.$next = element.querySelector( '.button--after' )
 

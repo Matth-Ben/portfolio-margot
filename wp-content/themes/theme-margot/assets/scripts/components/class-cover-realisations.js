@@ -23,7 +23,7 @@ class CoverRealisations
         this.$items.forEach((element, i) => {
             this.wrapper[i] = {
                 'elem': element.querySelectorAll('.cover--realisations__item-wrapper__elem'),
-                'figure': element.querySelectorAll('figure'),
+                'figure': element.querySelectorAll('.image--parallax'),
             }
         });
 

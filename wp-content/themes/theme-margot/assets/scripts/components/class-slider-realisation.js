@@ -7,7 +7,7 @@ class SliderRealisation
         this.$wrapper = element.querySelector( '.slider-realisation--wrapper' )
         this.$items = element.querySelectorAll( '.slider-realisation--wrapper-item' )
         this.$itemsPreview = element.querySelectorAll( '.slider-realisation--preview-item' )
-        this.$itemsImage = element.querySelectorAll( 'figure' )
+        this.$itemsImage = element.querySelectorAll( '.image--parallax' )
         this.$numbers = element.querySelectorAll( '.slider-realisation--number-item' )
         this.$titles = element.querySelectorAll( '.slider-realisation--title-item' )
         this.$previous = element.querySelector( '.button--before' )
@@ -97,7 +97,7 @@ class SliderRealisation
         );
 
         gsap.fromTo(
-            this.$items[slide].querySelector('figure'),
+            this.$items[slide].querySelector('.image--parallax'),
             {
                 xPercent: direction > 0 ? -100 : 100
             },
@@ -114,7 +114,7 @@ class SliderRealisation
             duration,
         });
         
-        gsap.to(this.$items[slide].querySelector('figure'), {
+        gsap.to(this.$items[slide].querySelector('.image--parallax'), {
             xPercent: direction > 0 ? 100 : -100,
             duration
         });
