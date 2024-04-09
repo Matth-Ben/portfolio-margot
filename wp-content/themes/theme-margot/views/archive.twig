@@ -9,7 +9,7 @@
         </div> #}
 
         {% for key, item in realisations %}
-            <a class="project-item sticky top-[15rem] col-span-8 lg:col-span-10 col-start-1 lg:col-start-2" href="{{ item.link }}">
+            <a class="project-item sticky top-[10rem] col-span-8 lg:col-span-10 col-start-1 lg:col-start-2 h-[90vh] d:h-[80vh]" href="{{ item.link }}">
                 <div class="project-item--content relative" show-elements>
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-full text-center text-white">
                         <div class="ts-custom2">{% if key < 10 %}0{% endif %}{{ key + 1 }}</div>

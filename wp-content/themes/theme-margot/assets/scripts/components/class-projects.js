@@ -11,20 +11,23 @@ class Projects
         this.$items = this.$element.querySelectorAll('.project-item')
         this.$line = this.$element.querySelector('.projects--svg-advance')
 
-        for (let i = 0; i < this.$items.length; i++) {
-            gsap.to(this.$items[i], {
+        this.$items.forEach((el, index) => {
+            const isLast = index === this.$items.length - 1
+
+            gsap.timeline({
                 scrollTrigger: {
-                    trigger: this.$items[i],
-                    start:'40% 50%',
-                    end:'bottom 50%',
-                    scrub: 1,
-                    markers: false,
-                    toggleActions: "restart none none reverse"
-                },
-                scale: 0.85,
-                transformOrigin: 'top'
-            });    
-        }
+                    trigger: el,
+                    start: 'top top',
+                    scrub: 1
+                }
+            })
+            .to(el, {
+                ease: 'none',
+                startAt: { filter: 'brightness(100%) blur(0px)' },
+                filter: isLast ? 'none' : 'brightness(50%) blur(10px)',
+                scale: 0.6
+            }, '<')
+        });
     }
 }
 

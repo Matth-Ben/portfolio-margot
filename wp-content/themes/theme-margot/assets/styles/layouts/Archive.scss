@@ -1,6 +1,6 @@
 #app-content.archive  {
     .projects {
-        @apply container relative grid grid-cols-8 lg:grid-cols-12 pt-[15rem] lg:pt-[25rem] pb-[8rem] lg:pb-[5rem];
+        @apply container relative grid grid-cols-8 d:grid-cols-12 pt-100 d:pt-250 d:pb-[6vh];
 
         &--svg {
             @apply fixed top-[10rem] left-0 w-full h-[14rem];
@@ -9,10 +9,10 @@
 
     .project-item {
         &--content {
-            @apply max-lg:h-[80vh];
+            @apply max-d:h-[80vh];
 
             &-img,
-            .image { @apply h-full lg:h-[80vh] lg:w-full; }
+            .image { @apply h-full d:h-[80vh] d:w-full; }
 
             &-img {
                 @apply relative;
