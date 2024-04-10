@@ -14,16 +14,19 @@ export default class TransitionHomeToRealisation extends Transition {
 
     document.body.querySelector('.header').classList.add('hide--header')
 
+    const distanceToTop = this.parent.getBoundingClientRect().top;
+    const distanceToLeft = this.parent.getBoundingClientRect().left;
+
     gsap.to(this.parent, {
       width: window.innerWidth + 'px',
-      top: 0,
-      right: 0,
+      top: -distanceToTop + 'px',
+      left: -distanceToLeft + 'px',
       zIndex: 100,
       duration: 0.6,
       ease: 'power1.in',
       onComplete: () => {
         setTimeout(() => {
-          document.body.classList.add( 'hide-article' )
+          // document.body.classList.add( 'hide-article' )
           
           setTimeout( () => {
             lenis.scrollTo( 0, { immediate: true } )

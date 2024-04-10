@@ -13,7 +13,12 @@
     }
 
     &--back {
-        @apply absolute top-0 right-0 lg:aspect-[4/3] h-full;
+        @apply absolute top-0 right-0 lg:aspect-[305/218] h-full w-full;
+
+        .image,
+        .image--parallax {
+            @apply w-full h-full;
+        }
     }
 
     &--title {

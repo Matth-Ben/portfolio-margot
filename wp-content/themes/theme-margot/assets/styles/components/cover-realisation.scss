@@ -4,7 +4,11 @@
             @apply relative overflow-hidden;
 
             &__elem {
-                @apply absolute top-0 left-0 w-full overflow-hidden;
+                @apply absolute top-0 left-0 w-full h-full overflow-hidden;
+
+                .image--parallax {
+                    @apply h-full;
+                }
 
                 &.active {
                     @apply z-10;

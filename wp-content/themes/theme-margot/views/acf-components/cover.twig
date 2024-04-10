@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="col-span-6 d:col-span-4 col-start-3 max-d:-mr-[2rem] mt-100 d:!mt-[14rem]">
-                            <div class="cover--realisations__item-wrapper aspect-[305/218] d:aspect-[4/3] js--transition-realisation animation--image--fade-right" show-element show-delay="300">
+                            <div class="cover--realisations__item-wrapper aspect-[305/218] js--transition-realisation animation--image--fade-right" show-element show-delay="300">
                             {% for index, item in data.preview_realisations %}
                                 {% set images = function('get_field', 'images-preview', item.ID) %}
                                 <a href="{{ TimberPost(item.ID).link }}" class="cover--realisations__item-wrapper__elem {% if index == 0 %}active{% endif %}">
